@@ -1,0 +1,59 @@
+\doxysection{List Struct Reference}
+\hypertarget{struct_list}{}\label{struct_list}\index{List@{List}}
+
+
+Represents a hybrid \doxylink{struct_list}{List} structure. Maintains chronological order using a doubly-\/linked list, while optionally allowing fast O(log N) searches via an associated search tree.  
+
+
+
+
+{\ttfamily \+\#include $<$lists.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{struct_list_ac41719eafdd551f0dcee8f3ce67ececc}{size}}
+\item 
+\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_list_a6c5449b1dd158368840801d0cdc86f5e}{head}}
+\item 
+\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_list_ac9c40d39dbdc778b9ca6264ac889e0b6}{tail}}
+\item 
+\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_list_ab8d928d47d171185369ea3431481c59d}{search\+Tree}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a hybrid \doxylink{struct_list}{List} structure. Maintains chronological order using a doubly-\/linked list, while optionally allowing fast O(log N) searches via an associated search tree. 
+
+\label{doc-variable-members}
+\Hypertarget{struct_list_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_list_a6c5449b1dd158368840801d0cdc86f5e}\index{List@{List}!head@{head}}
+\index{head@{head}!List@{List}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \label{struct_list_a6c5449b1dd158368840801d0cdc86f5e} 
+\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}}\texorpdfstring{$\ast$}{*} List::\+head}
+
+Pointer to the first element (oldest). \Hypertarget{struct_list_ab8d928d47d171185369ea3431481c59d}\index{List@{List}!searchTree@{searchTree}}
+\index{searchTree@{searchTree}!List@{List}}
+\doxysubsubsection{\texorpdfstring{searchTree}{searchTree}}
+{\footnotesize\ttfamily \label{struct_list_ab8d928d47d171185369ea3431481c59d} 
+\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\texorpdfstring{$\ast$}{*} List::\+search\+Tree}
+
+Optional binary tree for fast item lookup. \Hypertarget{struct_list_ac41719eafdd551f0dcee8f3ce67ececc}\index{List@{List}!size@{size}}
+\index{size@{size}!List@{List}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{struct_list_ac41719eafdd551f0dcee8f3ce67ececc} 
+int List::\+size}
+
+Current number of elements in the list. \Hypertarget{struct_list_ac9c40d39dbdc778b9ca6264ac889e0b6}\index{List@{List}!tail@{tail}}
+\index{tail@{tail}!List@{List}}
+\doxysubsubsection{\texorpdfstring{tail}{tail}}
+{\footnotesize\ttfamily \label{struct_list_ac9c40d39dbdc778b9ca6264ac889e0b6} 
+\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}}\texorpdfstring{$\ast$}{*} List::\+tail}
+
+Pointer to the last element (newest). 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{lists_8h}{lists.\+h}}\end{DoxyCompactItemize}

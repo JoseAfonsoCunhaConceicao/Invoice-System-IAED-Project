@@ -1,0 +1,392 @@
+\doxysection{global.\+h File Reference}
+\hypertarget{global_8h}{}\label{global_8h}\index{global.h@{global.h}}
+
+
+Global definitions, constants, and generic function declarations for the IAED 2025/\+2026 Project.  
+
+
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$string.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \+\#include $<$ctype.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a8204ff9bd66e8f5c0833fdebafb05b70}{MAX\+\_\+\+SIZE\+\_\+\+DESCRIPTION}}~50
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a31cb3cefae4447fecbb203c4b7178332}{MAX\+\_\+\+NUMBER\+\_\+\+PRODUCTS}}~10000
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_aa06a1508f8cab9ea46d73e19a05842ed}{MAX\+\_\+\+EAN\+\_\+\+SIZE}}~13
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a56d844dee8ca0856aa20368aba67c599}{IVA\+\_\+\+VECTOR\+\_\+\+SIZE}}~26
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a628350204e91e12a0b9abdd4808c2f5f}{INVALID\+\_\+\+IVA\+\_\+\+RATE}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_ae6fd26dd22d5bb0e27f691fb059c5216}{SIZE\+\_\+\+EAN\+\_\+\+CODE\+\_\+13}}~13
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_ad1461da2488467e5e6772ee8b301f43a}{SIZE\+\_\+\+EAN\+\_\+\+CODE\+\_\+8}}~8
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a33bfc1f995233887a0414369c36936b8}{NOT\+\_\+\+FOUND}}~-\/1
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a841b291dedf074d07299e089dc0722e6}{FOUND}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a0592dba56693fad79136250c11e5a7fe}{MAX\+\_\+\+SIZE}}~65535
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_afe6e29a52d52ddf613efe7eaf21f0e49}{NIF\+\_\+\+SIZE}}~9
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a8dc1a552b17e27c76a31d433d83b1786}{NOT\+\_\+\+IN\+\_\+\+BASKET}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_a0b438d419e9fe8a12d90f7295b298b44}{VALID\+\_\+\+DESCRIPTION}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{global_8h_ae1024bad77b87764d6d665a1f8bd36a8}{INVALID\+\_\+\+DESCRIPTION}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \doxymbox{\hyperlink{structlist_node}{list\+Node}} \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}}
+\item 
+typedef struct \doxymbox{\hyperlink{structinvoice}{invoice}} \doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}}
+\item 
+typedef struct \doxymbox{\hyperlink{structclient}{client}} \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}
+\item 
+typedef int(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}) (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{global_8h_ab1405111a4256db248cc2241bac3ccf1}{handle\+No\+Memory}} ()
+\begin{DoxyCompactList}\small\item\em Prints a memory allocation error message and exits the program. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{global_8h_a8152b07a7663bb497e0f45fb6c705b3d}{allocate\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Allocates a buffer of MAX\+\_\+\+SIZE handling allocation failures. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{global_8h_a73bbc7c0dea33b0fcf8630da61895dde}{validate\+EAN}} (const char ean\+Str\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Validates an EAN-\/13 or EAN-\/8 code based on its check digit. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{global_8h_a1ea9a7eb637b8646d06180d623289f37}{is\+End\+Of\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Consumes trailing spaces and identifies if the end of line is reached. Returns 1 if a newline character is the next relevant element. Otherwise, it returns the character to the stream and returns 0. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{global_8h_a7c51cb4574388d9eb7bf70f86598177d}{read\+Iva\+File}} (int list\+Iva\+[$\,$]\+, char \texorpdfstring{$\ast$}{*}file\+Name)
+\begin{DoxyCompactList}\small\item\em Reads the tax (IVA) configuration file and populates the given vector. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{global_8h_af5ea21f4325811297858efd48f30e0e1}{validate\+Description}} (char description\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Validates if a product description starts with an uppercase letter. Identifies standard ASCII and UTF-\/8 Portuguese uppercase characters. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{global_8h_ad3cb16a853cc78e080842b60d069d932}{read\+Description}} (char description\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Reads a product description from standard input enforcing limits. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{global_8h_af506cac3b1b74664428d7460ab6af2b4}{finish\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Discards all remaining characters in the current line from stdin. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{global_8h_ac90ddc02409627b30bf73b6e81c0d478}{match}} (char \texorpdfstring{$\ast$}{*}wild\+Card\+Ptr, char \texorpdfstring{$\ast$}{*}ean\+Str\+Ptr)
+\begin{DoxyCompactList}\small\item\em Recursively matches an EAN string against a wildcard pattern. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{global_8h_a9a7a59d60f46c731a8e03939b3a7c9ed}{read\+Client\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Reads the client name from stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global definitions, constants, and generic function declarations for the IAED 2025/\+2026 Project. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-define-members}
+\Hypertarget{global_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{global_8h_a841b291dedf074d07299e089dc0722e6}\index{global.h@{global.h}!FOUND@{FOUND}}
+\index{FOUND@{FOUND}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{FOUND}{FOUND}}
+{\footnotesize\ttfamily \label{global_8h_a841b291dedf074d07299e089dc0722e6} 
+\+\#define FOUND~1}
+
+Return code for item found. \Hypertarget{global_8h_ae1024bad77b87764d6d665a1f8bd36a8}\index{global.h@{global.h}!INVALID\_DESCRIPTION@{INVALID\_DESCRIPTION}}
+\index{INVALID\_DESCRIPTION@{INVALID\_DESCRIPTION}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{INVALID\_DESCRIPTION}{INVALID\_DESCRIPTION}}
+{\footnotesize\ttfamily \label{global_8h_ae1024bad77b87764d6d665a1f8bd36a8} 
+\+\#define INVALID\+\_\+\+DESCRIPTION~0}
+
+Return code for invalid descriptions. \Hypertarget{global_8h_a628350204e91e12a0b9abdd4808c2f5f}\index{global.h@{global.h}!INVALID\_IVA\_RATE@{INVALID\_IVA\_RATE}}
+\index{INVALID\_IVA\_RATE@{INVALID\_IVA\_RATE}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{INVALID\_IVA\_RATE}{INVALID\_IVA\_RATE}}
+{\footnotesize\ttfamily \label{global_8h_a628350204e91e12a0b9abdd4808c2f5f} 
+\+\#define INVALID\+\_\+\+IVA\+\_\+\+RATE~-\/1}
+
+Represents an unassigned IVA rate. \Hypertarget{global_8h_a56d844dee8ca0856aa20368aba67c599}\index{global.h@{global.h}!IVA\_VECTOR\_SIZE@{IVA\_VECTOR\_SIZE}}
+\index{IVA\_VECTOR\_SIZE@{IVA\_VECTOR\_SIZE}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{IVA\_VECTOR\_SIZE}{IVA\_VECTOR\_SIZE}}
+{\footnotesize\ttfamily \label{global_8h_a56d844dee8ca0856aa20368aba67c599} 
+\+\#define IVA\+\_\+\+VECTOR\+\_\+\+SIZE~26}
+
+Max number of IVA categories (A-\/Z). \Hypertarget{global_8h_aa06a1508f8cab9ea46d73e19a05842ed}\index{global.h@{global.h}!MAX\_EAN\_SIZE@{MAX\_EAN\_SIZE}}
+\index{MAX\_EAN\_SIZE@{MAX\_EAN\_SIZE}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_EAN\_SIZE}{MAX\_EAN\_SIZE}}
+{\footnotesize\ttfamily \label{global_8h_aa06a1508f8cab9ea46d73e19a05842ed} 
+\+\#define MAX\+\_\+\+EAN\+\_\+\+SIZE~13}
+
+Max size for an EAN code string. \Hypertarget{global_8h_a31cb3cefae4447fecbb203c4b7178332}\index{global.h@{global.h}!MAX\_NUMBER\_PRODUCTS@{MAX\_NUMBER\_PRODUCTS}}
+\index{MAX\_NUMBER\_PRODUCTS@{MAX\_NUMBER\_PRODUCTS}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_NUMBER\_PRODUCTS}{MAX\_NUMBER\_PRODUCTS}}
+{\footnotesize\ttfamily \label{global_8h_a31cb3cefae4447fecbb203c4b7178332} 
+\+\#define MAX\+\_\+\+NUMBER\+\_\+\+PRODUCTS~10000}
+
+Max number of allowed products. \Hypertarget{global_8h_a0592dba56693fad79136250c11e5a7fe}\index{global.h@{global.h}!MAX\_SIZE@{MAX\_SIZE}}
+\index{MAX\_SIZE@{MAX\_SIZE}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SIZE}{MAX\_SIZE}}
+{\footnotesize\ttfamily \label{global_8h_a0592dba56693fad79136250c11e5a7fe} 
+\+\#define MAX\+\_\+\+SIZE~65535}
+
+Max buffer size for reading input lines. \Hypertarget{global_8h_a8204ff9bd66e8f5c0833fdebafb05b70}\index{global.h@{global.h}!MAX\_SIZE\_DESCRIPTION@{MAX\_SIZE\_DESCRIPTION}}
+\index{MAX\_SIZE\_DESCRIPTION@{MAX\_SIZE\_DESCRIPTION}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SIZE\_DESCRIPTION}{MAX\_SIZE\_DESCRIPTION}}
+{\footnotesize\ttfamily \label{global_8h_a8204ff9bd66e8f5c0833fdebafb05b70} 
+\+\#define MAX\+\_\+\+SIZE\+\_\+\+DESCRIPTION~50}
+
+Needed libraries. Definition of the utilized constants. Max size for a product description. \Hypertarget{global_8h_afe6e29a52d52ddf613efe7eaf21f0e49}\index{global.h@{global.h}!NIF\_SIZE@{NIF\_SIZE}}
+\index{NIF\_SIZE@{NIF\_SIZE}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{NIF\_SIZE}{NIF\_SIZE}}
+{\footnotesize\ttfamily \label{global_8h_afe6e29a52d52ddf613efe7eaf21f0e49} 
+\+\#define NIF\+\_\+\+SIZE~9}
+
+Size of the client NIF number. \Hypertarget{global_8h_a33bfc1f995233887a0414369c36936b8}\index{global.h@{global.h}!NOT\_FOUND@{NOT\_FOUND}}
+\index{NOT\_FOUND@{NOT\_FOUND}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{NOT\_FOUND}{NOT\_FOUND}}
+{\footnotesize\ttfamily \label{global_8h_a33bfc1f995233887a0414369c36936b8} 
+\+\#define NOT\+\_\+\+FOUND~-\/1}
+
+Return code for item not found. \Hypertarget{global_8h_a8dc1a552b17e27c76a31d433d83b1786}\index{global.h@{global.h}!NOT\_IN\_BASKET@{NOT\_IN\_BASKET}}
+\index{NOT\_IN\_BASKET@{NOT\_IN\_BASKET}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{NOT\_IN\_BASKET}{NOT\_IN\_BASKET}}
+{\footnotesize\ttfamily \label{global_8h_a8dc1a552b17e27c76a31d433d83b1786} 
+\+\#define NOT\+\_\+\+IN\+\_\+\+BASKET~0}
+
+Default amount of a product in the basket. \Hypertarget{global_8h_ae6fd26dd22d5bb0e27f691fb059c5216}\index{global.h@{global.h}!SIZE\_EAN\_CODE\_13@{SIZE\_EAN\_CODE\_13}}
+\index{SIZE\_EAN\_CODE\_13@{SIZE\_EAN\_CODE\_13}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{SIZE\_EAN\_CODE\_13}{SIZE\_EAN\_CODE\_13}}
+{\footnotesize\ttfamily \label{global_8h_ae6fd26dd22d5bb0e27f691fb059c5216} 
+\+\#define SIZE\+\_\+\+EAN\+\_\+\+CODE\+\_\+13~13}
+
+Size of EAN-\/13 codes. \Hypertarget{global_8h_ad1461da2488467e5e6772ee8b301f43a}\index{global.h@{global.h}!SIZE\_EAN\_CODE\_8@{SIZE\_EAN\_CODE\_8}}
+\index{SIZE\_EAN\_CODE\_8@{SIZE\_EAN\_CODE\_8}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{SIZE\_EAN\_CODE\_8}{SIZE\_EAN\_CODE\_8}}
+{\footnotesize\ttfamily \label{global_8h_ad1461da2488467e5e6772ee8b301f43a} 
+\+\#define SIZE\+\_\+\+EAN\+\_\+\+CODE\+\_\+8~8}
+
+Size of EAN-\/8 codes. \Hypertarget{global_8h_a0b438d419e9fe8a12d90f7295b298b44}\index{global.h@{global.h}!VALID\_DESCRIPTION@{VALID\_DESCRIPTION}}
+\index{VALID\_DESCRIPTION@{VALID\_DESCRIPTION}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{VALID\_DESCRIPTION}{VALID\_DESCRIPTION}}
+{\footnotesize\ttfamily \label{global_8h_a0b438d419e9fe8a12d90f7295b298b44} 
+\+\#define VALID\+\_\+\+DESCRIPTION~1}
+
+Return code for valid descriptions. 
+
+\label{doc-typedef-members}
+\Hypertarget{global_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}\index{global.h@{global.h}!Client@{Client}}
+\index{Client@{Client}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{Client}{Client}}
+{\footnotesize\ttfamily \label{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d} 
+typedef struct \doxymbox{\hyperlink{structclient}{client}} \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}}
+
+\Hypertarget{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}\index{global.h@{global.h}!CompareFunc@{CompareFunc}}
+\index{CompareFunc@{CompareFunc}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{CompareFunc}{CompareFunc}}
+{\footnotesize\ttfamily \label{global_8h_a3ddb6647c9d5de2057ff83d87d87d413} 
+typedef int(\texorpdfstring{$\ast$}{*} Compare\+Func) (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*})}
+
+Comparison function type \Hypertarget{global_8h_a12205c7250a1c786add6658166faf35b}\index{global.h@{global.h}!Invoice@{Invoice}}
+\index{Invoice@{Invoice}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{Invoice}{Invoice}}
+{\footnotesize\ttfamily \label{global_8h_a12205c7250a1c786add6658166faf35b} 
+typedef struct \doxymbox{\hyperlink{structinvoice}{invoice}} \doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}}}
+
+\Hypertarget{global_8h_a505d53673403bd159915eb63b477eb7e}\index{global.h@{global.h}!ListNode@{ListNode}}
+\index{ListNode@{ListNode}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{ListNode}{ListNode}}
+{\footnotesize\ttfamily \label{global_8h_a505d53673403bd159915eb63b477eb7e} 
+typedef struct \doxymbox{\hyperlink{structlist_node}{list\+Node}} \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}}}
+
+Custom data types 
+
+\label{doc-func-members}
+\Hypertarget{global_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{global_8h_a8152b07a7663bb497e0f45fb6c705b3d}\index{global.h@{global.h}!allocateBuffer@{allocateBuffer}}
+\index{allocateBuffer@{allocateBuffer}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{allocateBuffer()}{allocateBuffer()}}
+{\footnotesize\ttfamily \label{global_8h_a8152b07a7663bb497e0f45fb6c705b3d} 
+char \texorpdfstring{$\ast$}{*} allocate\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Allocates a buffer of MAX\+\_\+\+SIZE handling allocation failures. 
+
+\begin{DoxyReturn}{Returns}
+Dynamically allocated buffer. 
+\end{DoxyReturn}
+\Hypertarget{global_8h_af506cac3b1b74664428d7460ab6af2b4}\index{global.h@{global.h}!finishLine@{finishLine}}
+\index{finishLine@{finishLine}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{finishLine()}{finishLine()}}
+{\footnotesize\ttfamily \label{global_8h_af506cac3b1b74664428d7460ab6af2b4} 
+void finish\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Discards all remaining characters in the current line from stdin. 
+
+\Hypertarget{global_8h_ab1405111a4256db248cc2241bac3ccf1}\index{global.h@{global.h}!handleNoMemory@{handleNoMemory}}
+\index{handleNoMemory@{handleNoMemory}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{handleNoMemory()}{handleNoMemory()}}
+{\footnotesize\ttfamily \label{global_8h_ab1405111a4256db248cc2241bac3ccf1} 
+void handle\+No\+Memory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints a memory allocation error message and exits the program. 
+
+Generic Functions \Hypertarget{global_8h_a1ea9a7eb637b8646d06180d623289f37}\index{global.h@{global.h}!isEndOfLine@{isEndOfLine}}
+\index{isEndOfLine@{isEndOfLine}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{isEndOfLine()}{isEndOfLine()}}
+{\footnotesize\ttfamily \label{global_8h_a1ea9a7eb637b8646d06180d623289f37} 
+int is\+End\+Of\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Consumes trailing spaces and identifies if the end of line is reached. Returns 1 if a newline character is the next relevant element. Otherwise, it returns the character to the stream and returns 0. 
+
+\begin{DoxyReturn}{Returns}
+1 if at the end of the line, 0 otherwise. 
+\end{DoxyReturn}
+Reads all the \textquotesingle{} \textquotesingle{} before the next relevant element\Hypertarget{global_8h_ac90ddc02409627b30bf73b6e81c0d478}\index{global.h@{global.h}!match@{match}}
+\index{match@{match}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily \label{global_8h_ac90ddc02409627b30bf73b6e81c0d478} 
+int match (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{wild\+Card\+Ptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean\+Str\+Ptr}{}\end{DoxyParamCaption})}
+
+
+
+Recursively matches an EAN string against a wildcard pattern. 
+
+Both strings reached the end successfully
+
+Exact character match:\+ advance both pointers
+
+Wildcard \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}:\+ Delegate to branching logic
+
+Wildcard \textquotesingle{}?\textquotesingle{}:\+ Matches exactly one character (if not at EOF)\Hypertarget{global_8h_a9a7a59d60f46c731a8e03939b3a7c9ed}\index{global.h@{global.h}!readClientName@{readClientName}}
+\index{readClientName@{readClientName}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{readClientName()}{readClientName()}}
+{\footnotesize\ttfamily \label{global_8h_a9a7a59d60f46c731a8e03939b3a7c9ed} 
+char \texorpdfstring{$\ast$}{*} read\+Client\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the client name from stdin. 
+
+
+\begin{DoxyEnumerate}
+\item Consume leading spaces and tabs robustly
+\end{DoxyEnumerate}
+
+If we find a newline or EOF before the name starts, it\textquotesingle{}s an empty name
+
+
+\begin{DoxyEnumerate}
+\item Differentiate between quoted and unquoted names
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Validate name format:\+ must start with a letter (enunciado line 38)
+\end{DoxyEnumerate}\Hypertarget{global_8h_ad3cb16a853cc78e080842b60d069d932}\index{global.h@{global.h}!readDescription@{readDescription}}
+\index{readDescription@{readDescription}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{readDescription()}{readDescription()}}
+{\footnotesize\ttfamily \label{global_8h_ad3cb16a853cc78e080842b60d069d932} 
+int read\+Description (\begin{DoxyParamCaption}\item[{char}]{description}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Reads a product description from standard input enforcing limits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Buffer to store the validated description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+VALID\+\_\+\+DESCRIPTION if successful, INVALID\+\_\+\+DESCRIPTION otherwise. 
+\end{DoxyReturn}
+\Hypertarget{global_8h_a7c51cb4574388d9eb7bf70f86598177d}\index{global.h@{global.h}!readIvaFile@{readIvaFile}}
+\index{readIvaFile@{readIvaFile}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{readIvaFile()}{readIvaFile()}}
+{\footnotesize\ttfamily \label{global_8h_a7c51cb4574388d9eb7bf70f86598177d} 
+void read\+Iva\+File (\begin{DoxyParamCaption}\item[{int}]{list\+Iva}{\+[$\,$]\+, }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Reads the tax (IVA) configuration file and populates the given vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Iva} & Array mapping IVA letters (A-\/Z offsets) to tax rates. \\
+\hline
+{\em file\+Name} & Name of the file to read the IVA configuration from. \\
+\hline
+\end{DoxyParams}
+Code letter
+
+Rate of the tax
+
+In case that the file doesn\textquotesingle{}t open\Hypertarget{global_8h_af5ea21f4325811297858efd48f30e0e1}\index{global.h@{global.h}!validateDescription@{validateDescription}}
+\index{validateDescription@{validateDescription}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{validateDescription()}{validateDescription()}}
+{\footnotesize\ttfamily \label{global_8h_af5ea21f4325811297858efd48f30e0e1} 
+int validate\+Description (\begin{DoxyParamCaption}\item[{char}]{description}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Validates if a product description starts with an uppercase letter. Identifies standard ASCII and UTF-\/8 Portuguese uppercase characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & The product description to be validated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+VALID\+\_\+\+DESCRIPTION if valid, INVALID\+\_\+\+DESCRIPTION otherwise. 
+\end{DoxyReturn}
+First character must be uppercase letter (ASCII A-\/Z or UTF-\/8 PT)
+
+ASCII A-\/Z check
+
+UTF-\/8 Multi-\/byte check (for accented characters like À, Á, etc.)
+
+Portuguese uppercase accented characters in UTF-\/8:\+ À-\/Þ(0x80-\/0x9E)\Hypertarget{global_8h_a73bbc7c0dea33b0fcf8630da61895dde}\index{global.h@{global.h}!validateEAN@{validateEAN}}
+\index{validateEAN@{validateEAN}!global.h@{global.h}}
+\doxysubsubsection{\texorpdfstring{validateEAN()}{validateEAN()}}
+{\footnotesize\ttfamily \label{global_8h_a73bbc7c0dea33b0fcf8630da61895dde} 
+int validate\+EAN (\begin{DoxyParamCaption}\item[{const char}]{ean\+Str}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Validates an EAN-\/13 or EAN-\/8 code based on its check digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ean\+Str} & The EAN code string to be validated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the EAN code is valid, 0 otherwise. 
+\end{DoxyReturn}
+Size of the EAN code
+
+Validate the size of the code
+
+
+\begin{DoxyEnumerate}
+\item Calculate weighted sum for check digit validation
+\end{DoxyEnumerate}
+
+even index:\+ weight 1
+
+odd index:\+ weight 3
+
+
+\begin{DoxyEnumerate}
+\item Compare against the provided check digit
+\end{DoxyEnumerate}

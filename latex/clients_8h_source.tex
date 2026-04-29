@@ -1,0 +1,37 @@
+\doxysection{clients.\+h}
+\hypertarget{clients_8h_source}{}\label{clients_8h_source}\doxymbox{\hyperlink{clients_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ CLIENTS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ CLIENTS\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{products_8h}{products.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structclient}{client}}\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{char}\ *\doxymbox{\hyperlink{structclient_a9b58ce4d5d03c9b9b5b3be427a65de78}{name}};\ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \doxymbox{\hyperlink{struct_list}{List}}\ *\doxymbox{\hyperlink{structclient_a357b7d2797743d6920c33aa91cba2ffb}{invoices}};\ \ }
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ GET\_CLIENT\_NAME(c)\ (c\ -\/>\ name)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ GET\_CLIENT\_INVOICE\_LIST(c)\ (c\ -\/>\ invoices)}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SET\_CLIENT\_NAME(c,\ newName)\ (\ free((c)\ -\/>\ name),\ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (c)\ -\/>\ name\ =\ (newName))}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ SET\_CLIENT\_INVOICE\_LIST(c,\ newList)\ ((c)\ -\/>\ invoices\ =\ (newList))}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ BIND\_CLIENT\_SEARCH\_KEY(c,\ searchName)\ ((c)-\/>name\ =\ (searchName))}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}*\ \doxymbox{\hyperlink{clients_8h_acaaa7ee662531876fe22df7bb697d95f}{createClient}}(\textcolor{keywordtype}{char}\ *name,\ \doxymbox{\hyperlink{struct_list}{List}}\ *invoices);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}*\ \doxymbox{\hyperlink{clients_8h_a27ac93b5a7d8c48ee966ad2addf1dbb3}{findClientByName}}(\doxymbox{\hyperlink{struct_list}{List}}\ *clients,\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{clients_8h_ad41308b8ef4dde87a814ffff07799722}{compareClients}}(\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *nodeA,\ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *nodeB);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{clients_8h_a61b0b0ce330f091bb80d4c8c149e8b22}{destroyClient}}(\textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \doxymbox{\hyperlink{struct_list}{List}}*\ \doxymbox{\hyperlink{clients_8h_a140e50cdb806c20e20d7510ef13ce58a}{createClientsList}}\ ();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

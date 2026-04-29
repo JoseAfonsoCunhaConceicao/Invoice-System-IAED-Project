@@ -1,0 +1,50 @@
+\doxysection{trees.\+h}
+\hypertarget{trees_8h_source}{}\label{trees_8h_source}\doxymbox{\hyperlink{trees_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ TREES\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ TREES\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{global_8h}{global.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structtree_node}{treeNode}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ *\doxymbox{\hyperlink{structtree_node_ab7da5eb2c1ede787b105e9735924456d}{item}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structtree_node}{treeNode}}\ *\doxymbox{\hyperlink{structtree_node_abd224b9939764b9ffe8e5c85287fa77b}{left}};\ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structtree_node}{treeNode}}\ *\doxymbox{\hyperlink{structtree_node_a09f70d5b69bbcdb1301f6bf364f9c18d}{right}};\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structtree_node_a80b03e238d16afe035a32466a8d83e9e}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \}\ \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{TreeNode}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structtree}{tree}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{TreeNode}}\ *\doxymbox{\hyperlink{structtree_acedb166f01d001a6d85671c7aaa18851}{origin}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{CompareFunc}}\ \doxymbox{\hyperlink{structtree_a3fb92795023c5ce6f6298ecf6981fa84}{compare}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \}\ \doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}*\ \doxymbox{\hyperlink{trees_8h_a5776770e6492c55f97e0ce9773e12917}{createTree}}(\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{CompareFunc}}\ compare);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ GET\_TREE\_NODE\_HEIGHT(node)\ (((node)\ ==\ NULL)\ ?\ -\/1\ :\ (node)\ -\/>\ height)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ GET\_BALANCE(node)\ (GET\_TREE\_NODE\_HEIGHT((node)-\/>right)\ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ GET\_TREE\_NODE\_HEIGHT((node)-\/>left))}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ GET\_TREE\_ROOT(tree)\ ((tree)\ -\/>\ origin)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ SET\_TREE\_ROOT(tree,\ newOrigin)\ ((tree)\ -\/>\ origin\ =\ (newOrigin))}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{trees_8h_ad0e835831655fd10ba254a69859bb5cd}{insertInTree}}(\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{structtree}{tree}},\ \textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{trees_8h_a1fa557346aeb09cdaf8756a34bb0e42a}{removeFromTree}}(\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{structtree}{tree}},\ \textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}*\ \doxymbox{\hyperlink{trees_8h_ace3cb5f33464ba9e613fd232a141c830}{searchInTree}}(\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{structtree}{tree}},\ \textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{trees_8h_a792b259bbbe2357b326df2338bcd220d}{mapTree}}(\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{structtree}{tree}},\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{void}\ *item,\ \textcolor{keywordtype}{void}\ *context),\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *context);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{trees_8h_a78df375446b65ddf54afeebdb95f3274}{clearTreeNodes}}\ (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{TreeNode}}\ *node);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{TreeNode}}*\ \doxymbox{\hyperlink{trees_8h_add1598fb3961022610d14e14630d4702}{getMax}}(\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{TreeNode}}\ *node);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{trees_8h_ae4f1bb3295740db1df3ac18d1cee761c}{destroyTree}}(\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{structtree}{tree}});}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,386 @@
+\doxysection{products.\+h File Reference}
+\hypertarget{products_8h}{}\label{products_8h}\index{products.h@{products.h}}
+
+
+Header file defining the product data structure and its operations.  
+
+
+{\ttfamily \+\#include "{}lists.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_product}{Product}}
+\begin{DoxyCompactList}\small\item\em Represents a product in the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_aba9142e9bedf1eb1fa54e2c508355933}{CLEAR\+\_\+\+BASKET}}(basket)
+\begin{DoxyCompactList}\small\item\em Macro to completely clear tracking variables across all products currenty in the given basket list, and then empties the list itself. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{products_8h_af338c273074cb050ddddc7cd983be240}{GET\+\_\+\+PRODUCT\+\_\+\+EAN}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a66408d9ef076d2c52daf0fd1ce7d8b85}{GET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+RATE}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_adb414196e9e10d206d82c8c7cc338278}{GET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+LETTER}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a5eb647cf38b014a27d8be50d1921e861}{GET\+\_\+\+PRODUCT\+\_\+\+PRICE}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a1a6f721352a6333f4a2a441b2e862d63}{GET\+\_\+\+PRODUCT\+\_\+\+AMOUNT}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a02340cdff40348baa4319a2a4fe7822a}{GET\+\_\+\+PRODUCT\+\_\+\+DESCRIPTION}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a69939f74fd959c0c4b5e7bc0bb77d23a}{GET\+\_\+\+PRODUCT\+\_\+\+AMOUNT\+\_\+\+IN\+\_\+\+BASKET}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_acb07b2f4d2c011407fab433fb656cede}{GET\+\_\+\+PRODUCT\+\_\+\+SOLD\+\_\+\+UNITS}}(product)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a09a948f6411069a09469ecea893ced1b}{SET\+\_\+\+PRODUCT\+\_\+\+EAN}}(product,  ean)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a4fba5491c61b363ee512881b99a3e4e0}{SET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+RATE}}(product,  iva\+Rate)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a07b7e8603353e58100a4bfacf9b6e2cc}{SET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+LETTER}}(product,  new\+Iva\+Letter)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a83dc283b01a25a6518f0278ae001ae92}{SET\+\_\+\+PRODUCT\+\_\+\+PRICE}}(product,  new\+Price)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_ab2f61e164532022cada514fe116c7f08}{SET\+\_\+\+PRODUCT\+\_\+\+AMOUNT}}(product,  quantity)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a65fb02cc557c5ae4adfc0dbf9989157c}{SET\+\_\+\+PRODUCT\+\_\+\+DESCRIPTION}}(product,  new\+Description)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_a5ee550d18f1ceef02458959c97b10c25}{SET\+\_\+\+PRODUCT\+\_\+\+AMOUNT\+\_\+\+IN\+\_\+\+BASKET}}(product,  quantity)
+\item 
+\+\#define \doxymbox{\hyperlink{products_8h_af3881118b7d77ec14c97bdce9eb33b97}{SET\+\_\+\+PRODUCT\+\_\+\+SOLD\+\_\+\+UNITS}}(product,  new\+Sold)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{products_8h_acc35fd5dcbd374dd36b20b389052a4cf}{create\+Product}} ()
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new empty \doxylink{struct_product}{Product} instance. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{products_8h_ae166539600121ef79aa907bd8eb50998}{compare\+Products}} (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeA, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeB)
+\begin{DoxyCompactList}\small\item\em Compares two products chronologically (usually by creation sequence inherently handled by tree insertion logic if unmodified). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{products_8h_a0d9f64e2bea8f7236dc488c160607ec6}{reset\+Basket}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Reset callback function applied to each product in the basket. Rolls back the units from the basket to the available stock. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{products_8h_a6f76de454d3d1b8eaad48958fa414933}{create\+Products\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new abstract data type list configured for products. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{products_8h_a71ab7e3be49490c52286b35a5fd4bd7d}{find\+Product\+By\+EAN}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, char \texorpdfstring{$\ast$}{*}ean)
+\begin{DoxyCompactList}\small\item\em Helper to find a product by EAN without manual dummy construction. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{products_8h_a1484737675f01a0cb3873bf0fbbf3223}{destroy\+Product}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Destroys a product instance and frees its memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file defining the product data structure and its operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-define-members}
+\Hypertarget{products_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{products_8h_aba9142e9bedf1eb1fa54e2c508355933}\index{products.h@{products.h}!CLEAR\_BASKET@{CLEAR\_BASKET}}
+\index{CLEAR\_BASKET@{CLEAR\_BASKET}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_BASKET}{CLEAR\_BASKET}}
+{\footnotesize\ttfamily \label{products_8h_aba9142e9bedf1eb1fa54e2c508355933} 
+\+\#define CLEAR\+\_\+\+BASKET(\begin{DoxyParamCaption}\item[{}]{basket}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\doxymbox{\hyperlink{lists_8c_a09a75d3f11e6564e3c38e890359246ae}{mapList}}(basket,\ \doxymbox{\hyperlink{products_8c_a0d9f64e2bea8f7236dc488c160607ec6}{resetBasket}},\ basket),\ \doxymbox{\hyperlink{lists_8c_a911da7f38c3f6bd9750154e7a64ebf85}{clearList}}(basket))}
+
+\end{DoxyCode}
+
+
+Macro to completely clear tracking variables across all products currenty in the given basket list, and then empties the list itself. 
+
+\Hypertarget{products_8h_a1a6f721352a6333f4a2a441b2e862d63}\index{products.h@{products.h}!GET\_PRODUCT\_AMOUNT@{GET\_PRODUCT\_AMOUNT}}
+\index{GET\_PRODUCT\_AMOUNT@{GET\_PRODUCT\_AMOUNT}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_AMOUNT}{GET\_PRODUCT\_AMOUNT}}
+{\footnotesize\ttfamily \label{products_8h_a1a6f721352a6333f4a2a441b2e862d63} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+AMOUNT(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ amount)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a69939f74fd959c0c4b5e7bc0bb77d23a}\index{products.h@{products.h}!GET\_PRODUCT\_AMOUNT\_IN\_BASKET@{GET\_PRODUCT\_AMOUNT\_IN\_BASKET}}
+\index{GET\_PRODUCT\_AMOUNT\_IN\_BASKET@{GET\_PRODUCT\_AMOUNT\_IN\_BASKET}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_AMOUNT\_IN\_BASKET}{GET\_PRODUCT\_AMOUNT\_IN\_BASKET}}
+{\footnotesize\ttfamily \label{products_8h_a69939f74fd959c0c4b5e7bc0bb77d23a} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+AMOUNT\+\_\+\+IN\+\_\+\+BASKET(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ inBasket)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a02340cdff40348baa4319a2a4fe7822a}\index{products.h@{products.h}!GET\_PRODUCT\_DESCRIPTION@{GET\_PRODUCT\_DESCRIPTION}}
+\index{GET\_PRODUCT\_DESCRIPTION@{GET\_PRODUCT\_DESCRIPTION}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_DESCRIPTION}{GET\_PRODUCT\_DESCRIPTION}}
+{\footnotesize\ttfamily \label{products_8h_a02340cdff40348baa4319a2a4fe7822a} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+DESCRIPTION(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ description)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_af338c273074cb050ddddc7cd983be240}\index{products.h@{products.h}!GET\_PRODUCT\_EAN@{GET\_PRODUCT\_EAN}}
+\index{GET\_PRODUCT\_EAN@{GET\_PRODUCT\_EAN}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_EAN}{GET\_PRODUCT\_EAN}}
+{\footnotesize\ttfamily \label{products_8h_af338c273074cb050ddddc7cd983be240} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+EAN(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ eanStr)}
+
+\end{DoxyCode}
+Getters \Hypertarget{products_8h_adb414196e9e10d206d82c8c7cc338278}\index{products.h@{products.h}!GET\_PRODUCT\_IVA\_LETTER@{GET\_PRODUCT\_IVA\_LETTER}}
+\index{GET\_PRODUCT\_IVA\_LETTER@{GET\_PRODUCT\_IVA\_LETTER}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_IVA\_LETTER}{GET\_PRODUCT\_IVA\_LETTER}}
+{\footnotesize\ttfamily \label{products_8h_adb414196e9e10d206d82c8c7cc338278} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+LETTER(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ ivaLetter)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a66408d9ef076d2c52daf0fd1ce7d8b85}\index{products.h@{products.h}!GET\_PRODUCT\_IVA\_RATE@{GET\_PRODUCT\_IVA\_RATE}}
+\index{GET\_PRODUCT\_IVA\_RATE@{GET\_PRODUCT\_IVA\_RATE}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_IVA\_RATE}{GET\_PRODUCT\_IVA\_RATE}}
+{\footnotesize\ttfamily \label{products_8h_a66408d9ef076d2c52daf0fd1ce7d8b85} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+RATE(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ iva)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a5eb647cf38b014a27d8be50d1921e861}\index{products.h@{products.h}!GET\_PRODUCT\_PRICE@{GET\_PRODUCT\_PRICE}}
+\index{GET\_PRODUCT\_PRICE@{GET\_PRODUCT\_PRICE}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_PRICE}{GET\_PRODUCT\_PRICE}}
+{\footnotesize\ttfamily \label{products_8h_a5eb647cf38b014a27d8be50d1921e861} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+PRICE(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ price)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_acb07b2f4d2c011407fab433fb656cede}\index{products.h@{products.h}!GET\_PRODUCT\_SOLD\_UNITS@{GET\_PRODUCT\_SOLD\_UNITS}}
+\index{GET\_PRODUCT\_SOLD\_UNITS@{GET\_PRODUCT\_SOLD\_UNITS}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{GET\_PRODUCT\_SOLD\_UNITS}{GET\_PRODUCT\_SOLD\_UNITS}}
+{\footnotesize\ttfamily \label{products_8h_acb07b2f4d2c011407fab433fb656cede} 
+\+\#define GET\+\_\+\+PRODUCT\+\_\+\+SOLD\+\_\+\+UNITS(\begin{DoxyParamCaption}\item[{}]{product}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ sold)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_ab2f61e164532022cada514fe116c7f08}\index{products.h@{products.h}!SET\_PRODUCT\_AMOUNT@{SET\_PRODUCT\_AMOUNT}}
+\index{SET\_PRODUCT\_AMOUNT@{SET\_PRODUCT\_AMOUNT}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_AMOUNT}{SET\_PRODUCT\_AMOUNT}}
+{\footnotesize\ttfamily \label{products_8h_ab2f61e164532022cada514fe116c7f08} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+AMOUNT(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{quantity}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ amount\ +=\ (quantity))}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a5ee550d18f1ceef02458959c97b10c25}\index{products.h@{products.h}!SET\_PRODUCT\_AMOUNT\_IN\_BASKET@{SET\_PRODUCT\_AMOUNT\_IN\_BASKET}}
+\index{SET\_PRODUCT\_AMOUNT\_IN\_BASKET@{SET\_PRODUCT\_AMOUNT\_IN\_BASKET}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_AMOUNT\_IN\_BASKET}{SET\_PRODUCT\_AMOUNT\_IN\_BASKET}}
+{\footnotesize\ttfamily \label{products_8h_a5ee550d18f1ceef02458959c97b10c25} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+AMOUNT\+\_\+\+IN\+\_\+\+BASKET(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{quantity}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ inBasket\ +=\ quantity)}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a65fb02cc557c5ae4adfc0dbf9989157c}\index{products.h@{products.h}!SET\_PRODUCT\_DESCRIPTION@{SET\_PRODUCT\_DESCRIPTION}}
+\index{SET\_PRODUCT\_DESCRIPTION@{SET\_PRODUCT\_DESCRIPTION}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_DESCRIPTION}{SET\_PRODUCT\_DESCRIPTION}}
+{\footnotesize\ttfamily \label{products_8h_a65fb02cc557c5ae4adfc0dbf9989157c} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+DESCRIPTION(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{new\+Description}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(strcpy((product)\ -\/>\ description,\ newDescription))}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a09a948f6411069a09469ecea893ced1b}\index{products.h@{products.h}!SET\_PRODUCT\_EAN@{SET\_PRODUCT\_EAN}}
+\index{SET\_PRODUCT\_EAN@{SET\_PRODUCT\_EAN}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_EAN}{SET\_PRODUCT\_EAN}}
+{\footnotesize\ttfamily \label{products_8h_a09a948f6411069a09469ecea893ced1b} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+EAN(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{ean}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(strcpy((product)\ -\/>\ eanStr,\ ean))}
+
+\end{DoxyCode}
+Setters \Hypertarget{products_8h_a07b7e8603353e58100a4bfacf9b6e2cc}\index{products.h@{products.h}!SET\_PRODUCT\_IVA\_LETTER@{SET\_PRODUCT\_IVA\_LETTER}}
+\index{SET\_PRODUCT\_IVA\_LETTER@{SET\_PRODUCT\_IVA\_LETTER}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_IVA\_LETTER}{SET\_PRODUCT\_IVA\_LETTER}}
+{\footnotesize\ttfamily \label{products_8h_a07b7e8603353e58100a4bfacf9b6e2cc} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+LETTER(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{new\+Iva\+Letter}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ ivaLetter\ =\ (newIvaLetter))}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a4fba5491c61b363ee512881b99a3e4e0}\index{products.h@{products.h}!SET\_PRODUCT\_IVA\_RATE@{SET\_PRODUCT\_IVA\_RATE}}
+\index{SET\_PRODUCT\_IVA\_RATE@{SET\_PRODUCT\_IVA\_RATE}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_IVA\_RATE}{SET\_PRODUCT\_IVA\_RATE}}
+{\footnotesize\ttfamily \label{products_8h_a4fba5491c61b363ee512881b99a3e4e0} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+IVA\+\_\+\+RATE(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{iva\+Rate}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ iva\ =\ (ivaRate))}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_a83dc283b01a25a6518f0278ae001ae92}\index{products.h@{products.h}!SET\_PRODUCT\_PRICE@{SET\_PRODUCT\_PRICE}}
+\index{SET\_PRODUCT\_PRICE@{SET\_PRODUCT\_PRICE}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_PRICE}{SET\_PRODUCT\_PRICE}}
+{\footnotesize\ttfamily \label{products_8h_a83dc283b01a25a6518f0278ae001ae92} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+PRICE(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{new\+Price}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ price\ =\ (newPrice))}
+
+\end{DoxyCode}
+\Hypertarget{products_8h_af3881118b7d77ec14c97bdce9eb33b97}\index{products.h@{products.h}!SET\_PRODUCT\_SOLD\_UNITS@{SET\_PRODUCT\_SOLD\_UNITS}}
+\index{SET\_PRODUCT\_SOLD\_UNITS@{SET\_PRODUCT\_SOLD\_UNITS}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{SET\_PRODUCT\_SOLD\_UNITS}{SET\_PRODUCT\_SOLD\_UNITS}}
+{\footnotesize\ttfamily \label{products_8h_af3881118b7d77ec14c97bdce9eb33b97} 
+\+\#define SET\+\_\+\+PRODUCT\+\_\+\+SOLD\+\_\+\+UNITS(\begin{DoxyParamCaption}\item[{}]{product}{, }\item[{}]{new\+Sold}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((product)\ -\/>\ sold\ +=\ (newSold))}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{products_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{products_8h_ae166539600121ef79aa907bd8eb50998}\index{products.h@{products.h}!compareProducts@{compareProducts}}
+\index{compareProducts@{compareProducts}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{compareProducts()}{compareProducts()}}
+{\footnotesize\ttfamily \label{products_8h_ae166539600121ef79aa907bd8eb50998} 
+int compare\+Products (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeA}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeB}{}\end{DoxyParamCaption})}
+
+
+
+Compares two products chronologically (usually by creation sequence inherently handled by tree insertion logic if unmodified). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing a product. \\
+\hline
+{\em nodeB} & Second list node containing a product. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 to essentially allow duplicate keys or unordered behavior depending on the caller.
+\end{DoxyReturn}
+Compares two products chronologically (usually by creation sequence inherently handled by tree insertion logic if unmodified).
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing a product. \\
+\hline
+{\em nodeB} & Second list node containing a product. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>} 0 if A \texorpdfstring{$>$}{>} B, \texorpdfstring{$<$}{<} 0 if A \texorpdfstring{$<$}{<} B, 0 if equal. 
+\end{DoxyReturn}
+Cast pointer types to the \doxylink{struct_product}{Product} type
+
+Get EAN Codes\Hypertarget{products_8h_acc35fd5dcbd374dd36b20b389052a4cf}\index{products.h@{products.h}!createProduct@{createProduct}}
+\index{createProduct@{createProduct}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{createProduct()}{createProduct()}}
+{\footnotesize\ttfamily \label{products_8h_acc35fd5dcbd374dd36b20b389052a4cf} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} create\+Product (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Allocates and initializes a new empty \doxylink{struct_product}{Product} instance. 
+
+\begin{DoxyReturn}{Returns}
+A dynamically allocated \doxylink{struct_product}{Product} pointer. 
+\end{DoxyReturn}
+\Hypertarget{products_8h_a6f76de454d3d1b8eaad48958fa414933}\index{products.h@{products.h}!createProductsList@{createProductsList}}
+\index{createProductsList@{createProductsList}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{createProductsList()}{createProductsList()}}
+{\footnotesize\ttfamily \label{products_8h_a6f76de454d3d1b8eaad48958fa414933} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+Products\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new abstract data type list configured for products. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the dynamically allocated list of products. 
+\end{DoxyReturn}
+\Hypertarget{products_8h_a1484737675f01a0cb3873bf0fbbf3223}\index{products.h@{products.h}!destroyProduct@{destroyProduct}}
+\index{destroyProduct@{destroyProduct}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{destroyProduct()}{destroyProduct()}}
+{\footnotesize\ttfamily \label{products_8h_a1484737675f01a0cb3873bf0fbbf3223} 
+void destroy\+Product (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Destroys a product instance and frees its memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product to be destroyed. \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type\Hypertarget{products_8h_a71ab7e3be49490c52286b35a5fd4bd7d}\index{products.h@{products.h}!findProductByEAN@{findProductByEAN}}
+\index{findProductByEAN@{findProductByEAN}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{findProductByEAN()}{findProductByEAN()}}
+{\footnotesize\ttfamily \label{products_8h_a71ab7e3be49490c52286b35a5fd4bd7d} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} find\+Product\+By\+EAN (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{}\end{DoxyParamCaption})}
+
+
+
+Helper to find a product by EAN without manual dummy construction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the list of products. \\
+\hline
+{\em ean} & EAN code to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the product if found, NULL otherwise. 
+\end{DoxyReturn}
+Bind key to local stack dummy to perform O(log N) lookup\Hypertarget{products_8h_a0d9f64e2bea8f7236dc488c160607ec6}\index{products.h@{products.h}!resetBasket@{resetBasket}}
+\index{resetBasket@{resetBasket}!products.h@{products.h}}
+\doxysubsubsection{\texorpdfstring{resetBasket()}{resetBasket()}}
+{\footnotesize\ttfamily \label{products_8h_a0d9f64e2bea8f7236dc488c160607ec6} 
+void reset\+Basket (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Reset callback function applied to each product in the basket. Rolls back the units from the basket to the available stock. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product to reset. \\
+\hline
+{\em context} & Additional context (unused). \\
+\hline
+\end{DoxyParams}

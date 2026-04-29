@@ -1,0 +1,104 @@
+\doxysection{c\+Command.\+h File Reference}
+\hypertarget{c_command_8h}{}\label{c_command_8h}\index{cCommand.h@{cCommand.h}}
+
+
+Header file for the \textquotesingle{}c\textquotesingle{} command (list client invoices).  
+
+
+{\ttfamily \+\#include "{}invoices.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{c_command_8h_ae6fce690a913fbb7cc4c0dd3ec42977f}{print\+Invoices}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Callback function applied to print a single invoice. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{c_command_8h_a336c5dbe534e323cf119b9ac413522c9}{print\+Client\+Invoices}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Callback function applied to print all invoices belonging to a specific client. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{c_command_8h_a072dde04404b9df5ff02768a711fed02}{c\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}c\textquotesingle{} command, listing all invoices for a client or all invoices in chronological order if no argument is provided. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \textquotesingle{}c\textquotesingle{} command (list client invoices). 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{c_command_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{c_command_8h_a072dde04404b9df5ff02768a711fed02}\index{cCommand.h@{cCommand.h}!cCommand@{cCommand}}
+\index{cCommand@{cCommand}!cCommand.h@{cCommand.h}}
+\doxysubsubsection{\texorpdfstring{cCommand()}{cCommand()}}
+{\footnotesize\ttfamily \label{c_command_8h_a072dde04404b9df5ff02768a711fed02} 
+void c\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}c\textquotesingle{} command, listing all invoices for a client or all invoices in chronological order if no argument is provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients in the system.\\
+\hline
+\end{DoxyParams}
+Executes the \textquotesingle{}c\textquotesingle{} command, listing all invoices for a client or all invoices in chronological order if no argument is provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients in the system. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Command invoked without arguments:\+ \doxylink{struct_list}{List} all system invoices
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Specific client name provided:\+ Parse and fetch their records
+\end{DoxyEnumerate}\Hypertarget{c_command_8h_a336c5dbe534e323cf119b9ac413522c9}\index{cCommand.h@{cCommand.h}!printClientInvoices@{printClientInvoices}}
+\index{printClientInvoices@{printClientInvoices}!cCommand.h@{cCommand.h}}
+\doxysubsubsection{\texorpdfstring{printClientInvoices()}{printClientInvoices()}}
+{\footnotesize\ttfamily \label{c_command_8h_a336c5dbe534e323cf119b9ac413522c9} 
+void print\+Client\+Invoices (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Callback function applied to print all invoices belonging to a specific client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the client. \\
+\hline
+{\em context} & Additional context parameter (unused).\\
+\hline
+\end{DoxyParams}
+Callback function applied to print all invoices belonging to a specific client.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the client. \\
+\hline
+{\em context} & Additional context parameter (unused). \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type\Hypertarget{c_command_8h_ae6fce690a913fbb7cc4c0dd3ec42977f}\index{cCommand.h@{cCommand.h}!printInvoices@{printInvoices}}
+\index{printInvoices@{printInvoices}!cCommand.h@{cCommand.h}}
+\doxysubsubsection{\texorpdfstring{printInvoices()}{printInvoices()}}
+{\footnotesize\ttfamily \label{c_command_8h_ae6fce690a913fbb7cc4c0dd3ec42977f} 
+void print\+Invoices (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Callback function applied to print a single invoice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the invoice to be printed. \\
+\hline
+{\em context} & Additional context parameter (unused). \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type

@@ -1,0 +1,501 @@
+\doxysection{trees.\+c File Reference}
+\hypertarget{trees_8c}{}\label{trees_8c}\index{trees.c@{trees.c}}
+
+
+Implementation of AVL binary search tree logic including self-\/balancing rotations, insertions, deletions, and mapping.  
+
+
+{\ttfamily \+\#include "{}trees.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_aee9bde4cd192d41eb9ee85161c8cd313}{aux\+Remove\+From\+Tree}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}item, \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Internal recursive helper for node removal from an AVL subtree. Delegates the search and structural removal to remove\+Node. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_addc9c755c58dd6e04f9d746c25950cb6}{new\+Tree\+Node}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new tree node. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_a5776770e6492c55f97e0ce9773e12917}{create\+Tree}} (\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Creates a new empty AVL search tree. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_add1598fb3961022610d14e14630d4702}{get\+Max}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Finds the rightmost leaf of a subtree (the maximum value node). \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{trees_8c_a5e359ac32fa09db02ae366f98cfdc310}{max}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}left, \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}right)
+\begin{DoxyCompactList}\small\item\em Internal helper to return the maximum of two height integers. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_af97359ed052448e6e03ecdf415e8da36}{rotate\+Left}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Performs a simple left rotation. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_a764477f2a0d6fe720d3c5651a2f5c546}{rotate\+Right}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Performs a simple right rotation. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_a7b90f89415e850fbaef7e76afd7cdcab}{rotate\+Right\+Left}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Performs a composite right-\/then-\/left rotation. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_a180ee6da5346469a7344c3c1f250b621}{rotate\+Left\+Right}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Performs a composite left-\/then-\/right rotation. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_a4c49350455a0728d43a3c16bf8324d8b}{balance\+Tree}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Checks subtree balance and performs required rotations if unbalanced. Checks the balance factor (-\/1 to +1 is balanced). If magnitude \texorpdfstring{$>$}{>} 1, applies the required rotation based on the balance of the heavy child subtree. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_aff47691ad24bbaf5062c0b1a2f3ea28a}{aux\+Insert\+In\+Tree}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}item, \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Internal recursive function to insert a generic item into an AVL Node. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_ad0e835831655fd10ba254a69859bb5cd}{insert\+In\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Inserts a new item into the AVL tree, balancing it if necessary. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_ad24a023c7a9854d571ffec06c37df6b9}{handle\+Node\+Removal}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Helper to handle the node removal logic once the node is found. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_a4a0119588cdfdcf15b0626096735d56b}{remove\+Node}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}item, \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Internal recursive function to remove an item from an AVL Node. Handles leaf nodes, nodes with one child, and nodes with two children (by finding the in-\/order predecessor). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_a1fa557346aeb09cdaf8756a34bb0e42a}{remove\+From\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Removes an item from the AVL tree and rebalances it. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_ae848048863489b043c3eba7c52164687}{aux\+Search\+In\+Tree}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}item, \doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Internal recursive function to search for an item in a subtree. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8c_ace3cb5f33464ba9e613fd232a141c830}{search\+In\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Searches for an item in the AVL tree. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_a78df375446b65ddf54afeebdb95f3274}{clear\+Tree\+Nodes}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Destroys all tree nodes, bypassing the list items memory itself. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_a932d879c9e42e4a898834310e59a378e}{aux\+Destroy\+Tree}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Internal recursive function to destroy nodes in post-\/order traversal. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_ae4f1bb3295740db1df3ac18d1cee761c}{destroy\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}})
+\begin{DoxyCompactList}\small\item\em Destroys the tree structure and all its internal node wrappers without deleting the items. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_ad5ac6880aef0e539d211647b574f9f0a}{aux\+Map\+Tree}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node, void(\texorpdfstring{$\ast$}{*}callback)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Internal recursive function traversing the tree in-\/order to execute a callback. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8c_a792b259bbbe2357b326df2338bcd220d}{map\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void(\texorpdfstring{$\ast$}{*}callback)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Recursively traverses the tree applying a callback function map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of AVL binary search tree logic including self-\/balancing rotations, insertions, deletions, and mapping. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{trees_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{trees_8c_a932d879c9e42e4a898834310e59a378e}\index{trees.c@{trees.c}!auxDestroyTree@{auxDestroyTree}}
+\index{auxDestroyTree@{auxDestroyTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{auxDestroyTree()}{auxDestroyTree()}}
+{\footnotesize\ttfamily \label{trees_8c_a932d879c9e42e4a898834310e59a378e} 
+void aux\+Destroy\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Internal recursive function to destroy nodes in post-\/order traversal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Current node to destroy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_aff47691ad24bbaf5062c0b1a2f3ea28a}\index{trees.c@{trees.c}!auxInsertInTree@{auxInsertInTree}}
+\index{auxInsertInTree@{auxInsertInTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{auxInsertInTree()}{auxInsertInTree()}}
+{\footnotesize\ttfamily \label{trees_8c_aff47691ad24bbaf5062c0b1a2f3ea28a} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} aux\+Insert\+In\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})}
+
+
+
+Internal recursive function to insert a generic item into an AVL Node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Subtree root. \\
+\hline
+{\em item} & Item to insert. \\
+\hline
+{\em compare} & Comparison function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Balancend subtree root. 
+\end{DoxyReturn}
+Default insertion on a binary tree
+
+Item already exists
+
+Verify if the tree remains in balance\Hypertarget{trees_8c_ad5ac6880aef0e539d211647b574f9f0a}\index{trees.c@{trees.c}!auxMapTree@{auxMapTree}}
+\index{auxMapTree@{auxMapTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{auxMapTree()}{auxMapTree()}}
+{\footnotesize\ttfamily \label{trees_8c_ad5ac6880aef0e539d211647b574f9f0a} 
+void aux\+Map\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Internal recursive function traversing the tree in-\/order to execute a callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root of the current subtree. \\
+\hline
+{\em callback} & Callback function. \\
+\hline
+{\em context} & Additional context parameter. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_aee9bde4cd192d41eb9ee85161c8cd313}\index{trees.c@{trees.c}!auxRemoveFromTree@{auxRemoveFromTree}}
+\index{auxRemoveFromTree@{auxRemoveFromTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{auxRemoveFromTree()}{auxRemoveFromTree()}}
+{\footnotesize\ttfamily \label{trees_8c_aee9bde4cd192d41eb9ee85161c8cd313} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} aux\+Remove\+From\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Internal recursive helper for node removal from an AVL subtree. Delegates the search and structural removal to remove\+Node. 
+
+Forward declarations for internal recursive functions
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Subtree root. \\
+\hline
+{\em item} & Item to remove. \\
+\hline
+{\em compare} & Comparison function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Balanced subtree root after removal. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_ae848048863489b043c3eba7c52164687}\index{trees.c@{trees.c}!auxSearchInTree@{auxSearchInTree}}
+\index{auxSearchInTree@{auxSearchInTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{auxSearchInTree()}{auxSearchInTree()}}
+{\footnotesize\ttfamily \label{trees_8c_ae848048863489b043c3eba7c52164687} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} aux\+Search\+In\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})}
+
+
+
+Internal recursive function to search for an item in a subtree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Subtree root. \\
+\hline
+{\em item} & Dummy pointer carrying search keys. \\
+\hline
+{\em compare} & Comparison function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched \doxylink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}, or NULL if not found. 
+\end{DoxyReturn}
+We have founded the node\Hypertarget{trees_8c_a4c49350455a0728d43a3c16bf8324d8b}\index{trees.c@{trees.c}!balanceTree@{balanceTree}}
+\index{balanceTree@{balanceTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{balanceTree()}{balanceTree()}}
+{\footnotesize\ttfamily \label{trees_8c_a4c49350455a0728d43a3c16bf8324d8b} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} balance\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Checks subtree balance and performs required rotations if unbalanced. Checks the balance factor (-\/1 to +1 is balanced). If magnitude \texorpdfstring{$>$}{>} 1, applies the required rotation based on the balance of the heavy child subtree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Subtree root to balance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Subtree root properly balanced. 
+\end{DoxyReturn}
+
+\begin{DoxyEnumerate}
+\item Refresh height to capture subtree changes
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Detect and correct Right-\/\+Heavy or Left-\/\+Heavy imbalances
+\end{DoxyEnumerate}\Hypertarget{trees_8c_a78df375446b65ddf54afeebdb95f3274}\index{trees.c@{trees.c}!clearTreeNodes@{clearTreeNodes}}
+\index{clearTreeNodes@{clearTreeNodes}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{clearTreeNodes()}{clearTreeNodes()}}
+{\footnotesize\ttfamily \label{trees_8c_a78df375446b65ddf54afeebdb95f3274} 
+void clear\+Tree\+Nodes (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Destroys all tree nodes, bypassing the list items memory itself. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root node of the tree to recursively clear. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_a5776770e6492c55f97e0ce9773e12917}\index{trees.c@{trees.c}!createTree@{createTree}}
+\index{createTree@{createTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{createTree()}{createTree()}}
+{\footnotesize\ttfamily \label{trees_8c_a5776770e6492c55f97e0ce9773e12917} 
+\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*} create\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new empty AVL search tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em compare} & A pointer to the comparison function defining the ordering. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated \doxylink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree} instance. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_ae4f1bb3295740db1df3ac18d1cee761c}\index{trees.c@{trees.c}!destroyTree@{destroyTree}}
+\index{destroyTree@{destroyTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{destroyTree()}{destroyTree()}}
+{\footnotesize\ttfamily \label{trees_8c_ae4f1bb3295740db1df3ac18d1cee761c} 
+void destroy\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the tree structure and all its internal node wrappers without deleting the items. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_add1598fb3961022610d14e14630d4702}\index{trees.c@{trees.c}!getMax@{getMax}}
+\index{getMax@{getMax}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{getMax()}{getMax()}}
+{\footnotesize\ttfamily \label{trees_8c_add1598fb3961022610d14e14630d4702} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} get\+Max (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Finds the rightmost leaf of a subtree (the maximum value node). 
+
+Finds the node with the maximum value (rightmost leaf) originating from a subtree.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root node of the considered subtree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the node with the highest value context. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_ad24a023c7a9854d571ffec06c37df6b9}\index{trees.c@{trees.c}!handleNodeRemoval@{handleNodeRemoval}}
+\index{handleNodeRemoval@{handleNodeRemoval}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{handleNodeRemoval()}{handleNodeRemoval()}}
+{\footnotesize\ttfamily \label{trees_8c_ad24a023c7a9854d571ffec06c37df6b9} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} handle\+Node\+Removal (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper to handle the node removal logic once the node is found. 
+
+Case 1:\+ Node has two children -\/ find in-\/order predecessor
+
+Option A:\+ Linear search (O(\+N)) -\/ used for the basket\Hypertarget{trees_8c_ad0e835831655fd10ba254a69859bb5cd}\index{trees.c@{trees.c}!insertInTree@{insertInTree}}
+\index{insertInTree@{insertInTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{insertInTree()}{insertInTree()}}
+{\footnotesize\ttfamily \label{trees_8c_ad0e835831655fd10ba254a69859bb5cd} 
+void insert\+In\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Inserts a new item into the AVL tree, balancing it if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em item} & Pointer to the generic item to insert. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_a792b259bbbe2357b326df2338bcd220d}\index{trees.c@{trees.c}!mapTree@{mapTree}}
+\index{mapTree@{mapTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{mapTree()}{mapTree()}}
+{\footnotesize\ttfamily \label{trees_8c_a792b259bbbe2357b326df2338bcd220d} 
+void map\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Recursively traverses the tree applying a callback function map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em callback} & Callback function to execute for each node\textquotesingle{}s item. \\
+\hline
+{\em context} & Additional context passed to the callback. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_a5e359ac32fa09db02ae366f98cfdc310}\index{trees.c@{trees.c}!max@{max}}
+\index{max@{max}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily \label{trees_8c_a5e359ac32fa09db02ae366f98cfdc310} 
+int max (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{left}{, }\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{right}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Internal helper to return the maximum of two height integers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Left child node. \\
+\hline
+{\em right} & Right child node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer value of the highest height detected. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_addc9c755c58dd6e04f9d746c25950cb6}\index{trees.c@{trees.c}!newTreeNode@{newTreeNode}}
+\index{newTreeNode@{newTreeNode}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{newTreeNode()}{newTreeNode()}}
+{\footnotesize\ttfamily \label{trees_8c_addc9c755c58dd6e04f9d746c25950cb6} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} new\+Tree\+Node (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Allocates and initializes a new tree node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the generic item to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dynamically allocated \doxylink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_a1fa557346aeb09cdaf8756a34bb0e42a}\index{trees.c@{trees.c}!removeFromTree@{removeFromTree}}
+\index{removeFromTree@{removeFromTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{removeFromTree()}{removeFromTree()}}
+{\footnotesize\ttfamily \label{trees_8c_a1fa557346aeb09cdaf8756a34bb0e42a} 
+void remove\+From\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Removes an item from the AVL tree and rebalances it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em item} & Dummy pointer carrying the search keys of the item to remove. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8c_a4a0119588cdfdcf15b0626096735d56b}\index{trees.c@{trees.c}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}}
+{\footnotesize\ttfamily \label{trees_8c_a4a0119588cdfdcf15b0626096735d56b} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} remove\+Node (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Internal recursive function to remove an item from an AVL Node. Handles leaf nodes, nodes with one child, and nodes with two children (by finding the in-\/order predecessor). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Subtree root. \\
+\hline
+{\em item} & Dummy pointer carrying the search keys of the item to remove. \\
+\hline
+{\em compare} & Comparison function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Balancend subtree root after deletion. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_af97359ed052448e6e03ecdf415e8da36}\index{trees.c@{trees.c}!rotateLeft@{rotateLeft}}
+\index{rotateLeft@{rotateLeft}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{rotateLeft()}{rotateLeft()}}
+{\footnotesize\ttfamily \label{trees_8c_af97359ed052448e6e03ecdf415e8da36} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} rotate\+Left (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Performs a simple left rotation. 
+
+COMPLEX LOGIC EXPLANATION (AVL Rotations):\+ The following rotation functions (Left, Right, Right-\/\+Left, Left-\/\+Right) are used to restore the O(log n) tree balance after insertions/\+deletions. They execute a local restructuring of pointers to shift the subtree\textquotesingle{}s center of gravity without violating the binary search structural property (Left children remain \texorpdfstring{$<$}{<} Root, Right children remain \texorpdfstring{$>$}{>} Root). 
+\begin{DoxyParams}{Parameters}
+{\em node} & Root of the unbalanced structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Meaningful new root of the subtree after rotation. 
+\end{DoxyReturn}
+
+\begin{DoxyEnumerate}
+\item Perform rotation:\+ pull right child up, push current node down
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Re-\/calculate heights for the affected nodes
+\end{DoxyEnumerate}\Hypertarget{trees_8c_a180ee6da5346469a7344c3c1f250b621}\index{trees.c@{trees.c}!rotateLeftRight@{rotateLeftRight}}
+\index{rotateLeftRight@{rotateLeftRight}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{rotateLeftRight()}{rotateLeftRight()}}
+{\footnotesize\ttfamily \label{trees_8c_a180ee6da5346469a7344c3c1f250b621} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} rotate\+Left\+Right (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Performs a composite left-\/then-\/right rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root of the unbalanced structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Meaningful new root of the subtree after rotations. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_a764477f2a0d6fe720d3c5651a2f5c546}\index{trees.c@{trees.c}!rotateRight@{rotateRight}}
+\index{rotateRight@{rotateRight}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{rotateRight()}{rotateRight()}}
+{\footnotesize\ttfamily \label{trees_8c_a764477f2a0d6fe720d3c5651a2f5c546} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} rotate\+Right (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Performs a simple right rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root of the unbalanced structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Meaningful new root of the subtree after rotation. 
+\end{DoxyReturn}
+
+\begin{DoxyEnumerate}
+\item Perform rotation:\+ pull left child up, push current node down
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Re-\/calculate heights for the affected nodes
+\end{DoxyEnumerate}\Hypertarget{trees_8c_a7b90f89415e850fbaef7e76afd7cdcab}\index{trees.c@{trees.c}!rotateRightLeft@{rotateRightLeft}}
+\index{rotateRightLeft@{rotateRightLeft}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{rotateRightLeft()}{rotateRightLeft()}}
+{\footnotesize\ttfamily \label{trees_8c_a7b90f89415e850fbaef7e76afd7cdcab} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} rotate\+Right\+Left (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Performs a composite right-\/then-\/left rotation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root of the unbalanced structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Meaningful new root of the subtree after rotations. 
+\end{DoxyReturn}
+\Hypertarget{trees_8c_ace3cb5f33464ba9e613fd232a141c830}\index{trees.c@{trees.c}!searchInTree@{searchInTree}}
+\index{searchInTree@{searchInTree}!trees.c@{trees.c}}
+\doxysubsubsection{\texorpdfstring{searchInTree()}{searchInTree()}}
+{\footnotesize\ttfamily \label{trees_8c_ace3cb5f33464ba9e613fd232a141c830} 
+void \texorpdfstring{$\ast$}{*} search\+In\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Searches for an item in the AVL tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em item} & Dummy pointer carrying the search keys. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched item inside the tree, or NULL if not found. 
+\end{DoxyReturn}

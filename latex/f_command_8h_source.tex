@@ -1,0 +1,26 @@
+\doxysection{f\+Command.\+h}
+\hypertarget{f_command_8h_source}{}\label{f_command_8h_source}\doxymbox{\hyperlink{f_command_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ F\_COMMAND\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ F\_COMMAND\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{invoices_8h}{invoices.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{struct_finalize_context_a85b272bd4bf5dce9cedffd57cf70092f}{totalValue}};\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{struct_finalize_context_ab378e6af20871b2825d9c148c219f924}{totalProducts}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \}\ \doxymbox{\hyperlink{struct_finalize_context}{FinalizeContext}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{f_command_8h_a2325f59cfaabe90a22c2bd7e915be381}{finalizePurchase}}(\textcolor{keywordtype}{void}\ *item,\ \textcolor{keywordtype}{void}\ *context);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}*\ \doxymbox{\hyperlink{f_command_8h_aa4b59d8d1e159702b38143b62729fae4}{findOrAddClient}}(\doxymbox{\hyperlink{struct_list}{List}}\ *clients,\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{f_command_8h_ac7bd2ff230d9169240b445226e43ed82}{fCommand}}\ (\doxymbox{\hyperlink{struct_list}{List}}\ *invoices,\ \doxymbox{\hyperlink{struct_list}{List}}\ *clients,\ \doxymbox{\hyperlink{struct_list}{List}}\ *basket,\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{SystemContext}}\ *\doxymbox{\hyperlink{structsystem_context}{systemContext}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

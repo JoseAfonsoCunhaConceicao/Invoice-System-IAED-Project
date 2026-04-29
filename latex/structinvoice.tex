@@ -1,0 +1,67 @@
+\doxysection{invoice Struct Reference}
+\hypertarget{structinvoice}{}\label{structinvoice}\index{invoice@{invoice}}
+
+
+Represents an individual invoice.  
+
+
+
+
+{\ttfamily \+\#include $<$invoices.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{structinvoice_acddd77da6fc074bcec3350c810f98e3e}{id}}
+\item 
+long long \doxymbox{\hyperlink{structinvoice_afeb4fc991375515ebb112a171aa9dc29}{total\+Value}}
+\item 
+long long \doxymbox{\hyperlink{structinvoice_a474ef767357546a2a777a289e89acd16}{total\+Items}}
+\item 
+char \doxymbox{\hyperlink{structinvoice_ae2cb94f7d9621e3ac507466227ebd5ec}{nif}} \+[\doxymbox{\hyperlink{global_8h_afe6e29a52d52ddf613efe7eaf21f0e49}{NIF\+\_\+\+SIZE}}+1]\+
+\item 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{structinvoice_a782261f7d7aea53b4fbd220fa2b694a4}{client\+Ref}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an individual invoice. 
+
+\label{doc-variable-members}
+\Hypertarget{structinvoice_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structinvoice_a782261f7d7aea53b4fbd220fa2b694a4}\index{invoice@{invoice}!clientRef@{clientRef}}
+\index{clientRef@{clientRef}!invoice@{invoice}}
+\doxysubsubsection{\texorpdfstring{clientRef}{clientRef}}
+{\footnotesize\ttfamily \label{structinvoice_a782261f7d7aea53b4fbd220fa2b694a4} 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}\texorpdfstring{$\ast$}{*} invoice::\+client\+Ref}
+
+Pointer to the associated client structure. \Hypertarget{structinvoice_acddd77da6fc074bcec3350c810f98e3e}\index{invoice@{invoice}!id@{id}}
+\index{id@{id}!invoice@{invoice}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{structinvoice_acddd77da6fc074bcec3350c810f98e3e} 
+int invoice::\+id}
+
+Unique sequential invoice identifier. \Hypertarget{structinvoice_ae2cb94f7d9621e3ac507466227ebd5ec}\index{invoice@{invoice}!nif@{nif}}
+\index{nif@{nif}!invoice@{invoice}}
+\doxysubsubsection{\texorpdfstring{nif}{nif}}
+{\footnotesize\ttfamily \label{structinvoice_ae2cb94f7d9621e3ac507466227ebd5ec} 
+char invoice::\+nif\+[\doxymbox{\hyperlink{global_8h_afe6e29a52d52ddf613efe7eaf21f0e49}{NIF\+\_\+\+SIZE}}+1]\+}
+
+The tax identification number of the client. \Hypertarget{structinvoice_a474ef767357546a2a777a289e89acd16}\index{invoice@{invoice}!totalItems@{totalItems}}
+\index{totalItems@{totalItems}!invoice@{invoice}}
+\doxysubsubsection{\texorpdfstring{totalItems}{totalItems}}
+{\footnotesize\ttfamily \label{structinvoice_a474ef767357546a2a777a289e89acd16} 
+long long invoice::\+total\+Items}
+
+Total number of items purchased. \Hypertarget{structinvoice_afeb4fc991375515ebb112a171aa9dc29}\index{invoice@{invoice}!totalValue@{totalValue}}
+\index{totalValue@{totalValue}!invoice@{invoice}}
+\doxysubsubsection{\texorpdfstring{totalValue}{totalValue}}
+{\footnotesize\ttfamily \label{structinvoice_afeb4fc991375515ebb112a171aa9dc29} 
+long long invoice::\+total\+Value}
+
+Total value billed in this invoice in cents. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{invoices_8h}{invoices.\+h}}\end{DoxyCompactItemize}

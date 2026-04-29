@@ -1,0 +1,59 @@
+\doxysection{d\+Command.\+h File Reference}
+\hypertarget{d_command_8h}{}\label{d_command_8h}\index{dCommand.h@{dCommand.h}}
+
+
+Header file for the \textquotesingle{}d\textquotesingle{} command (list invoices by product).  
+
+
+{\ttfamily \+\#include "{}invoices.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{d_command_8h_aede78f46a827e51f7a5f0c9b51d64573}{d\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices, \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}})
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}d\textquotesingle{} command, searching for all invoices containing a specific product. Expects an EAN code from standard input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \textquotesingle{}d\textquotesingle{} command (list invoices by product). 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{d_command_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{d_command_8h_aede78f46a827e51f7a5f0c9b51d64573}\index{dCommand.h@{dCommand.h}!dCommand@{dCommand}}
+\index{dCommand@{dCommand}!dCommand.h@{dCommand.h}}
+\doxysubsubsection{\texorpdfstring{dCommand()}{dCommand()}}
+{\footnotesize\ttfamily \label{d_command_8h_aede78f46a827e51f7a5f0c9b51d64573} 
+void d\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{, }\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}d\textquotesingle{} command, searching for all invoices containing a specific product. Expects an EAN code from standard input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the global list of system products. \\
+\hline
+{\em invoices} & Pointer to the global list of system invoices. \\
+\hline
+{\em \doxylink{structsystem_context}{system\+Context}} & Pointer to the system context (unused but kept for signature consistency).\\
+\hline
+\end{DoxyParams}
+Executes the \textquotesingle{}d\textquotesingle{} command, searching for all invoices containing a specific product. Expects an EAN code from standard input.
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the global list of system products. \\
+\hline
+{\em invoices} & Pointer to the global list of system invoices. \\
+\hline
+{\em \doxylink{structsystem_context}{system\+Context}} & Pointer to the global system context to update stats. \\
+\hline
+\end{DoxyParams}
+1 Arg provided:\+ Assume it is an invoice ID for deletion
+
+2 Args provided:\+ Parse EAN and units to deduct product stock

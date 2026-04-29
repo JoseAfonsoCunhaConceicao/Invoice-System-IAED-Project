@@ -1,0 +1,59 @@
+\doxysection{system\+Context Struct Reference}
+\hypertarget{structsystem_context}{}\label{structsystem_context}\index{systemContext@{systemContext}}
+
+
+Global system context storing aggregate statistics.  
+
+
+
+
+{\ttfamily \+\#include $<$invoices.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+long long \doxymbox{\hyperlink{structsystem_context_a7ceaad1995051ca4cd25455538c92ce8}{Number\+Of\+Sold\+Items}}
+\item 
+long long \doxymbox{\hyperlink{structsystem_context_a0d40dac85de4347f24dd22562259149b}{Total\+Value}}
+\item 
+int \doxymbox{\hyperlink{structsystem_context_adbc73b88bb18918c50af371c589b1fe4}{Number\+Of\+Invoices}}
+\item 
+int \doxymbox{\hyperlink{structsystem_context_afcabf991265893de87cbc9326fc3260d}{next\+ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global system context storing aggregate statistics. 
+
+\label{doc-variable-members}
+\Hypertarget{structsystem_context_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structsystem_context_afcabf991265893de87cbc9326fc3260d}\index{systemContext@{systemContext}!nextID@{nextID}}
+\index{nextID@{nextID}!systemContext@{systemContext}}
+\doxysubsubsection{\texorpdfstring{nextID}{nextID}}
+{\footnotesize\ttfamily \label{structsystem_context_afcabf991265893de87cbc9326fc3260d} 
+int system\+Context::\+next\+ID}
+
+Next sequential invoice ID to be assigned. \Hypertarget{structsystem_context_adbc73b88bb18918c50af371c589b1fe4}\index{systemContext@{systemContext}!NumberOfInvoices@{NumberOfInvoices}}
+\index{NumberOfInvoices@{NumberOfInvoices}!systemContext@{systemContext}}
+\doxysubsubsection{\texorpdfstring{NumberOfInvoices}{NumberOfInvoices}}
+{\footnotesize\ttfamily \label{structsystem_context_adbc73b88bb18918c50af371c589b1fe4} 
+int system\+Context::\+\+Number\+Of\+Invoices}
+
+Total number of persistent invoices emitted. \Hypertarget{structsystem_context_a7ceaad1995051ca4cd25455538c92ce8}\index{systemContext@{systemContext}!NumberOfSoldItems@{NumberOfSoldItems}}
+\index{NumberOfSoldItems@{NumberOfSoldItems}!systemContext@{systemContext}}
+\doxysubsubsection{\texorpdfstring{NumberOfSoldItems}{NumberOfSoldItems}}
+{\footnotesize\ttfamily \label{structsystem_context_a7ceaad1995051ca4cd25455538c92ce8} 
+long long system\+Context::\+\+Number\+Of\+Sold\+Items}
+
+Global total of items sold. \Hypertarget{structsystem_context_a0d40dac85de4347f24dd22562259149b}\index{systemContext@{systemContext}!TotalValue@{TotalValue}}
+\index{TotalValue@{TotalValue}!systemContext@{systemContext}}
+\doxysubsubsection{\texorpdfstring{TotalValue}{TotalValue}}
+{\footnotesize\ttfamily \label{structsystem_context_a0d40dac85de4347f24dd22562259149b} 
+long long system\+Context::\+\+Total\+Value}
+
+Global total value billed across invoices. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{invoices_8h}{invoices.\+h}}\end{DoxyCompactItemize}

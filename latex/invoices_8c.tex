@@ -1,0 +1,111 @@
+\doxysection{invoices.\+c File Reference}
+\hypertarget{invoices_8c}{}\label{invoices_8c}\index{invoices.c@{invoices.c}}
+
+
+Implementation of invoice data structures and operations.  
+
+
+{\ttfamily \+\#include "{}invoices.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{invoices_8c_a663ce390d3f057c24444c2607bd94a45}{create\+Invoice}} (int id, long long total\+Value, long long total\+Items, char nif\+[$\,$]\+, \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*}client\+Ref)
+\begin{DoxyCompactList}\small\item\em Constructs a new invoice. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{invoices_8c_a07619f0cac4c56a2f8d382fea2905b4d}{compare\+Invoices}} (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeA, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeB)
+\begin{DoxyCompactList}\small\item\em Compares two invoices based on their unique ID. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{invoices_8c_a9a5481d32379dde9b6c234381c6e58fd}{destroy\+Invoice}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Destroys an invoice instance and frees its memory. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{invoices_8c_a7aa4f79ed1288b8fd6d4ed1061541ae0}{create\+Invoices\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new abstract data type list configured for invoices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of invoice data structures and operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{invoices_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{invoices_8c_a07619f0cac4c56a2f8d382fea2905b4d}\index{invoices.c@{invoices.c}!compareInvoices@{compareInvoices}}
+\index{compareInvoices@{compareInvoices}!invoices.c@{invoices.c}}
+\doxysubsubsection{\texorpdfstring{compareInvoices()}{compareInvoices()}}
+{\footnotesize\ttfamily \label{invoices_8c_a07619f0cac4c56a2f8d382fea2905b4d} 
+int compare\+Invoices (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeA}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeB}{}\end{DoxyParamCaption})}
+
+
+
+Compares two invoices based on their unique ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing an invoice. \\
+\hline
+{\em nodeB} & Second list node containing an invoice. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>} 0 if A \texorpdfstring{$>$}{>} B, \texorpdfstring{$<$}{<} 0 if A \texorpdfstring{$<$}{<} B, 0 if equal. 
+\end{DoxyReturn}
+Cast pointer types to the \doxylink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice} type
+
+Get invoice IDs
+
+Invoices are unique by ID and assigned sequentially\Hypertarget{invoices_8c_a663ce390d3f057c24444c2607bd94a45}\index{invoices.c@{invoices.c}!createInvoice@{createInvoice}}
+\index{createInvoice@{createInvoice}!invoices.c@{invoices.c}}
+\doxysubsubsection{\texorpdfstring{createInvoice()}{createInvoice()}}
+{\footnotesize\ttfamily \label{invoices_8c_a663ce390d3f057c24444c2607bd94a45} 
+\doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}} \texorpdfstring{$\ast$}{*} create\+Invoice (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{long long}]{total\+Value}{, }\item[{long long}]{total\+Items}{, }\item[{char}]{nif}{\+[$\,$]\+, }\item[{\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*}}]{client\+Ref}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new invoice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier for the invoice. \\
+\hline
+{\em total\+Value} & The total cost in cents. \\
+\hline
+{\em total\+Items} & The total number of products. \\
+\hline
+{\em nif} & The VAT identification number string. \\
+\hline
+{\em client\+Ref} & Pointer to the client making the purchase. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new allocated \doxylink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice} instance. 
+\end{DoxyReturn}
+\Hypertarget{invoices_8c_a7aa4f79ed1288b8fd6d4ed1061541ae0}\index{invoices.c@{invoices.c}!createInvoicesList@{createInvoicesList}}
+\index{createInvoicesList@{createInvoicesList}!invoices.c@{invoices.c}}
+\doxysubsubsection{\texorpdfstring{createInvoicesList()}{createInvoicesList()}}
+{\footnotesize\ttfamily \label{invoices_8c_a7aa4f79ed1288b8fd6d4ed1061541ae0} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+Invoices\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new abstract data type list configured for invoices. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the dynamically allocated list of invoices. 
+\end{DoxyReturn}
+\Hypertarget{invoices_8c_a9a5481d32379dde9b6c234381c6e58fd}\index{invoices.c@{invoices.c}!destroyInvoice@{destroyInvoice}}
+\index{destroyInvoice@{destroyInvoice}!invoices.c@{invoices.c}}
+\doxysubsubsection{\texorpdfstring{destroyInvoice()}{destroyInvoice()}}
+{\footnotesize\ttfamily \label{invoices_8c_a9a5481d32379dde9b6c234381c6e58fd} 
+void destroy\+Invoice (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Destroys an invoice instance and frees its memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the invoice to be destroyed. \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type

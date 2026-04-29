@@ -1,0 +1,276 @@
+\doxysection{invoices.\+h File Reference}
+\hypertarget{invoices_8h}{}\label{invoices_8h}\index{invoices.h@{invoices.h}}
+
+
+Header file for invoice data structures and operations.  
+
+
+{\ttfamily \+\#include "{}clients.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structinvoice}{invoice}}
+\begin{DoxyCompactList}\small\item\em Represents an individual invoice. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structsystem_context}{system\+Context}}
+\begin{DoxyCompactList}\small\item\em Global system context storing aggregate statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a30519207204764840964b5dd225c1261}{GET\+\_\+\+INVOICE\+\_\+\+ID}}(i)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a9c4504320e6ff834442adbda071df7a2}{GET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+VALUE}}(i)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_ac23905441fd3a65ef6aae6b1ad1b2c0d}{GET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+ITEMS}}(i)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a919ec71cfe2ef5b2945d68b21ac30c13}{GET\+\_\+\+INVOICE\+\_\+\+NIF}}(i)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a2ee2f168f52535356a02a36d267663d9}{GET\+\_\+\+INVOICE\+\_\+\+CLIENT}}(i)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a55dd132cf2a7ae6ee741d4316194566d}{SET\+\_\+\+INVOICE\+\_\+\+ID}}(i,  number)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a0198f7b1b941c6977560189c507bc932}{SET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+VALUE}}(i,  value)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_aba036058508dcec518f558c3c9fabfd8}{SET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+ITEMS}}(i,  n\+Items)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_acfdadbe45800de5267febde13ae8b222}{SET\+\_\+\+INVOICE\+\_\+\+NIF}}(i,  new\+Nif)
+\item 
+\+\#define \doxymbox{\hyperlink{invoices_8h_a45d13fd89a3b2dc0dcfe7dbae2854be2}{SET\+\_\+\+INVOICE\+\_\+\+CLIENT}}(i,  new\+Client)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \doxymbox{\hyperlink{structsystem_context}{system\+Context}} \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}}
+\begin{DoxyCompactList}\small\item\em Global system context storing aggregate statistics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{invoices_8h_a9a5481d32379dde9b6c234381c6e58fd}{destroy\+Invoice}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Destroys an invoice instance and frees its memory. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{invoices_8h_a663ce390d3f057c24444c2607bd94a45}{create\+Invoice}} (int id, long long total\+Value, long long total\+Items, char nif\+[$\,$]\+, \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*}client\+Ref)
+\begin{DoxyCompactList}\small\item\em Constructs a new invoice. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{invoices_8h_a07619f0cac4c56a2f8d382fea2905b4d}{compare\+Invoices}} (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeA, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeB)
+\begin{DoxyCompactList}\small\item\em Compares two invoices based on their unique ID. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{invoices_8h_a7aa4f79ed1288b8fd6d4ed1061541ae0}{create\+Invoices\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new abstract data type list configured for invoices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for invoice data structures and operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-define-members}
+\Hypertarget{invoices_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{invoices_8h_a2ee2f168f52535356a02a36d267663d9}\index{invoices.h@{invoices.h}!GET\_INVOICE\_CLIENT@{GET\_INVOICE\_CLIENT}}
+\index{GET\_INVOICE\_CLIENT@{GET\_INVOICE\_CLIENT}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{GET\_INVOICE\_CLIENT}{GET\_INVOICE\_CLIENT}}
+{\footnotesize\ttfamily \label{invoices_8h_a2ee2f168f52535356a02a36d267663d9} 
+\+\#define GET\+\_\+\+INVOICE\+\_\+\+CLIENT(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ clientRef)}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_a30519207204764840964b5dd225c1261}\index{invoices.h@{invoices.h}!GET\_INVOICE\_ID@{GET\_INVOICE\_ID}}
+\index{GET\_INVOICE\_ID@{GET\_INVOICE\_ID}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{GET\_INVOICE\_ID}{GET\_INVOICE\_ID}}
+{\footnotesize\ttfamily \label{invoices_8h_a30519207204764840964b5dd225c1261} 
+\+\#define GET\+\_\+\+INVOICE\+\_\+\+ID(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ id)}
+
+\end{DoxyCode}
+Getters \Hypertarget{invoices_8h_a919ec71cfe2ef5b2945d68b21ac30c13}\index{invoices.h@{invoices.h}!GET\_INVOICE\_NIF@{GET\_INVOICE\_NIF}}
+\index{GET\_INVOICE\_NIF@{GET\_INVOICE\_NIF}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{GET\_INVOICE\_NIF}{GET\_INVOICE\_NIF}}
+{\footnotesize\ttfamily \label{invoices_8h_a919ec71cfe2ef5b2945d68b21ac30c13} 
+\+\#define GET\+\_\+\+INVOICE\+\_\+\+NIF(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ nif)}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_ac23905441fd3a65ef6aae6b1ad1b2c0d}\index{invoices.h@{invoices.h}!GET\_INVOICE\_TOTAL\_ITEMS@{GET\_INVOICE\_TOTAL\_ITEMS}}
+\index{GET\_INVOICE\_TOTAL\_ITEMS@{GET\_INVOICE\_TOTAL\_ITEMS}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{GET\_INVOICE\_TOTAL\_ITEMS}{GET\_INVOICE\_TOTAL\_ITEMS}}
+{\footnotesize\ttfamily \label{invoices_8h_ac23905441fd3a65ef6aae6b1ad1b2c0d} 
+\+\#define GET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+ITEMS(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ totalItems)}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_a9c4504320e6ff834442adbda071df7a2}\index{invoices.h@{invoices.h}!GET\_INVOICE\_TOTAL\_VALUE@{GET\_INVOICE\_TOTAL\_VALUE}}
+\index{GET\_INVOICE\_TOTAL\_VALUE@{GET\_INVOICE\_TOTAL\_VALUE}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{GET\_INVOICE\_TOTAL\_VALUE}{GET\_INVOICE\_TOTAL\_VALUE}}
+{\footnotesize\ttfamily \label{invoices_8h_a9c4504320e6ff834442adbda071df7a2} 
+\+\#define GET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+VALUE(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ totalValue)}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_a45d13fd89a3b2dc0dcfe7dbae2854be2}\index{invoices.h@{invoices.h}!SET\_INVOICE\_CLIENT@{SET\_INVOICE\_CLIENT}}
+\index{SET\_INVOICE\_CLIENT@{SET\_INVOICE\_CLIENT}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{SET\_INVOICE\_CLIENT}{SET\_INVOICE\_CLIENT}}
+{\footnotesize\ttfamily \label{invoices_8h_a45d13fd89a3b2dc0dcfe7dbae2854be2} 
+\+\#define SET\+\_\+\+INVOICE\+\_\+\+CLIENT(\begin{DoxyParamCaption}\item[{}]{i}{, }\item[{}]{new\+Client}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ clientRef\ =\ newClient)}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_a55dd132cf2a7ae6ee741d4316194566d}\index{invoices.h@{invoices.h}!SET\_INVOICE\_ID@{SET\_INVOICE\_ID}}
+\index{SET\_INVOICE\_ID@{SET\_INVOICE\_ID}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{SET\_INVOICE\_ID}{SET\_INVOICE\_ID}}
+{\footnotesize\ttfamily \label{invoices_8h_a55dd132cf2a7ae6ee741d4316194566d} 
+\+\#define SET\+\_\+\+INVOICE\+\_\+\+ID(\begin{DoxyParamCaption}\item[{}]{i}{, }\item[{}]{number}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ \textcolor{keywordtype}{id}\ =\ number)}
+
+\end{DoxyCode}
+Setters \Hypertarget{invoices_8h_acfdadbe45800de5267febde13ae8b222}\index{invoices.h@{invoices.h}!SET\_INVOICE\_NIF@{SET\_INVOICE\_NIF}}
+\index{SET\_INVOICE\_NIF@{SET\_INVOICE\_NIF}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{SET\_INVOICE\_NIF}{SET\_INVOICE\_NIF}}
+{\footnotesize\ttfamily \label{invoices_8h_acfdadbe45800de5267febde13ae8b222} 
+\+\#define SET\+\_\+\+INVOICE\+\_\+\+NIF(\begin{DoxyParamCaption}\item[{}]{i}{, }\item[{}]{new\+Nif}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(strcpy(i\ -\/>\ nif,\ newNif))}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_aba036058508dcec518f558c3c9fabfd8}\index{invoices.h@{invoices.h}!SET\_INVOICE\_TOTAL\_ITEMS@{SET\_INVOICE\_TOTAL\_ITEMS}}
+\index{SET\_INVOICE\_TOTAL\_ITEMS@{SET\_INVOICE\_TOTAL\_ITEMS}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{SET\_INVOICE\_TOTAL\_ITEMS}{SET\_INVOICE\_TOTAL\_ITEMS}}
+{\footnotesize\ttfamily \label{invoices_8h_aba036058508dcec518f558c3c9fabfd8} 
+\+\#define SET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+ITEMS(\begin{DoxyParamCaption}\item[{}]{i}{, }\item[{}]{n\+Items}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ totalItems\ =\ nItems)}
+
+\end{DoxyCode}
+\Hypertarget{invoices_8h_a0198f7b1b941c6977560189c507bc932}\index{invoices.h@{invoices.h}!SET\_INVOICE\_TOTAL\_VALUE@{SET\_INVOICE\_TOTAL\_VALUE}}
+\index{SET\_INVOICE\_TOTAL\_VALUE@{SET\_INVOICE\_TOTAL\_VALUE}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{SET\_INVOICE\_TOTAL\_VALUE}{SET\_INVOICE\_TOTAL\_VALUE}}
+{\footnotesize\ttfamily \label{invoices_8h_a0198f7b1b941c6977560189c507bc932} 
+\+\#define SET\+\_\+\+INVOICE\+\_\+\+TOTAL\+\_\+\+VALUE(\begin{DoxyParamCaption}\item[{}]{i}{, }\item[{}]{value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(i\ -\/>\ totalValue\ =\ value)}
+
+\end{DoxyCode}
+
+
+\label{doc-typedef-members}
+\Hypertarget{invoices_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}\index{invoices.h@{invoices.h}!SystemContext@{SystemContext}}
+\index{SystemContext@{SystemContext}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{SystemContext}{SystemContext}}
+{\footnotesize\ttfamily \label{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1} 
+typedef struct \doxymbox{\hyperlink{structsystem_context}{system\+Context}} \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}}}
+
+
+
+Global system context storing aggregate statistics. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{invoices_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{invoices_8h_a07619f0cac4c56a2f8d382fea2905b4d}\index{invoices.h@{invoices.h}!compareInvoices@{compareInvoices}}
+\index{compareInvoices@{compareInvoices}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{compareInvoices()}{compareInvoices()}}
+{\footnotesize\ttfamily \label{invoices_8h_a07619f0cac4c56a2f8d382fea2905b4d} 
+int compare\+Invoices (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeA}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeB}{}\end{DoxyParamCaption})}
+
+
+
+Compares two invoices based on their unique ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing an invoice. \\
+\hline
+{\em nodeB} & Second list node containing an invoice. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>} 0 if A \texorpdfstring{$>$}{>} B, \texorpdfstring{$<$}{<} 0 if A \texorpdfstring{$<$}{<} B, 0 if equal. 
+\end{DoxyReturn}
+Cast pointer types to the \doxylink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice} type
+
+Get invoice IDs
+
+Invoices are unique by ID and assigned sequentially\Hypertarget{invoices_8h_a663ce390d3f057c24444c2607bd94a45}\index{invoices.h@{invoices.h}!createInvoice@{createInvoice}}
+\index{createInvoice@{createInvoice}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{createInvoice()}{createInvoice()}}
+{\footnotesize\ttfamily \label{invoices_8h_a663ce390d3f057c24444c2607bd94a45} 
+\doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}} \texorpdfstring{$\ast$}{*} create\+Invoice (\begin{DoxyParamCaption}\item[{int}]{id}{, }\item[{long long}]{total\+Value}{, }\item[{long long}]{total\+Items}{, }\item[{char}]{nif}{\+[$\,$]\+, }\item[{\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*}}]{client\+Ref}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new invoice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The unique identifier for the invoice. \\
+\hline
+{\em total\+Value} & The total cost in cents. \\
+\hline
+{\em total\+Items} & The total number of products. \\
+\hline
+{\em nif} & The VAT identification number string. \\
+\hline
+{\em client\+Ref} & Pointer to the client making the purchase. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new allocated \doxylink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice} instance. 
+\end{DoxyReturn}
+\Hypertarget{invoices_8h_a7aa4f79ed1288b8fd6d4ed1061541ae0}\index{invoices.h@{invoices.h}!createInvoicesList@{createInvoicesList}}
+\index{createInvoicesList@{createInvoicesList}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{createInvoicesList()}{createInvoicesList()}}
+{\footnotesize\ttfamily \label{invoices_8h_a7aa4f79ed1288b8fd6d4ed1061541ae0} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+Invoices\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new abstract data type list configured for invoices. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the dynamically allocated list of invoices. 
+\end{DoxyReturn}
+\Hypertarget{invoices_8h_a9a5481d32379dde9b6c234381c6e58fd}\index{invoices.h@{invoices.h}!destroyInvoice@{destroyInvoice}}
+\index{destroyInvoice@{destroyInvoice}!invoices.h@{invoices.h}}
+\doxysubsubsection{\texorpdfstring{destroyInvoice()}{destroyInvoice()}}
+{\footnotesize\ttfamily \label{invoices_8h_a9a5481d32379dde9b6c234381c6e58fd} 
+void destroy\+Invoice (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Destroys an invoice instance and frees its memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the invoice to be destroyed. \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type

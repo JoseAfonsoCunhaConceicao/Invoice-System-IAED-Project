@@ -1,0 +1,64 @@
+\doxysection{a\+Command.\+h File Reference}
+\hypertarget{a_command_8h}{}\label{a_command_8h}\index{aCommand.h@{aCommand.h}}
+
+
+Header file for the \textquotesingle{}a\textquotesingle{} command (add product to basket).  
+
+
+{\ttfamily \+\#include "{}products.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{a_command_8h_a9c411da0180ffd358244022b6c73bf7a}{list\+All\+Products\+In\+Basket}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Callback function applied to list all products currently in the basket. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a_command_8h_adfa0b66bb1beca4625b2996d33c02f7a}{a\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}a\textquotesingle{} command, adding or removing product quantities from the basket. Also handles listing the current basket if called without arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \textquotesingle{}a\textquotesingle{} command (add product to basket). 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{a_command_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{a_command_8h_adfa0b66bb1beca4625b2996d33c02f7a}\index{aCommand.h@{aCommand.h}!aCommand@{aCommand}}
+\index{aCommand@{aCommand}!aCommand.h@{aCommand.h}}
+\doxysubsubsection{\texorpdfstring{aCommand()}{aCommand()}}
+{\footnotesize\ttfamily \label{a_command_8h_adfa0b66bb1beca4625b2996d33c02f7a} 
+void a\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}a\textquotesingle{} command, adding or removing product quantities from the basket. Also handles listing the current basket if called without arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the global list of system products. \\
+\hline
+{\em basket} & Pointer to the current basket list.\\
+\hline
+\end{DoxyParams}
+Executes the \textquotesingle{}a\textquotesingle{} command, adding or removing product quantities from the basket. Also handles listing the current basket if called without arguments. Read arguments and validate product existence
+
+Case for single argument (just EAN, quantity defaults to 1)\Hypertarget{a_command_8h_a9c411da0180ffd358244022b6c73bf7a}\index{aCommand.h@{aCommand.h}!listAllProductsInBasket@{listAllProductsInBasket}}
+\index{listAllProductsInBasket@{listAllProductsInBasket}!aCommand.h@{aCommand.h}}
+\doxysubsubsection{\texorpdfstring{listAllProductsInBasket()}{listAllProductsInBasket()}}
+{\footnotesize\ttfamily \label{a_command_8h_a9c411da0180ffd358244022b6c73bf7a} 
+void list\+All\+Products\+In\+Basket (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Callback function applied to list all products currently in the basket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product to be printed. \\
+\hline
+{\em context} & Additional context parameter (unused). \\
+\hline
+\end{DoxyParams}

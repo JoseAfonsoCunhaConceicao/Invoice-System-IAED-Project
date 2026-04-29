@@ -1,0 +1,138 @@
+\doxysection{f\+Command.\+h File Reference}
+\hypertarget{f_command_8h}{}\label{f_command_8h}\index{fCommand.h@{fCommand.h}}
+
+
+Header file for the \textquotesingle{}f\textquotesingle{} command (finalize invoice).  
+
+
+{\ttfamily \+\#include "{}invoices.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_finalize_context}{Finalize\+Context}}
+\begin{DoxyCompactList}\small\item\em Context structure for calculating invoice totals dynamically. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{f_command_8h_a2325f59cfaabe90a22c2bd7e915be381}{finalize\+Purchase}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Callback function to calculate and accumulate values from a product in the basket. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{f_command_8h_aa4b59d8d1e159702b38143b62729fae4}{find\+Or\+Add\+Client}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Helper function to retrieve an existing client or create a new one. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{f_command_8h_ac7bd2ff230d9169240b445226e43ed82}{f\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket, \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}})
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}f\textquotesingle{} command, concluding a sale and creating a formal invoice. Parses the nif, client name, registers the sale on system stats, links it to the client, and empties the basket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \textquotesingle{}f\textquotesingle{} command (finalize invoice). 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{f_command_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{f_command_8h_ac7bd2ff230d9169240b445226e43ed82}\index{fCommand.h@{fCommand.h}!fCommand@{fCommand}}
+\index{fCommand@{fCommand}!fCommand.h@{fCommand.h}}
+\doxysubsubsection{\texorpdfstring{fCommand()}{fCommand()}}
+{\footnotesize\ttfamily \label{f_command_8h_ac7bd2ff230d9169240b445226e43ed82} 
+void f\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{, }\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}f\textquotesingle{} command, concluding a sale and creating a formal invoice. Parses the nif, client name, registers the sale on system stats, links it to the client, and empties the basket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em invoices} & Pointer to the list of invoices. \\
+\hline
+{\em clients} & Pointer to the list of clients. \\
+\hline
+{\em basket} & Pointer to the current active basket. \\
+\hline
+{\em \doxylink{structsystem_context}{system\+Context}} & Pointer to the global system metrics structure.\\
+\hline
+\end{DoxyParams}
+Executes the \textquotesingle{}f\textquotesingle{} command, concluding a sale and creating a formal invoice. Parses the nif, client name, registers the sale on system stats, links it to the client, and empties the basket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em invoices} & Pointer to the list of invoices. \\
+\hline
+{\em clients} & Pointer to the list of clients. \\
+\hline
+{\em basket} & Pointer to the current active basket. \\
+\hline
+{\em \doxylink{structsystem_context}{system\+Context}} & Pointer to the global system metrics structure. \\
+\hline
+\end{DoxyParams}
+Check structural health (arguments validity and basket contents)
+
+Ensure any partially read name buffer is freed
+
+Trigger invoice logic cascade\Hypertarget{f_command_8h_a2325f59cfaabe90a22c2bd7e915be381}\index{fCommand.h@{fCommand.h}!finalizePurchase@{finalizePurchase}}
+\index{finalizePurchase@{finalizePurchase}!fCommand.h@{fCommand.h}}
+\doxysubsubsection{\texorpdfstring{finalizePurchase()}{finalizePurchase()}}
+{\footnotesize\ttfamily \label{f_command_8h_a2325f59cfaabe90a22c2bd7e915be381} 
+void finalize\+Purchase (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Callback function to calculate and accumulate values from a product in the basket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product. \\
+\hline
+{\em context} & Pointer to the \doxylink{struct_finalize_context}{Finalize\+Context} tracking the totals.\\
+\hline
+\end{DoxyParams}
+Callback function to calculate and accumulate values from a product in the basket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product. \\
+\hline
+{\em context} & Pointer to the \doxylink{struct_finalize_context}{Finalize\+Context} tracking the totals. \\
+\hline
+\end{DoxyParams}
+Cast the pointers to the correct type\Hypertarget{f_command_8h_aa4b59d8d1e159702b38143b62729fae4}\index{fCommand.h@{fCommand.h}!findOrAddClient@{findOrAddClient}}
+\index{findOrAddClient@{findOrAddClient}!fCommand.h@{fCommand.h}}
+\doxysubsubsection{\texorpdfstring{findOrAddClient()}{findOrAddClient()}}
+{\footnotesize\ttfamily \label{f_command_8h_aa4b59d8d1e159702b38143b62729fae4} 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} find\+Or\+Add\+Client (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Helper function to retrieve an existing client or create a new one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients. \\
+\hline
+{\em name} & The name of the client to find or add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched/\+newly added client instance.
+\end{DoxyReturn}
+Helper function to retrieve an existing client or create a new one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients. \\
+\hline
+{\em name} & The name of the client to find or add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched/\+newly added client instance. 
+\end{DoxyReturn}
+If client exists, return the client\textquotesingle{}s pointer
+
+Avoid memory leak if client already exists
+
+If not, create a new client
+
+Insertion on the linked list and tree

@@ -1,0 +1,83 @@
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+
+
+The main file of the IAED 25/\+26 Project.  
+
+
+{\ttfamily \+\#include "{}global.\+h"{}}\newline
+{\ttfamily \+\#include "{}p\+Command.\+h"{}}\newline
+{\ttfamily \+\#include "{}l\+Command.\+h"{}}\newline
+{\ttfamily \+\#include "{}a\+Command.\+h"{}}\newline
+{\ttfamily \+\#include "{}r\+Command.\+h"{}}\newline
+{\ttfamily \+\#include "{}f\+Command.\+h"{}}\newline
+{\ttfamily \+\#include "{}c\+Command.\+h"{}}\newline
+{\ttfamily \+\#include "{}d\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{main_8c_aeae19b72b9677cd606de5779b6d174d7}{init\+Iva\+Rates}} (int iva\+Rates\+[$\,$]\+, int argc, char \texorpdfstring{$\ast$}{*}argv\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Initializes the IVA rates vector based on arguments or defaults. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{main_8c_add67897b80f38785c0ed7ef6ca2e47d7}{run\+Command}} (char command, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket, \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}}, int iva\+Rates\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Dispatches the command to the appropriate handler. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Reads the input from stdin and calls the respective command handler. Controls the main lifecycle of the program, parsing the first character of each line to determine the system state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main file of the IAED 25/\+26 Project. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{main_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_aeae19b72b9677cd606de5779b6d174d7}\index{main.c@{main.c}!initIvaRates@{initIvaRates}}
+\index{initIvaRates@{initIvaRates}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{initIvaRates()}{initIvaRates()}}
+{\footnotesize\ttfamily \label{main_8c_aeae19b72b9677cd606de5779b6d174d7} 
+void init\+Iva\+Rates (\begin{DoxyParamCaption}\item[{int}]{iva\+Rates}{\+[$\,$]\+, }\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\+[$\,$]\+}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the IVA rates vector based on arguments or defaults. 
+
+\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Reads the input from stdin and calls the respective command handler. Controls the main lifecycle of the program, parsing the first character of each line to determine the system state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments. \\
+\hline
+{\em argv} & Vector of strings containing the command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 upon successful execution. 
+\end{DoxyReturn}
+Initialize data structure containers
+
+System metadata state:\+ \{sold\+Items, total\+Profit, invoice\+Count, next\+ID\}
+
+Setup IVA rates and enter main command loop
+
+Memory cleanup before exit\Hypertarget{main_8c_add67897b80f38785c0ed7ef6ca2e47d7}\index{main.c@{main.c}!runCommand@{runCommand}}
+\index{runCommand@{runCommand}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{runCommand()}{runCommand()}}
+{\footnotesize\ttfamily \label{main_8c_add67897b80f38785c0ed7ef6ca2e47d7} 
+void run\+Command (\begin{DoxyParamCaption}\item[{char}]{command}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{, }\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{, }\item[{int}]{iva\+Rates}{\+[$\,$]\+}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Dispatches the command to the appropriate handler. 
+

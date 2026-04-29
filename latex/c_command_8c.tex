@@ -1,0 +1,132 @@
+\doxysection{c\+Command.\+c File Reference}
+\hypertarget{c_command_8c}{}\label{c_command_8c}\index{cCommand.c@{cCommand.c}}
+
+
+Implementation of the \textquotesingle{}c\textquotesingle{} command for listing client invoices.  
+
+
+{\ttfamily \+\#include "{}c\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{c_command_8c_ae6fce690a913fbb7cc4c0dd3ec42977f}{print\+Invoices}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Callback function applied to print a single invoice. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{c_command_8c_a336c5dbe534e323cf119b9ac413522c9}{print\+Client\+Invoices}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Callback function applied to print all invoices belonging to a specific client. Calls print\+Invoices on every element of the client\textquotesingle{}s internal invoice list. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{c_command_8c_ad0a33251dda7d89408ccf7e5d2a0732a}{handle\+All\+Clients}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients)
+\begin{DoxyCompactList}\small\item\em Helper function to handle the case where no client name is provided. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{c_command_8c_ad45aaa67653e97090bf8ebbfc0ed9db5}{execute\+CCommand}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Searches for a client and prints their invoices. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{c_command_8c_a072dde04404b9df5ff02768a711fed02}{c\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}c\textquotesingle{} command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \textquotesingle{}c\textquotesingle{} command for listing client invoices. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{c_command_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{c_command_8c_a072dde04404b9df5ff02768a711fed02}\index{cCommand.c@{cCommand.c}!cCommand@{cCommand}}
+\index{cCommand@{cCommand}!cCommand.c@{cCommand.c}}
+\doxysubsubsection{\texorpdfstring{cCommand()}{cCommand()}}
+{\footnotesize\ttfamily \label{c_command_8c_a072dde04404b9df5ff02768a711fed02} 
+void c\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}c\textquotesingle{} command. 
+
+Executes the \textquotesingle{}c\textquotesingle{} command, listing all invoices for a client or all invoices in chronological order if no argument is provided.
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients in the system. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Command invoked without arguments:\+ \doxylink{struct_list}{List} all system invoices
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Specific client name provided:\+ Parse and fetch their records
+\end{DoxyEnumerate}\Hypertarget{c_command_8c_ad45aaa67653e97090bf8ebbfc0ed9db5}\index{cCommand.c@{cCommand.c}!executeCCommand@{executeCCommand}}
+\index{executeCCommand@{executeCCommand}!cCommand.c@{cCommand.c}}
+\doxysubsubsection{\texorpdfstring{executeCCommand()}{executeCCommand()}}
+{\footnotesize\ttfamily \label{c_command_8c_ad45aaa67653e97090bf8ebbfc0ed9db5} 
+void execute\+CCommand (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Searches for a client and prints their invoices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the system list of clients. \\
+\hline
+{\em name} & Name of the client to search for. \\
+\hline
+\end{DoxyParams}
+Locate the client in the main tree structure
+
+\doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} found:\+ Extract and print their linked transaction history
+
+If all invoices were deleted, treat as if the client doesn\textquotesingle{}t exist for this command\Hypertarget{c_command_8c_ad0a33251dda7d89408ccf7e5d2a0732a}\index{cCommand.c@{cCommand.c}!handleAllClients@{handleAllClients}}
+\index{handleAllClients@{handleAllClients}!cCommand.c@{cCommand.c}}
+\doxysubsubsection{\texorpdfstring{handleAllClients()}{handleAllClients()}}
+{\footnotesize\ttfamily \label{c_command_8c_ad0a33251dda7d89408ccf7e5d2a0732a} 
+void handle\+All\+Clients (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper function to handle the case where no client name is provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients in the system. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{c_command_8c_a336c5dbe534e323cf119b9ac413522c9}\index{cCommand.c@{cCommand.c}!printClientInvoices@{printClientInvoices}}
+\index{printClientInvoices@{printClientInvoices}!cCommand.c@{cCommand.c}}
+\doxysubsubsection{\texorpdfstring{printClientInvoices()}{printClientInvoices()}}
+{\footnotesize\ttfamily \label{c_command_8c_a336c5dbe534e323cf119b9ac413522c9} 
+void print\+Client\+Invoices (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Callback function applied to print all invoices belonging to a specific client. Calls print\+Invoices on every element of the client\textquotesingle{}s internal invoice list. 
+
+Callback function applied to print all invoices belonging to a specific client.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the client. \\
+\hline
+{\em context} & Additional context parameter (unused). \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type\Hypertarget{c_command_8c_ae6fce690a913fbb7cc4c0dd3ec42977f}\index{cCommand.c@{cCommand.c}!printInvoices@{printInvoices}}
+\index{printInvoices@{printInvoices}!cCommand.c@{cCommand.c}}
+\doxysubsubsection{\texorpdfstring{printInvoices()}{printInvoices()}}
+{\footnotesize\ttfamily \label{c_command_8c_ae6fce690a913fbb7cc4c0dd3ec42977f} 
+void print\+Invoices (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Callback function applied to print a single invoice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the invoice to be printed. \\
+\hline
+{\em context} & Additional context parameter (unused). \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type

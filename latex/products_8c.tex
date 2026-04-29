@@ -1,0 +1,138 @@
+\doxysection{products.\+c File Reference}
+\hypertarget{products_8c}{}\label{products_8c}\index{products.c@{products.c}}
+
+
+Implementation of product data structures and related operations.  
+
+
+{\ttfamily \+\#include "{}products.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{products_8c_acc35fd5dcbd374dd36b20b389052a4cf}{create\+Product}} ()
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new empty \doxylink{struct_product}{Product} instance. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{products_8c_ae166539600121ef79aa907bd8eb50998}{compare\+Products}} (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeA, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeB)
+\begin{DoxyCompactList}\small\item\em Compares two products by their unique EAN code. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{products_8c_a1484737675f01a0cb3873bf0fbbf3223}{destroy\+Product}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Destroys a product instance and frees its memory. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{products_8c_a0d9f64e2bea8f7236dc488c160607ec6}{reset\+Basket}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Reset callback function applied to each product in the basket. Rolls back the units from the basket to the available stock. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{products_8c_a71ab7e3be49490c52286b35a5fd4bd7d}{find\+Product\+By\+EAN}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, char \texorpdfstring{$\ast$}{*}ean)
+\begin{DoxyCompactList}\small\item\em Helper to find a product by EAN without manual dummy construction. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{products_8c_a6f76de454d3d1b8eaad48958fa414933}{create\+Products\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new abstract data type list configured for products. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of product data structures and related operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{products_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{products_8c_ae166539600121ef79aa907bd8eb50998}\index{products.c@{products.c}!compareProducts@{compareProducts}}
+\index{compareProducts@{compareProducts}!products.c@{products.c}}
+\doxysubsubsection{\texorpdfstring{compareProducts()}{compareProducts()}}
+{\footnotesize\ttfamily \label{products_8c_ae166539600121ef79aa907bd8eb50998} 
+int compare\+Products (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeA}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeB}{}\end{DoxyParamCaption})}
+
+
+
+Compares two products by their unique EAN code. 
+
+Compares two products chronologically (usually by creation sequence inherently handled by tree insertion logic if unmodified).
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing a product. \\
+\hline
+{\em nodeB} & Second list node containing a product. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>} 0 if A \texorpdfstring{$>$}{>} B, \texorpdfstring{$<$}{<} 0 if A \texorpdfstring{$<$}{<} B, 0 if equal. 
+\end{DoxyReturn}
+Cast pointer types to the \doxylink{struct_product}{Product} type
+
+Get EAN Codes\Hypertarget{products_8c_acc35fd5dcbd374dd36b20b389052a4cf}\index{products.c@{products.c}!createProduct@{createProduct}}
+\index{createProduct@{createProduct}!products.c@{products.c}}
+\doxysubsubsection{\texorpdfstring{createProduct()}{createProduct()}}
+{\footnotesize\ttfamily \label{products_8c_acc35fd5dcbd374dd36b20b389052a4cf} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} create\+Product (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Allocates and initializes a new empty \doxylink{struct_product}{Product} instance. 
+
+\begin{DoxyReturn}{Returns}
+A dynamically allocated \doxylink{struct_product}{Product} pointer. 
+\end{DoxyReturn}
+\Hypertarget{products_8c_a6f76de454d3d1b8eaad48958fa414933}\index{products.c@{products.c}!createProductsList@{createProductsList}}
+\index{createProductsList@{createProductsList}!products.c@{products.c}}
+\doxysubsubsection{\texorpdfstring{createProductsList()}{createProductsList()}}
+{\footnotesize\ttfamily \label{products_8c_a6f76de454d3d1b8eaad48958fa414933} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+Products\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new abstract data type list configured for products. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the dynamically allocated list of products. 
+\end{DoxyReturn}
+\Hypertarget{products_8c_a1484737675f01a0cb3873bf0fbbf3223}\index{products.c@{products.c}!destroyProduct@{destroyProduct}}
+\index{destroyProduct@{destroyProduct}!products.c@{products.c}}
+\doxysubsubsection{\texorpdfstring{destroyProduct()}{destroyProduct()}}
+{\footnotesize\ttfamily \label{products_8c_a1484737675f01a0cb3873bf0fbbf3223} 
+void destroy\+Product (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Destroys a product instance and frees its memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product to be destroyed. \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type\Hypertarget{products_8c_a71ab7e3be49490c52286b35a5fd4bd7d}\index{products.c@{products.c}!findProductByEAN@{findProductByEAN}}
+\index{findProductByEAN@{findProductByEAN}!products.c@{products.c}}
+\doxysubsubsection{\texorpdfstring{findProductByEAN()}{findProductByEAN()}}
+{\footnotesize\ttfamily \label{products_8c_a71ab7e3be49490c52286b35a5fd4bd7d} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} find\+Product\+By\+EAN (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{}\end{DoxyParamCaption})}
+
+
+
+Helper to find a product by EAN without manual dummy construction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the list of products. \\
+\hline
+{\em ean} & EAN code to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the product if found, NULL otherwise. 
+\end{DoxyReturn}
+Bind key to local stack dummy to perform O(log N) lookup\Hypertarget{products_8c_a0d9f64e2bea8f7236dc488c160607ec6}\index{products.c@{products.c}!resetBasket@{resetBasket}}
+\index{resetBasket@{resetBasket}!products.c@{products.c}}
+\doxysubsubsection{\texorpdfstring{resetBasket()}{resetBasket()}}
+{\footnotesize\ttfamily \label{products_8c_a0d9f64e2bea8f7236dc488c160607ec6} 
+void reset\+Basket (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Reset callback function applied to each product in the basket. Rolls back the units from the basket to the available stock. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product to reset. \\
+\hline
+{\em context} & Additional context (unused). \\
+\hline
+\end{DoxyParams}

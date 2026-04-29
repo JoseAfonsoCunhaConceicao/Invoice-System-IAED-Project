@@ -1,0 +1,127 @@
+\doxysection{clients.\+c File Reference}
+\hypertarget{clients_8c}{}\label{clients_8c}\index{clients.c@{clients.c}}
+
+
+Implementation of client data structures and related operations.  
+
+
+{\ttfamily \+\#include "{}clients.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{clients_8c_acaaa7ee662531876fe22df7bb697d95f}{create\+Client}} (char \texorpdfstring{$\ast$}{*}name, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices)
+\begin{DoxyCompactList}\small\item\em Constructs a new client. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{clients_8c_ad41308b8ef4dde87a814ffff07799722}{compare\+Clients}} (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeA, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeB)
+\begin{DoxyCompactList}\small\item\em Compares two clients alphabetically by their name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{clients_8c_a61b0b0ce330f091bb80d4c8c149e8b22}{destroy\+Client}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Destroys a client instance and frees its associated memory. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{clients_8c_a140e50cdb806c20e20d7510ef13ce58a}{create\+Clients\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new abstract data type list configured for clients. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{clients_8c_a27ac93b5a7d8c48ee966ad2addf1dbb3}{find\+Client\+By\+Name}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Helper to find a client by name without manual dummy construction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of client data structures and related operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{clients_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{clients_8c_ad41308b8ef4dde87a814ffff07799722}\index{clients.c@{clients.c}!compareClients@{compareClients}}
+\index{compareClients@{compareClients}!clients.c@{clients.c}}
+\doxysubsubsection{\texorpdfstring{compareClients()}{compareClients()}}
+{\footnotesize\ttfamily \label{clients_8c_ad41308b8ef4dde87a814ffff07799722} 
+int compare\+Clients (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeA}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeB}{}\end{DoxyParamCaption})}
+
+
+
+Compares two clients alphabetically by their name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing a client. \\
+\hline
+{\em nodeB} & Second list node containing a client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>} 0 if A \texorpdfstring{$>$}{>} B, \texorpdfstring{$<$}{<} 0 if A \texorpdfstring{$<$}{<} B, 0 if equal. 
+\end{DoxyReturn}
+Cast pointer types to the \doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} type
+
+Get client names
+
+Compare Names\Hypertarget{clients_8c_acaaa7ee662531876fe22df7bb697d95f}\index{clients.c@{clients.c}!createClient@{createClient}}
+\index{createClient@{createClient}!clients.c@{clients.c}}
+\doxysubsubsection{\texorpdfstring{createClient()}{createClient()}}
+{\footnotesize\ttfamily \label{clients_8c_acaaa7ee662531876fe22df7bb697d95f} 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} create\+Client (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the client. \\
+\hline
+{\em invoices} & Pointer to an existing list of invoices (or NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new allocated \doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} instance. 
+\end{DoxyReturn}
+\Hypertarget{clients_8c_a140e50cdb806c20e20d7510ef13ce58a}\index{clients.c@{clients.c}!createClientsList@{createClientsList}}
+\index{createClientsList@{createClientsList}!clients.c@{clients.c}}
+\doxysubsubsection{\texorpdfstring{createClientsList()}{createClientsList()}}
+{\footnotesize\ttfamily \label{clients_8c_a140e50cdb806c20e20d7510ef13ce58a} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+Clients\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new abstract data type list configured for clients. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the dynamically allocated list of clients. 
+\end{DoxyReturn}
+\Hypertarget{clients_8c_a61b0b0ce330f091bb80d4c8c149e8b22}\index{clients.c@{clients.c}!destroyClient@{destroyClient}}
+\index{destroyClient@{destroyClient}!clients.c@{clients.c}}
+\doxysubsubsection{\texorpdfstring{destroyClient()}{destroyClient()}}
+{\footnotesize\ttfamily \label{clients_8c_a61b0b0ce330f091bb80d4c8c149e8b22} 
+void destroy\+Client (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Destroys a client instance and frees its associated memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the client to be destroyed. \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type\Hypertarget{clients_8c_a27ac93b5a7d8c48ee966ad2addf1dbb3}\index{clients.c@{clients.c}!findClientByName@{findClientByName}}
+\index{findClientByName@{findClientByName}!clients.c@{clients.c}}
+\doxysubsubsection{\texorpdfstring{findClientByName()}{findClientByName()}}
+{\footnotesize\ttfamily \label{clients_8c_a27ac93b5a7d8c48ee966ad2addf1dbb3} 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} find\+Client\+By\+Name (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Helper to find a client by name without manual dummy construction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients. \\
+\hline
+{\em name} & \doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} name to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the client if found, NULL otherwise. 
+\end{DoxyReturn}
+Bind name to local stack dummy to perform O(log N) lookup

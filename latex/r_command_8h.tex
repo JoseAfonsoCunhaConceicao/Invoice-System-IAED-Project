@@ -1,0 +1,54 @@
+\doxysection{r\+Command.\+h File Reference}
+\hypertarget{r_command_8h}{}\label{r_command_8h}\index{rCommand.h@{rCommand.h}}
+
+
+Header file for the \textquotesingle{}r\textquotesingle{} command (remove product/\+calculate stats).  
+
+
+{\ttfamily \+\#include "{}invoices.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{r_command_8h_aad3eb62befa104f3d909f73b8c398bb4}{r\+Command}} (\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}}, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, int iva\+Rates\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}r\textquotesingle{} command. Depending on arguments, either removes a product entirely from the system or recalculates and corrects global system statistics based on product price/\+tax changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \textquotesingle{}r\textquotesingle{} command (remove product/\+calculate stats). 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{r_command_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{r_command_8h_aad3eb62befa104f3d909f73b8c398bb4}\index{rCommand.h@{rCommand.h}!rCommand@{rCommand}}
+\index{rCommand@{rCommand}!rCommand.h@{rCommand.h}}
+\doxysubsubsection{\texorpdfstring{rCommand()}{rCommand()}}
+{\footnotesize\ttfamily \label{r_command_8h_aad3eb62befa104f3d909f73b8c398bb4} 
+void r\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{int}]{iva\+Rates}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}r\textquotesingle{} command. Depending on arguments, either removes a product entirely from the system or recalculates and corrects global system statistics based on product price/\+tax changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structsystem_context}{system\+Context}} & Pointer to the global system context to be correctly recalculated. \\
+\hline
+{\em products} & Pointer to the global list of products. \\
+\hline
+{\em iva\+Rates} & Array containing the current valid IVA mappings.\\
+\hline
+\end{DoxyParams}
+Executes the \textquotesingle{}r\textquotesingle{} command. Depending on arguments, either removes a product entirely from the system or recalculates and corrects global system statistics based on product price/\+tax changes. 
+\begin{DoxyEnumerate}
+\item Command without arguments:\+ Total system status.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item EAN provided:\+ Retrieve and display detailed product history.
+\end{DoxyEnumerate}

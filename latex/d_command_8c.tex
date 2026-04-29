@@ -1,0 +1,77 @@
+\doxysection{d\+Command.\+c File Reference}
+\hypertarget{d_command_8c}{}\label{d_command_8c}\index{dCommand.c@{dCommand.c}}
+
+
+Implementation of the \textquotesingle{}d\textquotesingle{} command. Allows deleting a specific invoice by ID or removing quantities of a specific product.  
+
+
+{\ttfamily \+\#include "{}d\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{d_command_8c_a38b6bee686a1baedd6651025299b56c3}{delete\+Invoice}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices, int invoice\+Id, \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}})
+\begin{DoxyCompactList}\small\item\em Deletes an invoice from the system and client history. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{d_command_8c_a03cf40bc05827d3c95fa3020e26f4341}{remove\+Product\+Stock}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, char \texorpdfstring{$\ast$}{*}ean, int amount)
+\begin{DoxyCompactList}\small\item\em Removes stock from a product or deletes it if stock reaches zero. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{d_command_8c_aede78f46a827e51f7a5f0c9b51d64573}{d\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices, \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}})
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}d\textquotesingle{} command, deleting invoices or removing unused products. Depending on the parsed arguments, either deletes an invoice from global memory and client history, or removes a specified quantity of available product stock. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \textquotesingle{}d\textquotesingle{} command. Allows deleting a specific invoice by ID or removing quantities of a specific product. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{d_command_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{d_command_8c_aede78f46a827e51f7a5f0c9b51d64573}\index{dCommand.c@{dCommand.c}!dCommand@{dCommand}}
+\index{dCommand@{dCommand}!dCommand.c@{dCommand.c}}
+\doxysubsubsection{\texorpdfstring{dCommand()}{dCommand()}}
+{\footnotesize\ttfamily \label{d_command_8c_aede78f46a827e51f7a5f0c9b51d64573} 
+void d\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{, }\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}d\textquotesingle{} command, deleting invoices or removing unused products. Depending on the parsed arguments, either deletes an invoice from global memory and client history, or removes a specified quantity of available product stock. 
+
+Executes the \textquotesingle{}d\textquotesingle{} command, searching for all invoices containing a specific product. Expects an EAN code from standard input.
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the global list of system products. \\
+\hline
+{\em invoices} & Pointer to the global list of system invoices. \\
+\hline
+{\em \doxylink{structsystem_context}{system\+Context}} & Pointer to the global system context to update stats. \\
+\hline
+\end{DoxyParams}
+1 Arg provided:\+ Assume it is an invoice ID for deletion
+
+2 Args provided:\+ Parse EAN and units to deduct product stock\Hypertarget{d_command_8c_a38b6bee686a1baedd6651025299b56c3}\index{dCommand.c@{dCommand.c}!deleteInvoice@{deleteInvoice}}
+\index{deleteInvoice@{deleteInvoice}!dCommand.c@{dCommand.c}}
+\doxysubsubsection{\texorpdfstring{deleteInvoice()}{deleteInvoice()}}
+{\footnotesize\ttfamily \label{d_command_8c_a38b6bee686a1baedd6651025299b56c3} 
+void delete\+Invoice (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{, }\item[{int}]{invoice\+Id}{, }\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Deletes an invoice from the system and client history. 
+
+Output required metrics for deleted invoice
+
+Rollback system financial and unit counters for the active summary
+
+Do NOT decrement Number\+Of\+Invoices (it represents emitted count)\Hypertarget{d_command_8c_a03cf40bc05827d3c95fa3020e26f4341}\index{dCommand.c@{dCommand.c}!removeProductStock@{removeProductStock}}
+\index{removeProductStock@{removeProductStock}!dCommand.c@{dCommand.c}}
+\doxysubsubsection{\texorpdfstring{removeProductStock()}{removeProductStock()}}
+{\footnotesize\ttfamily \label{d_command_8c_a03cf40bc05827d3c95fa3020e26f4341} 
+void remove\+Product\+Stock (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{, }\item[{int}]{amount}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes stock from a product or deletes it if stock reaches zero. 
+

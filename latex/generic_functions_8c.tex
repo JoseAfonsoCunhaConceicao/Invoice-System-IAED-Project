@@ -1,0 +1,307 @@
+\doxysection{generic\+Functions.\+c File Reference}
+\hypertarget{generic_functions_8c}{}\label{generic_functions_8c}\index{genericFunctions.c@{genericFunctions.c}}
+
+
+Contains generic helper functions for validation, I/\+O processing, pattern matching, and error handling.  
+
+
+{\ttfamily \+\#include "{}global.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{generic_functions_8c_ab1405111a4256db248cc2241bac3ccf1}{handle\+No\+Memory}} ()
+\begin{DoxyCompactList}\small\item\em Prints a memory allocation error message and exits the program. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{generic_functions_8c_a8152b07a7663bb497e0f45fb6c705b3d}{allocate\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Allocates a buffer of MAX\+\_\+\+SIZE handling allocation failures. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{generic_functions_8c_a73bbc7c0dea33b0fcf8630da61895dde}{validate\+EAN}} (const char ean\+Str\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Validates an EAN-\/13 or EAN-\/8 code based on its check digit. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{generic_functions_8c_a1ea9a7eb637b8646d06180d623289f37}{is\+End\+Of\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Consumes trailing spaces and identifies if the end of line is reached. Returns 1 if a newline character is the next relevant element. Otherwise, it returns the character to the stream and returns 0. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{generic_functions_8c_a7c51cb4574388d9eb7bf70f86598177d}{read\+Iva\+File}} (int list\+Iva\+[$\,$]\+, char \texorpdfstring{$\ast$}{*}file\+Name)
+\begin{DoxyCompactList}\small\item\em Reads the tax (IVA) configuration file and populates the given vector. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{generic_functions_8c_af5ea21f4325811297858efd48f30e0e1}{validate\+Description}} (char description\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Validates if a product description starts with an uppercase letter. Identifies standard ASCII and UTF-\/8 Portuguese uppercase characters. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{generic_functions_8c_a7e7f40783a62364586a4aa330cf9fe81}{read\+Description\+Buffer}} (char description\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Helper buffer reader for read\+Description. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{generic_functions_8c_ad3cb16a853cc78e080842b60d069d932}{read\+Description}} (char description\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Reads a product description from standard input enforcing limits. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{generic_functions_8c_af506cac3b1b74664428d7460ab6af2b4}{finish\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Discards all remaining characters in the current line from stdin. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{generic_functions_8c_ac9669c5ce1ba4352db71acd8c4d86990}{match\+Wildcard}} (char \texorpdfstring{$\ast$}{*}wild, char \texorpdfstring{$\ast$}{*}ean)
+\begin{DoxyCompactList}\small\item\em Handles recursive branching for the \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} wildcard. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{generic_functions_8c_ac90ddc02409627b30bf73b6e81c0d478}{match}} (char \texorpdfstring{$\ast$}{*}wild\+Card\+Ptr, char \texorpdfstring{$\ast$}{*}ean\+Str\+Ptr)
+\begin{DoxyCompactList}\small\item\em Recursively matches an EAN string against a wildcard pattern. \end{DoxyCompactList}\item 
+static char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{generic_functions_8c_a1a60f3d6f00876d60e848e49fbdac9c6}{create\+Signal\+String}} (char \texorpdfstring{$\ast$}{*}val)
+\begin{DoxyCompactList}\small\item\em Helper for read\+Client\+Name. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{generic_functions_8c_af1f97536e979bf54a197bae08c89dd30}{read\+Raw\+Name}} (char \texorpdfstring{$\ast$}{*}name\+Buffer, int \texorpdfstring{$\ast$}{*}index\+Ptr, char current\+Char)
+\begin{DoxyCompactList}\small\item\em Reads the client name from stdin. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{generic_functions_8c_a9a7a59d60f46c731a8e03939b3a7c9ed}{read\+Client\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Reads the client name from stdin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains generic helper functions for validation, I/\+O processing, pattern matching, and error handling. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{generic_functions_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{generic_functions_8c_a8152b07a7663bb497e0f45fb6c705b3d}\index{genericFunctions.c@{genericFunctions.c}!allocateBuffer@{allocateBuffer}}
+\index{allocateBuffer@{allocateBuffer}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{allocateBuffer()}{allocateBuffer()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a8152b07a7663bb497e0f45fb6c705b3d} 
+char \texorpdfstring{$\ast$}{*} allocate\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Allocates a buffer of MAX\+\_\+\+SIZE handling allocation failures. 
+
+\begin{DoxyReturn}{Returns}
+Dynamically allocated buffer. 
+\end{DoxyReturn}
+\Hypertarget{generic_functions_8c_a1a60f3d6f00876d60e848e49fbdac9c6}\index{genericFunctions.c@{genericFunctions.c}!createSignalString@{createSignalString}}
+\index{createSignalString@{createSignalString}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{createSignalString()}{createSignalString()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a1a60f3d6f00876d60e848e49fbdac9c6} 
+char \texorpdfstring{$\ast$}{*} create\+Signal\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{val}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper for read\+Client\+Name. 
+
+\Hypertarget{generic_functions_8c_af506cac3b1b74664428d7460ab6af2b4}\index{genericFunctions.c@{genericFunctions.c}!finishLine@{finishLine}}
+\index{finishLine@{finishLine}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{finishLine()}{finishLine()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_af506cac3b1b74664428d7460ab6af2b4} 
+void finish\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Discards all remaining characters in the current line from stdin. 
+
+\Hypertarget{generic_functions_8c_ab1405111a4256db248cc2241bac3ccf1}\index{genericFunctions.c@{genericFunctions.c}!handleNoMemory@{handleNoMemory}}
+\index{handleNoMemory@{handleNoMemory}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{handleNoMemory()}{handleNoMemory()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_ab1405111a4256db248cc2241bac3ccf1} 
+void handle\+No\+Memory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Prints a memory allocation error message and exits the program. 
+
+Generic Functions \Hypertarget{generic_functions_8c_a1ea9a7eb637b8646d06180d623289f37}\index{genericFunctions.c@{genericFunctions.c}!isEndOfLine@{isEndOfLine}}
+\index{isEndOfLine@{isEndOfLine}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{isEndOfLine()}{isEndOfLine()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a1ea9a7eb637b8646d06180d623289f37} 
+int is\+End\+Of\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Consumes trailing spaces and identifies if the end of line is reached. Returns 1 if a newline character is the next relevant element. Otherwise, it returns the character to the stream and returns 0. 
+
+\begin{DoxyReturn}{Returns}
+1 if at the end of the line, 0 otherwise. 
+\end{DoxyReturn}
+Reads all the \textquotesingle{} \textquotesingle{} before the next relevant element\Hypertarget{generic_functions_8c_ac90ddc02409627b30bf73b6e81c0d478}\index{genericFunctions.c@{genericFunctions.c}!match@{match}}
+\index{match@{match}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_ac90ddc02409627b30bf73b6e81c0d478} 
+int match (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{wild\+Card\+Ptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean\+Str\+Ptr}{}\end{DoxyParamCaption})}
+
+
+
+Recursively matches an EAN string against a wildcard pattern. 
+
+Both strings reached the end successfully
+
+Exact character match:\+ advance both pointers
+
+Wildcard \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}:\+ Delegate to branching logic
+
+Wildcard \textquotesingle{}?\textquotesingle{}:\+ Matches exactly one character (if not at EOF)\Hypertarget{generic_functions_8c_ac9669c5ce1ba4352db71acd8c4d86990}\index{genericFunctions.c@{genericFunctions.c}!matchWildcard@{matchWildcard}}
+\index{matchWildcard@{matchWildcard}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{matchWildcard()}{matchWildcard()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_ac9669c5ce1ba4352db71acd8c4d86990} 
+int match\+Wildcard (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{wild}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Handles recursive branching for the \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} wildcard. 
+
+Handles the \textquotesingle{}{\itshape \textquotesingle{} wildcard recursively:\+
+\begin{DoxyEnumerate}
+\item Assume \textquotesingle{}
+\end{DoxyEnumerate}}\textquotesingle{} matches zero characters (move wild forward, keep ean)
+\begin{DoxyEnumerate}
+\item Assume \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} matches one or more characters (keep wild, move ean forward)
+\end{DoxyEnumerate}\Hypertarget{generic_functions_8c_a9a7a59d60f46c731a8e03939b3a7c9ed}\index{genericFunctions.c@{genericFunctions.c}!readClientName@{readClientName}}
+\index{readClientName@{readClientName}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{readClientName()}{readClientName()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a9a7a59d60f46c731a8e03939b3a7c9ed} 
+char \texorpdfstring{$\ast$}{*} read\+Client\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the client name from stdin. 
+
+
+\begin{DoxyEnumerate}
+\item Consume leading spaces and tabs robustly
+\end{DoxyEnumerate}
+
+If we find a newline or EOF before the name starts, it\textquotesingle{}s an empty name
+
+
+\begin{DoxyEnumerate}
+\item Differentiate between quoted and unquoted names
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Validate name format:\+ must start with a letter (enunciado line 38)
+\end{DoxyEnumerate}\Hypertarget{generic_functions_8c_ad3cb16a853cc78e080842b60d069d932}\index{genericFunctions.c@{genericFunctions.c}!readDescription@{readDescription}}
+\index{readDescription@{readDescription}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{readDescription()}{readDescription()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_ad3cb16a853cc78e080842b60d069d932} 
+int read\+Description (\begin{DoxyParamCaption}\item[{char}]{description}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Reads a product description from standard input enforcing limits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Buffer to store the validated description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+VALID\+\_\+\+DESCRIPTION if successful, INVALID\+\_\+\+DESCRIPTION otherwise. 
+\end{DoxyReturn}
+\Hypertarget{generic_functions_8c_a7e7f40783a62364586a4aa330cf9fe81}\index{genericFunctions.c@{genericFunctions.c}!readDescriptionBuffer@{readDescriptionBuffer}}
+\index{readDescriptionBuffer@{readDescriptionBuffer}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{readDescriptionBuffer()}{readDescriptionBuffer()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a7e7f40783a62364586a4aa330cf9fe81} 
+int read\+Description\+Buffer (\begin{DoxyParamCaption}\item[{char}]{description}{\+[$\,$]\+}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper buffer reader for read\+Description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & Buffer to store the result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure/\+\+EOF. 
+\end{DoxyReturn}
+
+\begin{DoxyEnumerate}
+\item Consume all leading whitespace (including spaces and tabs)
+\end{DoxyEnumerate}
+
+If line ends immediately, it is an invalid description
+
+Store the first non-\/space character
+
+
+\begin{DoxyEnumerate}
+\item Read until end of line while enforcing character limits (max 50 chars)
+\end{DoxyEnumerate}
+
+Increment to track if we exceeded the limit
+
+Fail if more than MAX\+\_\+\+SIZE\+\_\+\+DESCRIPTION characters were provided\Hypertarget{generic_functions_8c_a7c51cb4574388d9eb7bf70f86598177d}\index{genericFunctions.c@{genericFunctions.c}!readIvaFile@{readIvaFile}}
+\index{readIvaFile@{readIvaFile}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{readIvaFile()}{readIvaFile()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a7c51cb4574388d9eb7bf70f86598177d} 
+void read\+Iva\+File (\begin{DoxyParamCaption}\item[{int}]{list\+Iva}{\+[$\,$]\+, }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Reads the tax (IVA) configuration file and populates the given vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Iva} & Array mapping IVA letters (A-\/Z offsets) to tax rates. \\
+\hline
+{\em file\+Name} & Name of the file to read the IVA configuration from. \\
+\hline
+\end{DoxyParams}
+Code letter
+
+Rate of the tax
+
+In case that the file doesn\textquotesingle{}t open\Hypertarget{generic_functions_8c_af1f97536e979bf54a197bae08c89dd30}\index{genericFunctions.c@{genericFunctions.c}!readRawName@{readRawName}}
+\index{readRawName@{readRawName}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{readRawName()}{readRawName()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_af1f97536e979bf54a197bae08c89dd30} 
+int read\+Raw\+Name (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name\+Buffer}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{index\+Ptr}{, }\item[{char}]{current\+Char}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reads the client name from stdin. 
+
+Quote was never closed:\+ force invalid name check\Hypertarget{generic_functions_8c_af5ea21f4325811297858efd48f30e0e1}\index{genericFunctions.c@{genericFunctions.c}!validateDescription@{validateDescription}}
+\index{validateDescription@{validateDescription}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{validateDescription()}{validateDescription()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_af5ea21f4325811297858efd48f30e0e1} 
+int validate\+Description (\begin{DoxyParamCaption}\item[{char}]{description}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Validates if a product description starts with an uppercase letter. Identifies standard ASCII and UTF-\/8 Portuguese uppercase characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em description} & The product description to be validated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+VALID\+\_\+\+DESCRIPTION if valid, INVALID\+\_\+\+DESCRIPTION otherwise. 
+\end{DoxyReturn}
+First character must be uppercase letter (ASCII A-\/Z or UTF-\/8 PT)
+
+ASCII A-\/Z check
+
+UTF-\/8 Multi-\/byte check (for accented characters like À, Á, etc.)
+
+Portuguese uppercase accented characters in UTF-\/8:\+ À-\/Þ(0x80-\/0x9E)\Hypertarget{generic_functions_8c_a73bbc7c0dea33b0fcf8630da61895dde}\index{genericFunctions.c@{genericFunctions.c}!validateEAN@{validateEAN}}
+\index{validateEAN@{validateEAN}!genericFunctions.c@{genericFunctions.c}}
+\doxysubsubsection{\texorpdfstring{validateEAN()}{validateEAN()}}
+{\footnotesize\ttfamily \label{generic_functions_8c_a73bbc7c0dea33b0fcf8630da61895dde} 
+int validate\+EAN (\begin{DoxyParamCaption}\item[{const char}]{ean\+Str}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Validates an EAN-\/13 or EAN-\/8 code based on its check digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ean\+Str} & The EAN code string to be validated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the EAN code is valid, 0 otherwise. 
+\end{DoxyReturn}
+Size of the EAN code
+
+Validate the size of the code
+
+
+\begin{DoxyEnumerate}
+\item Calculate weighted sum for check digit validation
+\end{DoxyEnumerate}
+
+even index:\+ weight 1
+
+odd index:\+ weight 3
+
+
+\begin{DoxyEnumerate}
+\item Compare against the provided check digit
+\end{DoxyEnumerate}

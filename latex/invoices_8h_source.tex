@@ -1,0 +1,49 @@
+\doxysection{invoices.\+h}
+\hypertarget{invoices_8h_source}{}\label{invoices_8h_source}\doxymbox{\hyperlink{invoices_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INVOICES\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ INVOICES\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{clients_8h}{clients.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structinvoice}{invoice}}\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structinvoice_acddd77da6fc074bcec3350c810f98e3e}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{structinvoice_afeb4fc991375515ebb112a171aa9dc29}{totalValue}};\ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{structinvoice_a474ef767357546a2a777a289e89acd16}{totalItems}};\ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{structinvoice_ae2cb94f7d9621e3ac507466227ebd5ec}{nif}}[\doxymbox{\hyperlink{global_8h_afe6e29a52d52ddf613efe7eaf21f0e49}{NIF\_SIZE}}\ +\ 1];\ \ }
+\DoxyCodeLine{00020\ \ \ \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}\ *\doxymbox{\hyperlink{structinvoice_a782261f7d7aea53b4fbd220fa2b694a4}{clientRef}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structsystem_context}{systemContext}}\{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{structsystem_context_a7ceaad1995051ca4cd25455538c92ce8}{NumberOfSoldItems}};\ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{structsystem_context_a0d40dac85de4347f24dd22562259149b}{TotalValue}};\ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structsystem_context_adbc73b88bb18918c50af371c589b1fe4}{NumberOfInvoices}};\ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{structsystem_context_afcabf991265893de87cbc9326fc3260d}{nextID}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \}\ \doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{SystemContext}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ GET\_INVOICE\_ID(i)\ (i\ -\/>\ id)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ GET\_INVOICE\_TOTAL\_VALUE(i)\ (i\ -\/>\ totalValue)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ GET\_INVOICE\_TOTAL\_ITEMS(i)\ (i\ -\/>\ totalItems)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ GET\_INVOICE\_NIF(i)\ (i\ -\/>\ nif)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ GET\_INVOICE\_CLIENT(i)\ (i\ -\/>\ clientRef)}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ SET\_INVOICE\_ID(i,\ number)\ (i\ -\/>\ id\ =\ number)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ SET\_INVOICE\_TOTAL\_VALUE(i,\ value)\ (i\ -\/>\ totalValue\ =\ value)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ SET\_INVOICE\_TOTAL\_ITEMS(i,\ nItems)\ (i\ -\/>\ totalItems\ =\ nItems)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ SET\_INVOICE\_NIF(i,\ newNif)\ (strcpy(i\ -\/>\ nif,\ newNif))}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ SET\_INVOICE\_CLIENT(i,\ newClient)\ (i\ -\/>\ clientRef\ =\ newClient)}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{invoices_8h_a9a5481d32379dde9b6c234381c6e58fd}{destroyInvoice}}(\textcolor{keywordtype}{void}\ *\ item);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00062\ \doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}}*\ \doxymbox{\hyperlink{invoices_8h_a663ce390d3f057c24444c2607bd94a45}{createInvoice}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ totalValue,\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ totalItems,\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ nif[],\ \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}}\ *clientRef);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{invoices_8h_a07619f0cac4c56a2f8d382fea2905b4d}{compareInvoices}}(\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *nodeA,\ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *nodeB);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \doxymbox{\hyperlink{struct_list}{List}}*\ \doxymbox{\hyperlink{invoices_8h_a7aa4f79ed1288b8fd6d4ed1061541ae0}{createInvoicesList}}\ ();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

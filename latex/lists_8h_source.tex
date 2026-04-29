@@ -1,0 +1,51 @@
+\doxysection{lists.\+h}
+\hypertarget{lists_8h_source}{}\label{lists_8h_source}\doxymbox{\hyperlink{lists_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ LISTS\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LISTS\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{trees_8h}{trees.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structlist_node}{listNode}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ *\doxymbox{\hyperlink{structlist_node_a336317bf835d2b072583b0194de4294c}{item}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structlist_node}{listNode}}\ *\doxymbox{\hyperlink{structlist_node_a79259218e5b958028b7e650d48d3cb01}{prev}};\ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structlist_node}{listNode}}\ *\doxymbox{\hyperlink{structlist_node_a860785ea27fb1c044d6a59ba491dd6ab}{next}};\ \ }
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_list_ac41719eafdd551f0dcee8f3ce67ececc}{size}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *\doxymbox{\hyperlink{struct_list_a6c5449b1dd158368840801d0cdc86f5e}{head}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *\doxymbox{\hyperlink{struct_list_ac9c40d39dbdc778b9ca6264ac889e0b6}{tail}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{struct_list_ab8d928d47d171185369ea3431481c59d}{searchTree}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \}\ \doxymbox{\hyperlink{struct_list}{List}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ void\ (*\doxymbox{\hyperlink{lists_8h_aa23e2f76ca5db706c5cc37e1b3bcc8bf}{DestroyFunc}})(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ GET\_LIST\_SIZE(list)\ ((list)\ -\/>\ size)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ GET\_ITEM\_ON\_LIST\_NODE(node)\ ((node)\ -\/>\ item)}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ SET\_LIST\_SIZE(list,\ newSize)\ ((list)\ -\/>\ size\ =\ (newSize))}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \doxymbox{\hyperlink{struct_list}{List}}*\ \doxymbox{\hyperlink{lists_8h_a0329e81f8d37a4ab254f58a8c1638693}{createList}}(\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}\ *\doxymbox{\hyperlink{structtree}{tree}});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lists_8h_aacc464ab399075b16280822977444baf}{insertInList}}(\doxymbox{\hyperlink{struct_list}{List}}\ *list,\ \textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}*\ \doxymbox{\hyperlink{lists_8h_a8c8f566813a0354ea903502c1fc37eb7}{removeFromList}}(\doxymbox{\hyperlink{struct_list}{List}}\ *list,\ \textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}*\ \doxymbox{\hyperlink{lists_8h_ae70b996dd10d8a9472de6e48b3fce2e5}{searchInList}}(\doxymbox{\hyperlink{struct_list}{List}}\ *list,\ \textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lists_8h_a911da7f38c3f6bd9750154e7a64ebf85}{clearList}}(\doxymbox{\hyperlink{struct_list}{List}}\ *list);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lists_8h_a09a75d3f11e6564e3c38e890359246ae}{mapList}}(\doxymbox{\hyperlink{struct_list}{List}}\ *list,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{void}\ *item,\ \textcolor{keywordtype}{void}\ *context),\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *context);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lists_8h_a5334b2781ddd279f44a880733303814e}{mapListInOrder}}\ (\doxymbox{\hyperlink{struct_list}{List}}\ *list,\ \textcolor{keywordtype}{void}\ (*callback)(\textcolor{keywordtype}{void}\ *item,\ \textcolor{keywordtype}{void}\ *context),\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *context);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lists_8h_a74385c8b401b37db52bd8a7ecad7a436}{destroyList}}(\doxymbox{\hyperlink{struct_list}{List}}\ *list,\ \doxymbox{\hyperlink{lists_8h_aa23e2f76ca5db706c5cc37e1b3bcc8bf}{DestroyFunc}}\ destroy);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

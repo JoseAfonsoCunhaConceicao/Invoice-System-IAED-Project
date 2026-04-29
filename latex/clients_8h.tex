@@ -1,0 +1,210 @@
+\doxysection{clients.\+h File Reference}
+\hypertarget{clients_8h}{}\label{clients_8h}\index{clients.h@{clients.h}}
+
+
+Header file defining the client data structure and operations.  
+
+
+{\ttfamily \+\#include "{}products.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structclient}{client}}
+\begin{DoxyCompactList}\small\item\em Represents a client in the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{clients_8h_a40fffcaa2d5dfe4f2756e973333561b9}{GET\+\_\+\+CLIENT\+\_\+\+NAME}}(c)
+\item 
+\+\#define \doxymbox{\hyperlink{clients_8h_a2ff02b977d0e78364b446596731f449b}{GET\+\_\+\+CLIENT\+\_\+\+INVOICE\+\_\+\+LIST}}(c)
+\item 
+\+\#define \doxymbox{\hyperlink{clients_8h_af0dd8d5b757e35138b12aaabec81284f}{SET\+\_\+\+CLIENT\+\_\+\+NAME}}(c,  new\+Name)
+\item 
+\+\#define \doxymbox{\hyperlink{clients_8h_ab098c21ce8a55154bf6e6865c3ea7d97}{SET\+\_\+\+CLIENT\+\_\+\+INVOICE\+\_\+\+LIST}}(c,  new\+List)
+\item 
+\+\#define \doxymbox{\hyperlink{clients_8h_ae6e6ebe508e18f8c5cb9ce6242a78ea8}{BIND\+\_\+\+CLIENT\+\_\+\+SEARCH\+\_\+\+KEY}}(c,  search\+Name)
+\begin{DoxyCompactList}\small\item\em Macro to temporarily bind a string to a stack-\/allocated client for search purposes (avoids memory allocation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{clients_8h_acaaa7ee662531876fe22df7bb697d95f}{create\+Client}} (char \texorpdfstring{$\ast$}{*}name, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}invoices)
+\begin{DoxyCompactList}\small\item\em Constructs a new client. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{clients_8h_a27ac93b5a7d8c48ee966ad2addf1dbb3}{find\+Client\+By\+Name}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}clients, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em Helper to find a client by name without manual dummy construction. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{clients_8h_ad41308b8ef4dde87a814ffff07799722}{compare\+Clients}} (\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeA, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}nodeB)
+\begin{DoxyCompactList}\small\item\em Compares two clients alphabetically by their name. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{clients_8h_a61b0b0ce330f091bb80d4c8c149e8b22}{destroy\+Client}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Destroys a client instance and frees its associated memory. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{clients_8h_a140e50cdb806c20e20d7510ef13ce58a}{create\+Clients\+List}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new abstract data type list configured for clients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file defining the client data structure and operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-define-members}
+\Hypertarget{clients_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{clients_8h_ae6e6ebe508e18f8c5cb9ce6242a78ea8}\index{clients.h@{clients.h}!BIND\_CLIENT\_SEARCH\_KEY@{BIND\_CLIENT\_SEARCH\_KEY}}
+\index{BIND\_CLIENT\_SEARCH\_KEY@{BIND\_CLIENT\_SEARCH\_KEY}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{BIND\_CLIENT\_SEARCH\_KEY}{BIND\_CLIENT\_SEARCH\_KEY}}
+{\footnotesize\ttfamily \label{clients_8h_ae6e6ebe508e18f8c5cb9ce6242a78ea8} 
+\+\#define BIND\+\_\+\+CLIENT\+\_\+\+SEARCH\+\_\+\+KEY(\begin{DoxyParamCaption}\item[{}]{c}{, }\item[{}]{search\+Name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((c)-\/>name\ =\ (searchName))}
+
+\end{DoxyCode}
+
+
+Macro to temporarily bind a string to a stack-\/allocated client for search purposes (avoids memory allocation). 
+
+\Hypertarget{clients_8h_a2ff02b977d0e78364b446596731f449b}\index{clients.h@{clients.h}!GET\_CLIENT\_INVOICE\_LIST@{GET\_CLIENT\_INVOICE\_LIST}}
+\index{GET\_CLIENT\_INVOICE\_LIST@{GET\_CLIENT\_INVOICE\_LIST}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{GET\_CLIENT\_INVOICE\_LIST}{GET\_CLIENT\_INVOICE\_LIST}}
+{\footnotesize\ttfamily \label{clients_8h_a2ff02b977d0e78364b446596731f449b} 
+\+\#define GET\+\_\+\+CLIENT\+\_\+\+INVOICE\+\_\+\+LIST(\begin{DoxyParamCaption}\item[{}]{c}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(c\ -\/>\ invoices)}
+
+\end{DoxyCode}
+\Hypertarget{clients_8h_a40fffcaa2d5dfe4f2756e973333561b9}\index{clients.h@{clients.h}!GET\_CLIENT\_NAME@{GET\_CLIENT\_NAME}}
+\index{GET\_CLIENT\_NAME@{GET\_CLIENT\_NAME}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{GET\_CLIENT\_NAME}{GET\_CLIENT\_NAME}}
+{\footnotesize\ttfamily \label{clients_8h_a40fffcaa2d5dfe4f2756e973333561b9} 
+\+\#define GET\+\_\+\+CLIENT\+\_\+\+NAME(\begin{DoxyParamCaption}\item[{}]{c}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(c\ -\/>\ name)}
+
+\end{DoxyCode}
+Getters \Hypertarget{clients_8h_ab098c21ce8a55154bf6e6865c3ea7d97}\index{clients.h@{clients.h}!SET\_CLIENT\_INVOICE\_LIST@{SET\_CLIENT\_INVOICE\_LIST}}
+\index{SET\_CLIENT\_INVOICE\_LIST@{SET\_CLIENT\_INVOICE\_LIST}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{SET\_CLIENT\_INVOICE\_LIST}{SET\_CLIENT\_INVOICE\_LIST}}
+{\footnotesize\ttfamily \label{clients_8h_ab098c21ce8a55154bf6e6865c3ea7d97} 
+\+\#define SET\+\_\+\+CLIENT\+\_\+\+INVOICE\+\_\+\+LIST(\begin{DoxyParamCaption}\item[{}]{c}{, }\item[{}]{new\+List}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((c)\ -\/>\ invoices\ =\ (newList))}
+
+\end{DoxyCode}
+\Hypertarget{clients_8h_af0dd8d5b757e35138b12aaabec81284f}\index{clients.h@{clients.h}!SET\_CLIENT\_NAME@{SET\_CLIENT\_NAME}}
+\index{SET\_CLIENT\_NAME@{SET\_CLIENT\_NAME}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{SET\_CLIENT\_NAME}{SET\_CLIENT\_NAME}}
+{\footnotesize\ttfamily \label{clients_8h_af0dd8d5b757e35138b12aaabec81284f} 
+\+\#define SET\+\_\+\+CLIENT\+\_\+\+NAME(\begin{DoxyParamCaption}\item[{}]{c}{, }\item[{}]{new\+Name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\ free((c)\ -\/>\ name),\ \(\backslash\)}
+\DoxyCodeLine{(c)\ -\/>\ name\ =\ (newName))}
+
+\end{DoxyCode}
+Setters 
+
+\label{doc-func-members}
+\Hypertarget{clients_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{clients_8h_ad41308b8ef4dde87a814ffff07799722}\index{clients.h@{clients.h}!compareClients@{compareClients}}
+\index{compareClients@{compareClients}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{compareClients()}{compareClients()}}
+{\footnotesize\ttfamily \label{clients_8h_ad41308b8ef4dde87a814ffff07799722} 
+int compare\+Clients (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeA}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{nodeB}{}\end{DoxyParamCaption})}
+
+
+
+Compares two clients alphabetically by their name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodeA} & First list node containing a client. \\
+\hline
+{\em nodeB} & Second list node containing a client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>} 0 if A \texorpdfstring{$>$}{>} B, \texorpdfstring{$<$}{<} 0 if A \texorpdfstring{$<$}{<} B, 0 if equal. 
+\end{DoxyReturn}
+Cast pointer types to the \doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} type
+
+Get client names
+
+Compare Names\Hypertarget{clients_8h_acaaa7ee662531876fe22df7bb697d95f}\index{clients.h@{clients.h}!createClient@{createClient}}
+\index{createClient@{createClient}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{createClient()}{createClient()}}
+{\footnotesize\ttfamily \label{clients_8h_acaaa7ee662531876fe22df7bb697d95f} 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} create\+Client (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{name}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{invoices}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a new client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the client. \\
+\hline
+{\em invoices} & Pointer to an existing list of invoices (or NULL). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new allocated \doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} instance. 
+\end{DoxyReturn}
+\Hypertarget{clients_8h_a140e50cdb806c20e20d7510ef13ce58a}\index{clients.h@{clients.h}!createClientsList@{createClientsList}}
+\index{createClientsList@{createClientsList}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{createClientsList()}{createClientsList()}}
+{\footnotesize\ttfamily \label{clients_8h_a140e50cdb806c20e20d7510ef13ce58a} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+Clients\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new abstract data type list configured for clients. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the dynamically allocated list of clients. 
+\end{DoxyReturn}
+\Hypertarget{clients_8h_a61b0b0ce330f091bb80d4c8c149e8b22}\index{clients.h@{clients.h}!destroyClient@{destroyClient}}
+\index{destroyClient@{destroyClient}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{destroyClient()}{destroyClient()}}
+{\footnotesize\ttfamily \label{clients_8h_a61b0b0ce330f091bb80d4c8c149e8b22} 
+void destroy\+Client (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Destroys a client instance and frees its associated memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the client to be destroyed. \\
+\hline
+\end{DoxyParams}
+Cast the pointer to the correct type\Hypertarget{clients_8h_a27ac93b5a7d8c48ee966ad2addf1dbb3}\index{clients.h@{clients.h}!findClientByName@{findClientByName}}
+\index{findClientByName@{findClientByName}!clients.h@{clients.h}}
+\doxysubsubsection{\texorpdfstring{findClientByName()}{findClientByName()}}
+{\footnotesize\ttfamily \label{clients_8h_a27ac93b5a7d8c48ee966ad2addf1dbb3} 
+\doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}} \texorpdfstring{$\ast$}{*} find\+Client\+By\+Name (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{clients}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Helper to find a client by name without manual dummy construction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Pointer to the list of clients. \\
+\hline
+{\em name} & \doxylink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client} name to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the client if found, NULL otherwise. 
+\end{DoxyReturn}
+Bind name to local stack dummy to perform O(log N) lookup

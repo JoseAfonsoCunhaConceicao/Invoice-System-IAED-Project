@@ -1,0 +1,69 @@
+\doxysection{r\+Command.\+c File Reference}
+\hypertarget{r_command_8c}{}\label{r_command_8c}\index{rCommand.c@{rCommand.c}}
+
+
+Implementation of the \textquotesingle{}r\textquotesingle{} command (system and product stats). Displays either global system statistics + valid tax rates, or detailed history elements for a specific product.  
+
+
+{\ttfamily \+\#include "{}r\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{r_command_8c_aa32ee41c861e3bcaeb50a777bd9082d3}{print\+System\+Stats}} (\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}}, int iva\+Rates\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Prints global system statistics and valid tax rates. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{r_command_8c_a433141cc385df0ae726dd4ceae597b63}{print\+Product\+Stats}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, char \texorpdfstring{$\ast$}{*}ean)
+\begin{DoxyCompactList}\small\item\em Searches and prints stats for a specific product. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{r_command_8c_aad3eb62befa104f3d909f73b8c398bb4}{r\+Command}} (\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structsystem_context}{system\+Context}}, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, int iva\+Rates\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}r\textquotesingle{} command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \textquotesingle{}r\textquotesingle{} command (system and product stats). Displays either global system statistics + valid tax rates, or detailed history elements for a specific product. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{r_command_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{r_command_8c_a433141cc385df0ae726dd4ceae597b63}\index{rCommand.c@{rCommand.c}!printProductStats@{printProductStats}}
+\index{printProductStats@{printProductStats}!rCommand.c@{rCommand.c}}
+\doxysubsubsection{\texorpdfstring{printProductStats()}{printProductStats()}}
+{\footnotesize\ttfamily \label{r_command_8c_a433141cc385df0ae726dd4ceae597b63} 
+void print\+Product\+Stats (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Searches and prints stats for a specific product. 
+
+\Hypertarget{r_command_8c_aa32ee41c861e3bcaeb50a777bd9082d3}\index{rCommand.c@{rCommand.c}!printSystemStats@{printSystemStats}}
+\index{printSystemStats@{printSystemStats}!rCommand.c@{rCommand.c}}
+\doxysubsubsection{\texorpdfstring{printSystemStats()}{printSystemStats()}}
+{\footnotesize\ttfamily \label{r_command_8c_aa32ee41c861e3bcaeb50a777bd9082d3} 
+void print\+System\+Stats (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{, }\item[{int}]{iva\+Rates}{\+[$\,$]\+}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints global system statistics and valid tax rates. 
+
+\Hypertarget{r_command_8c_aad3eb62befa104f3d909f73b8c398bb4}\index{rCommand.c@{rCommand.c}!rCommand@{rCommand}}
+\index{rCommand@{rCommand}!rCommand.c@{rCommand.c}}
+\doxysubsubsection{\texorpdfstring{rCommand()}{rCommand()}}
+{\footnotesize\ttfamily \label{r_command_8c_aad3eb62befa104f3d909f73b8c398bb4} 
+void r\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{invoices_8h_a37c1962a2cb03efd5c081ffb82b39cd1}{System\+Context}} \texorpdfstring{$\ast$}{*}}]{system\+Context}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{int}]{iva\+Rates}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}r\textquotesingle{} command. 
+
+Executes the \textquotesingle{}r\textquotesingle{} command. Depending on arguments, either removes a product entirely from the system or recalculates and corrects global system statistics based on product price/\+tax changes. 
+\begin{DoxyEnumerate}
+\item Command without arguments:\+ Total system status.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item EAN provided:\+ Retrieve and display detailed product history.
+\end{DoxyEnumerate}

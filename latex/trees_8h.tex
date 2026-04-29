@@ -1,0 +1,289 @@
+\doxysection{trees.\+h File Reference}
+\hypertarget{trees_8h}{}\label{trees_8h}\index{trees.h@{trees.h}}
+
+
+Header file defining the AVL tree structures and operations.  
+
+
+{\ttfamily \+\#include "{}global.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structtree_node}{tree\+Node}}
+\begin{DoxyCompactList}\small\item\em Represents a generic node in the AVL tree. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structtree}{tree}}
+\begin{DoxyCompactList}\small\item\em Represents the generic AVL tree container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{trees_8h_a53700a143783af2ccc8112d01405482e}{GET\+\_\+\+TREE\+\_\+\+NODE\+\_\+\+HEIGHT}}(node)
+\item 
+\+\#define \doxymbox{\hyperlink{trees_8h_acb2cf37168a43f3876a462271b5c17fc}{GET\+\_\+\+BALANCE}}(node)
+\item 
+\+\#define \doxymbox{\hyperlink{trees_8h_ab025f6aeae5d6476e1b7a2d9a675f3e7}{GET\+\_\+\+TREE\+\_\+\+ROOT}}(\doxymbox{\hyperlink{structtree}{tree}})
+\item 
+\+\#define \doxymbox{\hyperlink{trees_8h_a1a60418baa97d836f31d88ac1749b0e0}{SET\+\_\+\+TREE\+\_\+\+ROOT}}(\doxymbox{\hyperlink{structtree}{tree}},  new\+Origin)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \doxymbox{\hyperlink{structtree_node}{tree\+Node}} \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}}
+\begin{DoxyCompactList}\small\item\em Represents a generic node in the AVL tree. \end{DoxyCompactList}\item 
+typedef struct \doxymbox{\hyperlink{structtree}{tree}} \doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}
+\begin{DoxyCompactList}\small\item\em Represents the generic AVL tree container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8h_a5776770e6492c55f97e0ce9773e12917}{create\+Tree}} (\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}} compare)
+\begin{DoxyCompactList}\small\item\em Creates a new empty AVL search tree. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8h_ad0e835831655fd10ba254a69859bb5cd}{insert\+In\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Inserts a new item into the AVL tree, balancing it if necessary. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8h_a1fa557346aeb09cdaf8756a34bb0e42a}{remove\+From\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Removes an item from the AVL tree and rebalances it. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8h_ace3cb5f33464ba9e613fd232a141c830}{search\+In\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Searches for an item in the AVL tree. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8h_a792b259bbbe2357b326df2338bcd220d}{map\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}}, void(\texorpdfstring{$\ast$}{*}callback)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Recursively traverses the tree applying a callback function map. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8h_a78df375446b65ddf54afeebdb95f3274}{clear\+Tree\+Nodes}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Destroys all tree nodes, bypassing the list items memory itself. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{trees_8h_add1598fb3961022610d14e14630d4702}{get\+Max}} (\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Finds the node with the maximum value (rightmost leaf) originating from a subtree. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{trees_8h_ae4f1bb3295740db1df3ac18d1cee761c}{destroy\+Tree}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}})
+\begin{DoxyCompactList}\small\item\em Destroys the tree structure and all its internal node wrappers without deleting the items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file defining the AVL tree structures and operations. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-define-members}
+\Hypertarget{trees_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{trees_8h_acb2cf37168a43f3876a462271b5c17fc}\index{trees.h@{trees.h}!GET\_BALANCE@{GET\_BALANCE}}
+\index{GET\_BALANCE@{GET\_BALANCE}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{GET\_BALANCE}{GET\_BALANCE}}
+{\footnotesize\ttfamily \label{trees_8h_acb2cf37168a43f3876a462271b5c17fc} 
+\+\#define GET\+\_\+\+BALANCE(\begin{DoxyParamCaption}\item[{}]{node}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\doxymbox{\hyperlink{trees_8h_a53700a143783af2ccc8112d01405482e}{GET\_TREE\_NODE\_HEIGHT}}((node)-\/>right)\ \(\backslash\)}
+\DoxyCodeLine{-\/\ \doxymbox{\hyperlink{trees_8h_a53700a143783af2ccc8112d01405482e}{GET\_TREE\_NODE\_HEIGHT}}((node)-\/>left))}
+
+\end{DoxyCode}
+\Hypertarget{trees_8h_a53700a143783af2ccc8112d01405482e}\index{trees.h@{trees.h}!GET\_TREE\_NODE\_HEIGHT@{GET\_TREE\_NODE\_HEIGHT}}
+\index{GET\_TREE\_NODE\_HEIGHT@{GET\_TREE\_NODE\_HEIGHT}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{GET\_TREE\_NODE\_HEIGHT}{GET\_TREE\_NODE\_HEIGHT}}
+{\footnotesize\ttfamily \label{trees_8h_a53700a143783af2ccc8112d01405482e} 
+\+\#define GET\+\_\+\+TREE\+\_\+\+NODE\+\_\+\+HEIGHT(\begin{DoxyParamCaption}\item[{}]{node}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((node)\ ==\ NULL)\ ?\ -\/1\ :\ (node)\ -\/>\ height)}
+
+\end{DoxyCode}
+Getters \Hypertarget{trees_8h_ab025f6aeae5d6476e1b7a2d9a675f3e7}\index{trees.h@{trees.h}!GET\_TREE\_ROOT@{GET\_TREE\_ROOT}}
+\index{GET\_TREE\_ROOT@{GET\_TREE\_ROOT}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{GET\_TREE\_ROOT}{GET\_TREE\_ROOT}}
+{\footnotesize\ttfamily \label{trees_8h_ab025f6aeae5d6476e1b7a2d9a675f3e7} 
+\+\#define GET\+\_\+\+TREE\+\_\+\+ROOT(\begin{DoxyParamCaption}\item[{}]{\doxymbox{\hyperlink{structtree}{tree}}}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\doxymbox{\hyperlink{structtree}{tree}})\ -\/>\ origin)}
+
+\end{DoxyCode}
+\Hypertarget{trees_8h_a1a60418baa97d836f31d88ac1749b0e0}\index{trees.h@{trees.h}!SET\_TREE\_ROOT@{SET\_TREE\_ROOT}}
+\index{SET\_TREE\_ROOT@{SET\_TREE\_ROOT}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{SET\_TREE\_ROOT}{SET\_TREE\_ROOT}}
+{\footnotesize\ttfamily \label{trees_8h_a1a60418baa97d836f31d88ac1749b0e0} 
+\+\#define SET\+\_\+\+TREE\+\_\+\+ROOT(\begin{DoxyParamCaption}\item[{}]{\doxymbox{\hyperlink{structtree}{tree}}}{, }\item[{}]{new\+Origin}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\doxymbox{\hyperlink{structtree}{tree}})\ -\/>\ origin\ =\ (newOrigin))}
+
+\end{DoxyCode}
+Setters 
+
+\label{doc-typedef-members}
+\Hypertarget{trees_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{trees_8h_a9205fd7ce7c5dcee6439394278247845}\index{trees.h@{trees.h}!Tree@{Tree}}
+\index{Tree@{Tree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{Tree}{Tree}}
+{\footnotesize\ttfamily \label{trees_8h_a9205fd7ce7c5dcee6439394278247845} 
+typedef struct \doxymbox{\hyperlink{structtree}{tree}} \doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}}}
+
+
+
+Represents the generic AVL tree container. 
+
+\Hypertarget{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}\index{trees.h@{trees.h}!TreeNode@{TreeNode}}
+\index{TreeNode@{TreeNode}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{TreeNode}{TreeNode}}
+{\footnotesize\ttfamily \label{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d} 
+typedef struct \doxymbox{\hyperlink{structtree_node}{tree\+Node}} \doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}}}
+
+
+
+Represents a generic node in the AVL tree. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{trees_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{trees_8h_a78df375446b65ddf54afeebdb95f3274}\index{trees.h@{trees.h}!clearTreeNodes@{clearTreeNodes}}
+\index{clearTreeNodes@{clearTreeNodes}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{clearTreeNodes()}{clearTreeNodes()}}
+{\footnotesize\ttfamily \label{trees_8h_a78df375446b65ddf54afeebdb95f3274} 
+void clear\+Tree\+Nodes (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Destroys all tree nodes, bypassing the list items memory itself. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root node of the tree to recursively clear. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8h_a5776770e6492c55f97e0ce9773e12917}\index{trees.h@{trees.h}!createTree@{createTree}}
+\index{createTree@{createTree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{createTree()}{createTree()}}
+{\footnotesize\ttfamily \label{trees_8h_a5776770e6492c55f97e0ce9773e12917} 
+\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*} create\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{Compare\+Func}}}]{compare}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new empty AVL search tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em compare} & A pointer to the comparison function defining the ordering. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamically allocated \doxylink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree} instance. 
+\end{DoxyReturn}
+\Hypertarget{trees_8h_ae4f1bb3295740db1df3ac18d1cee761c}\index{trees.h@{trees.h}!destroyTree@{destroyTree}}
+\index{destroyTree@{destroyTree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{destroyTree()}{destroyTree()}}
+{\footnotesize\ttfamily \label{trees_8h_ae4f1bb3295740db1df3ac18d1cee761c} 
+void destroy\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the tree structure and all its internal node wrappers without deleting the items. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8h_add1598fb3961022610d14e14630d4702}\index{trees.h@{trees.h}!getMax@{getMax}}
+\index{getMax@{getMax}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{getMax()}{getMax()}}
+{\footnotesize\ttfamily \label{trees_8h_add1598fb3961022610d14e14630d4702} 
+\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*} get\+Max (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a61fe2b3298b8b265ed81c1a66de0b38d}{Tree\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})}
+
+
+
+Finds the node with the maximum value (rightmost leaf) originating from a subtree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Origin node of the subtree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the maximum node.
+\end{DoxyReturn}
+Finds the node with the maximum value (rightmost leaf) originating from a subtree.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Root node of the considered subtree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the node with the highest value context. 
+\end{DoxyReturn}
+\Hypertarget{trees_8h_ad0e835831655fd10ba254a69859bb5cd}\index{trees.h@{trees.h}!insertInTree@{insertInTree}}
+\index{insertInTree@{insertInTree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{insertInTree()}{insertInTree()}}
+{\footnotesize\ttfamily \label{trees_8h_ad0e835831655fd10ba254a69859bb5cd} 
+void insert\+In\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Inserts a new item into the AVL tree, balancing it if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em item} & Pointer to the generic item to insert. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8h_a792b259bbbe2357b326df2338bcd220d}\index{trees.h@{trees.h}!mapTree@{mapTree}}
+\index{mapTree@{mapTree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{mapTree()}{mapTree()}}
+{\footnotesize\ttfamily \label{trees_8h_a792b259bbbe2357b326df2338bcd220d} 
+void map\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Recursively traverses the tree applying a callback function map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em callback} & Callback function to execute for each node\textquotesingle{}s item. \\
+\hline
+{\em context} & Additional context passed to the callback. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8h_a1fa557346aeb09cdaf8756a34bb0e42a}\index{trees.h@{trees.h}!removeFromTree@{removeFromTree}}
+\index{removeFromTree@{removeFromTree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{removeFromTree()}{removeFromTree()}}
+{\footnotesize\ttfamily \label{trees_8h_a1fa557346aeb09cdaf8756a34bb0e42a} 
+void remove\+From\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Removes an item from the AVL tree and rebalances it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em item} & Dummy pointer carrying the search keys of the item to remove. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{trees_8h_ace3cb5f33464ba9e613fd232a141c830}\index{trees.h@{trees.h}!searchInTree@{searchInTree}}
+\index{searchInTree@{searchInTree}!trees.h@{trees.h}}
+\doxysubsubsection{\texorpdfstring{searchInTree()}{searchInTree()}}
+{\footnotesize\ttfamily \label{trees_8h_ace3cb5f33464ba9e613fd232a141c830} 
+void \texorpdfstring{$\ast$}{*} search\+In\+Tree (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Searches for an item in the AVL tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to the tree. \\
+\hline
+{\em item} & Dummy pointer carrying the search keys. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched item inside the tree, or NULL if not found. 
+\end{DoxyReturn}

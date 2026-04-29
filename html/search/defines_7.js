@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['set_5fclient_5finvoice_5flist_0',['SET_CLIENT_INVOICE_LIST',['../clients_8h.html#ab098c21ce8a55154bf6e6865c3ea7d97',1,'clients.h']]],
+  ['set_5fclient_5fname_1',['SET_CLIENT_NAME',['../clients_8h.html#af0dd8d5b757e35138b12aaabec81284f',1,'clients.h']]],
+  ['set_5finvoice_5fclient_2',['SET_INVOICE_CLIENT',['../invoices_8h.html#a45d13fd89a3b2dc0dcfe7dbae2854be2',1,'invoices.h']]],
+  ['set_5finvoice_5fid_3',['SET_INVOICE_ID',['../invoices_8h.html#a55dd132cf2a7ae6ee741d4316194566d',1,'invoices.h']]],
+  ['set_5finvoice_5fnif_4',['SET_INVOICE_NIF',['../invoices_8h.html#acfdadbe45800de5267febde13ae8b222',1,'invoices.h']]],
+  ['set_5finvoice_5ftotal_5fitems_5',['SET_INVOICE_TOTAL_ITEMS',['../invoices_8h.html#aba036058508dcec518f558c3c9fabfd8',1,'invoices.h']]],
+  ['set_5finvoice_5ftotal_5fvalue_6',['SET_INVOICE_TOTAL_VALUE',['../invoices_8h.html#a0198f7b1b941c6977560189c507bc932',1,'invoices.h']]],
+  ['set_5flist_5fsize_7',['SET_LIST_SIZE',['../lists_8h.html#a7bf7ee92eb9a371a80e00c33fdcf42fc',1,'lists.h']]],
+  ['set_5fproduct_5famount_8',['SET_PRODUCT_AMOUNT',['../products_8h.html#ab2f61e164532022cada514fe116c7f08',1,'products.h']]],
+  ['set_5fproduct_5famount_5fin_5fbasket_9',['SET_PRODUCT_AMOUNT_IN_BASKET',['../products_8h.html#a5ee550d18f1ceef02458959c97b10c25',1,'products.h']]],
+  ['set_5fproduct_5fdescription_10',['SET_PRODUCT_DESCRIPTION',['../products_8h.html#a65fb02cc557c5ae4adfc0dbf9989157c',1,'products.h']]],
+  ['set_5fproduct_5fean_11',['SET_PRODUCT_EAN',['../products_8h.html#a09a948f6411069a09469ecea893ced1b',1,'products.h']]],
+  ['set_5fproduct_5fiva_5fletter_12',['SET_PRODUCT_IVA_LETTER',['../products_8h.html#a07b7e8603353e58100a4bfacf9b6e2cc',1,'products.h']]],
+  ['set_5fproduct_5fiva_5frate_13',['SET_PRODUCT_IVA_RATE',['../products_8h.html#a4fba5491c61b363ee512881b99a3e4e0',1,'products.h']]],
+  ['set_5fproduct_5fprice_14',['SET_PRODUCT_PRICE',['../products_8h.html#a83dc283b01a25a6518f0278ae001ae92',1,'products.h']]],
+  ['set_5fproduct_5fsold_5funits_15',['SET_PRODUCT_SOLD_UNITS',['../products_8h.html#af3881118b7d77ec14c97bdce9eb33b97',1,'products.h']]],
+  ['set_5ftree_5froot_16',['SET_TREE_ROOT',['../trees_8h.html#a1a60418baa97d836f31d88ac1749b0e0',1,'trees.h']]],
+  ['size_5fean_5fcode_5f13_17',['SIZE_EAN_CODE_13',['../global_8h.html#ae6fd26dd22d5bb0e27f691fb059c5216',1,'global.h']]],
+  ['size_5fean_5fcode_5f8_18',['SIZE_EAN_CODE_8',['../global_8h.html#ad1461da2488467e5e6772ee8b301f43a',1,'global.h']]]
+];

@@ -1,0 +1,63 @@
+\doxysection{products.\+h}
+\hypertarget{products_8h_source}{}\label{products_8h_source}\doxymbox{\hyperlink{products_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ PRODUCT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ PRODUCT\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lists_8h}{lists.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{struct_product_ac1bed5608159f90144f2e3eff04009d5}{eanStr}}[\doxymbox{\hyperlink{global_8h_aa06a1508f8cab9ea46d73e19a05842ed}{MAX\_EAN\_SIZE}}\ +\ 1];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_product_a04017d23a3c70992f3204ae0fe50a469}{iva}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{struct_product_a01b3972f9377db65b4d4a06c5d46771f}{ivaLetter}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_product_a06761b1d08d2b3fb032b1b9a13d90782}{price}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_product_a27b86a2a3c9e8bb35f3ea627e93ba85e}{amount}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{struct_product_a0ee000b647f3383c6a3602a82b818da2}{description}}[\doxymbox{\hyperlink{global_8h_a8204ff9bd66e8f5c0833fdebafb05b70}{MAX\_SIZE\_DESCRIPTION}}\ +\ 1];\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_product_a2618415f2e06ee93fb32f973b450a2c2}{inBasket}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{struct_product_a90bf0ca385ef5f7922c7617a56618789}{sold}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \}\ \doxymbox{\hyperlink{struct_product}{Product}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \doxymbox{\hyperlink{struct_product}{Product}}*\ \doxymbox{\hyperlink{products_8h_acc35fd5dcbd374dd36b20b389052a4cf}{createProduct}}\ ();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{products_8h_ae166539600121ef79aa907bd8eb50998}{compareProducts}}(\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *nodeA,\ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *nodeB);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{products_8h_a0d9f64e2bea8f7236dc488c160607ec6}{resetBasket}}(\textcolor{keywordtype}{void}\ *item,\ \textcolor{keywordtype}{void}\ *context);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ CLEAR\_BASKET(basket)\ \(\backslash\)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ (mapList(basket,\ resetBasket,\ basket),\ clearList(basket))}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \doxymbox{\hyperlink{struct_list}{List}}*\ \doxymbox{\hyperlink{products_8h_a6f76de454d3d1b8eaad48958fa414933}{createProductsList}}\ ();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \doxymbox{\hyperlink{struct_product}{Product}}*\ \doxymbox{\hyperlink{products_8h_a71ab7e3be49490c52286b35a5fd4bd7d}{findProductByEAN}}(\doxymbox{\hyperlink{struct_list}{List}}\ *products,\ \textcolor{keywordtype}{char}\ *ean);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{products_8h_a1484737675f01a0cb3873bf0fbbf3223}{destroyProduct}}(\textcolor{keywordtype}{void}\ *item);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_EAN(product)\ ((product)\ -\/>\ eanStr)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_IVA\_RATE(product)\ ((product)\ -\/>\ iva)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_IVA\_LETTER(product)\ ((product)\ -\/>\ ivaLetter)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_PRICE(product)\ ((product)\ -\/>\ price)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_AMOUNT(product)\ ((product)\ -\/>\ amount)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_DESCRIPTION(product)\ ((product)\ -\/>\ description)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_AMOUNT\_IN\_BASKET(product)\ ((product)\ -\/>\ inBasket)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ GET\_PRODUCT\_SOLD\_UNITS(product)\ ((product)\ -\/>\ sold)}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_EAN(product,\ ean)\ (strcpy((product)\ -\/>\ eanStr,\ ean))}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_IVA\_RATE(product,\ ivaRate)\ ((product)\ -\/>\ iva\ =\ (ivaRate))}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_IVA\_LETTER(product,\ newIvaLetter)\ \(\backslash\)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ ((product)\ -\/>\ ivaLetter\ =\ (newIvaLetter))}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_PRICE(product,\ newPrice)\ ((product)\ -\/>\ price\ =\ (newPrice))}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_AMOUNT(product,\ quantity)\ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ ((product)\ -\/>\ amount\ +=\ (quantity))}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_DESCRIPTION(product,\ newDescription)\ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (strcpy((product)\ -\/>\ description,\ newDescription))}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_AMOUNT\_IN\_BASKET(product,\ quantity)\(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ ((product)\ -\/>\ inBasket\ +=\ quantity)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ SET\_PRODUCT\_SOLD\_UNITS(product,\ newSold)\ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ ((product)\ -\/>\ sold\ +=\ (newSold))}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

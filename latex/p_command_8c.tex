@@ -1,0 +1,156 @@
+\doxysection{p\+Command.\+c File Reference}
+\hypertarget{p_command_8c}{}\label{p_command_8c}\index{pCommand.c@{pCommand.c}}
+
+
+Implementation of the \textquotesingle{}p\textquotesingle{} command (add product to system). Handles the parsing and validation of new product entries or stock updates for existing products.  
+
+
+{\ttfamily \+\#include "{}p\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{p_command_8c_ab4402bef6ad0c8133125ebd994cddf68}{parse\+Iva}} (const int Iva\+Rates\+[$\,$]\+, char \texorpdfstring{$\ast$}{*}iva\+Letter, int \texorpdfstring{$\ast$}{*}iva\+Rate\+Value)
+\begin{DoxyCompactList}\small\item\em Parses IVA letter and validates it against the rates. \end{DoxyCompactList}\item 
+static int \doxymbox{\hyperlink{p_command_8c_ae0d00e133fa67ae4689848aa54238507}{parse\+Financials}} (double \texorpdfstring{$\ast$}{*}price, int \texorpdfstring{$\ast$}{*}quantity)
+\begin{DoxyCompactList}\small\item\em Parses and validates price and quantity. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{p_command_8c_aa16db87485f3546f136982d89659dd27}{init\+Product\+Fields}} (char \texorpdfstring{$\ast$}{*}ean, char iva\+Letter, int iva\+Rate, double price, int quantity, char \texorpdfstring{$\ast$}{*}description)
+\begin{DoxyCompactList}\small\item\em Parser component for the \textquotesingle{}p\textquotesingle{} command. Reads the line arguments for product creation and builds a new \doxylink{struct_product}{Product}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{p_command_8c_a7594f7728e394d4a1b2d2c662710b844}{handle\+Input\+CommandP}} (const int Iva\+Rates\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Parser component for the \textquotesingle{}p\textquotesingle{} command. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{p_command_8c_a36a13d2f1012a9ab4ba348a99a8d23cb}{update\+Product\+Metadata}} (\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}current, \doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}temp)
+\begin{DoxyCompactList}\small\item\em Updates secondary fields of an existing product. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{p_command_8c_a40fb05a5a0597032b445b2fa2be528f8}{update\+Existing\+Product}} (\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}current, \doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}temp)
+\begin{DoxyCompactList}\small\item\em Logic for updating an existing product\textquotesingle{}s stock or data. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{p_command_8c_a24f5c078f0e9a4c435372d2fde583b08}{p\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, const int iva\+Rates\+[$\,$]\+)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}p\textquotesingle{} command, creating and adding a new product if valid. Validates EAN length, unique constraint, price ranges, and IVA constraints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \textquotesingle{}p\textquotesingle{} command (add product to system). Handles the parsing and validation of new product entries or stock updates for existing products. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{p_command_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{p_command_8c_a7594f7728e394d4a1b2d2c662710b844}\index{pCommand.c@{pCommand.c}!handleInputCommandP@{handleInputCommandP}}
+\index{handleInputCommandP@{handleInputCommandP}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{handleInputCommandP()}{handleInputCommandP()}}
+{\footnotesize\ttfamily \label{p_command_8c_a7594f7728e394d4a1b2d2c662710b844} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} handle\+Input\+CommandP (\begin{DoxyParamCaption}\item[{const int}]{Iva\+Rates}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Parser component for the \textquotesingle{}p\textquotesingle{} command. 
+
+Parser component for the \textquotesingle{}p\textquotesingle{} command. Reads the line arguments for product creation and builds a new \doxylink{struct_product}{Product}. 
+\begin{DoxyEnumerate}
+\item Parse and validate EAN string
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Parse and validate financial and metadata params
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Bundle parsed arguments into temporary \doxylink{struct_product}{Product} structure
+\end{DoxyEnumerate}\Hypertarget{p_command_8c_aa16db87485f3546f136982d89659dd27}\index{pCommand.c@{pCommand.c}!initProductFields@{initProductFields}}
+\index{initProductFields@{initProductFields}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{initProductFields()}{initProductFields()}}
+{\footnotesize\ttfamily \label{p_command_8c_aa16db87485f3546f136982d89659dd27} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} init\+Product\+Fields (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{, }\item[{char}]{iva\+Letter}{, }\item[{int}]{iva\+Rate}{, }\item[{double}]{price}{, }\item[{int}]{quantity}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{description}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parser component for the \textquotesingle{}p\textquotesingle{} command. Reads the line arguments for product creation and builds a new \doxylink{struct_product}{Product}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ean} & EAN code string. \\
+\hline
+{\em iva\+Letter} & Applied IVA letter. \\
+\hline
+{\em iva\+Rate} & Applied IVA rate. \\
+\hline
+{\em price} & \doxylink{struct_product}{Product} price. \\
+\hline
+{\em quantity} & \doxylink{struct_product}{Product} quantity. \\
+\hline
+{\em description} & \doxylink{struct_product}{Product} description. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dynamically allocated partially setup \doxylink{struct_product}{Product}, or NULL if invalid. 
+\end{DoxyReturn}
+\Hypertarget{p_command_8c_ae0d00e133fa67ae4689848aa54238507}\index{pCommand.c@{pCommand.c}!parseFinancials@{parseFinancials}}
+\index{parseFinancials@{parseFinancials}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{parseFinancials()}{parseFinancials()}}
+{\footnotesize\ttfamily \label{p_command_8c_ae0d00e133fa67ae4689848aa54238507} 
+int parse\+Financials (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{price}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{quantity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses and validates price and quantity. 
+
+\Hypertarget{p_command_8c_ab4402bef6ad0c8133125ebd994cddf68}\index{pCommand.c@{pCommand.c}!parseIva@{parseIva}}
+\index{parseIva@{parseIva}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{parseIva()}{parseIva()}}
+{\footnotesize\ttfamily \label{p_command_8c_ab4402bef6ad0c8133125ebd994cddf68} 
+int parse\+Iva (\begin{DoxyParamCaption}\item[{const int}]{Iva\+Rates}{\+[$\,$]\+, }\item[{char \texorpdfstring{$\ast$}{*}}]{iva\+Letter}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{iva\+Rate\+Value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses IVA letter and validates it against the rates. 
+
+Range check to avoid out-\/of-\/bounds access in Iva\+Rates array\Hypertarget{p_command_8c_a24f5c078f0e9a4c435372d2fde583b08}\index{pCommand.c@{pCommand.c}!pCommand@{pCommand}}
+\index{pCommand@{pCommand}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{pCommand()}{pCommand()}}
+{\footnotesize\ttfamily \label{p_command_8c_a24f5c078f0e9a4c435372d2fde583b08} 
+void p\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{const int}]{iva\+Rates}{\+[$\,$]\+}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}p\textquotesingle{} command, creating and adding a new product if valid. Validates EAN length, unique constraint, price ranges, and IVA constraints. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the global list of system products. \\
+\hline
+{\em iva\+Rates} & Array of tax rates mapped by indexes mimicking char ranges. \\
+\hline
+\end{DoxyParams}
+Attempt extracting command parameters securely
+
+Cross-\/check system integrity and branch logic
+
+Extant \doxylink{struct_product}{Product}:\+ Update tracking values
+
+New \doxylink{struct_product}{Product}:\+ Ensure storage capacity limits and create\Hypertarget{p_command_8c_a40fb05a5a0597032b445b2fa2be528f8}\index{pCommand.c@{pCommand.c}!updateExistingProduct@{updateExistingProduct}}
+\index{updateExistingProduct@{updateExistingProduct}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{updateExistingProduct()}{updateExistingProduct()}}
+{\footnotesize\ttfamily \label{p_command_8c_a40fb05a5a0597032b445b2fa2be528f8} 
+void update\+Existing\+Product (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{current}{, }\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{temp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Logic for updating an existing product\textquotesingle{}s stock or data. 
+
+Enforce immutability of prices if product is active in a basket
+
+Overwrite everything including price if unused
+
+Print new total inventory count\Hypertarget{p_command_8c_a36a13d2f1012a9ab4ba348a99a8d23cb}\index{pCommand.c@{pCommand.c}!updateProductMetadata@{updateProductMetadata}}
+\index{updateProductMetadata@{updateProductMetadata}!pCommand.c@{pCommand.c}}
+\doxysubsubsection{\texorpdfstring{updateProductMetadata()}{updateProductMetadata()}}
+{\footnotesize\ttfamily \label{p_command_8c_a36a13d2f1012a9ab4ba348a99a8d23cb} 
+void update\+Product\+Metadata (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{current}{, }\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{temp}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Updates secondary fields of an existing product. 
+

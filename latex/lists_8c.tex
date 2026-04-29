@@ -1,0 +1,276 @@
+\doxysection{lists.\+c File Reference}
+\hypertarget{lists_8c}{}\label{lists_8c}\index{lists.c@{lists.c}}
+
+
+Implementation of hybrid list operations (list + AVL tree).  
+
+
+{\ttfamily \+\#include "{}lists.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_map_in_order_context}{Map\+In\+Order\+Context}}
+\begin{DoxyCompactList}\small\item\em Internal wrapper holding both the item callback and its context. Used exclusively for mapping in-\/order via the binary search tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lists_8c_a0329e81f8d37a4ab254f58a8c1638693}{create\+List}} (\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}\doxymbox{\hyperlink{structtree}{tree}})
+\begin{DoxyCompactList}\small\item\em Creates a new, empty list, optionally attaching a search tree. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lists_8c_a373b404ba046257ec307ea45a13166d9}{new\+List\+Node}} (void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Allocates an internal node mapped to the generic item. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{lists_8c_aacc464ab399075b16280822977444baf}{insert\+In\+List}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Appends an item to the list (and into the tree if it exists). \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{lists_8c_aca139da07fe64d1e01cfdde899fd4e66}{unlink\+Node}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Unlinks a node from the doubly linked list. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lists_8c_a8c8f566813a0354ea903502c1fc37eb7}{remove\+From\+List}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Removes an item from the list (and tree) without destroying it. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{lists_8c_aa9f26b58d68f035d72277e219f6be800}{free\+All\+Nodes}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, \doxymbox{\hyperlink{lists_8h_aa23e2f76ca5db706c5cc37e1b3bcc8bf}{Destroy\+Func}} destroy\+Item)
+\begin{DoxyCompactList}\small\item\em Helper that clears nodes and optionally their items. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{lists_8c_a5a8438dd4d8a5af060df2598346cfbd1}{destroy\+List}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, \doxymbox{\hyperlink{lists_8h_aa23e2f76ca5db706c5cc37e1b3bcc8bf}{Destroy\+Func}} destroy\+Item)
+\begin{DoxyCompactList}\small\item\em Destroys the entire list structure, its nodes, and tree. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{lists_8c_a09a75d3f11e6564e3c38e890359246ae}{map\+List}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, void(\texorpdfstring{$\ast$}{*}callback)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Applies a callback function to every item in the list in chronological order. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{lists_8c_a74c5bae445eb02dfc8d1517fb1ce8c10}{map\+In\+Order\+Wrapper}} (void \texorpdfstring{$\ast$}{*}node\+Item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Internal wrapper catching the tree\textquotesingle{}s generic map function execution to extract the item inner pointer from the tree\textquotesingle{}s stored \doxylink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{lists_8c_a5334b2781ddd279f44a880733303814e}{map\+List\+In\+Order}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, void(\texorpdfstring{$\ast$}{*}callback)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Applies a callback function to every item, ordered by the tree. If no tree exists, this acts identically to map\+List (chronological order). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{lists_8c_a911da7f38c3f6bd9750154e7a64ebf85}{clear\+List}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em Empties all elements from the list and its tree, but preserves the \doxylink{struct_list}{List} structure itself. Note:\+ Does not free the memory allocated for the generic items. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lists_8c_ae70b996dd10d8a9472de6e48b3fce2e5}{search\+In\+List}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Searches for an item within the list. Utilizes the associated \doxylink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree} for O(log N) access if available, else O(\+N) list traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of hybrid list operations (list + AVL tree). 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{lists_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lists_8c_a911da7f38c3f6bd9750154e7a64ebf85}\index{lists.c@{lists.c}!clearList@{clearList}}
+\index{clearList@{clearList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{clearList()}{clearList()}}
+{\footnotesize\ttfamily \label{lists_8c_a911da7f38c3f6bd9750154e7a64ebf85} 
+void clear\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{}\end{DoxyParamCaption})}
+
+
+
+Empties all elements from the list and its tree, but preserves the \doxylink{struct_list}{List} structure itself. Note:\+ Does not free the memory allocated for the generic items. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the list to clear. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lists_8c_a0329e81f8d37a4ab254f58a8c1638693}\index{lists.c@{lists.c}!createList@{createList}}
+\index{createList@{createList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{createList()}{createList()}}
+{\footnotesize\ttfamily \label{lists_8c_a0329e81f8d37a4ab254f58a8c1638693} 
+\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*} create\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new, empty list, optionally attaching a search tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{structtree}{tree}} & Pointer to a previously created \doxylink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree} for rapid lookup, or NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new dynamically allocated \doxylink{struct_list}{List} instance. 
+\end{DoxyReturn}
+\Hypertarget{lists_8c_a5a8438dd4d8a5af060df2598346cfbd1}\index{lists.c@{lists.c}!destroyList@{destroyList}}
+\index{destroyList@{destroyList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{destroyList()}{destroyList()}}
+{\footnotesize\ttfamily \label{lists_8c_a5a8438dd4d8a5af060df2598346cfbd1} 
+void destroy\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{\doxymbox{\hyperlink{lists_8h_aa23e2f76ca5db706c5cc37e1b3bcc8bf}{Destroy\+Func}}}]{destroy}{}\end{DoxyParamCaption})}
+
+
+
+Destroys the entire list structure, its nodes, and tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the list to destroy. \\
+\hline
+{\em destroy} & Callback function to securely free each stored item\textquotesingle{}s memory. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lists_8c_aa9f26b58d68f035d72277e219f6be800}\index{lists.c@{lists.c}!freeAllNodes@{freeAllNodes}}
+\index{freeAllNodes@{freeAllNodes}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{freeAllNodes()}{freeAllNodes()}}
+{\footnotesize\ttfamily \label{lists_8c_aa9f26b58d68f035d72277e219f6be800} 
+void free\+All\+Nodes (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{\doxymbox{\hyperlink{lists_8h_aa23e2f76ca5db706c5cc37e1b3bcc8bf}{Destroy\+Func}}}]{destroy\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper that clears nodes and optionally their items. 
+
+\Hypertarget{lists_8c_aacc464ab399075b16280822977444baf}\index{lists.c@{lists.c}!insertInList@{insertInList}}
+\index{insertInList@{insertInList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{insertInList()}{insertInList()}}
+{\footnotesize\ttfamily \label{lists_8c_aacc464ab399075b16280822977444baf} 
+void insert\+In\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Appends an item to the list (and into the tree if it exists). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the destination list. \\
+\hline
+{\em item} & Pointer to the generic item to insert. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Add node to the doubly linked list (O(1))
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Mirror insertion into the AVL search tree if enabled (O(log N))
+\end{DoxyEnumerate}\Hypertarget{lists_8c_a74c5bae445eb02dfc8d1517fb1ce8c10}\index{lists.c@{lists.c}!mapInOrderWrapper@{mapInOrderWrapper}}
+\index{mapInOrderWrapper@{mapInOrderWrapper}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{mapInOrderWrapper()}{mapInOrderWrapper()}}
+{\footnotesize\ttfamily \label{lists_8c_a74c5bae445eb02dfc8d1517fb1ce8c10} 
+void map\+In\+Order\+Wrapper (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{node\+Item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Internal wrapper catching the tree\textquotesingle{}s generic map function execution to extract the item inner pointer from the tree\textquotesingle{}s stored \doxylink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+Item} & The node being visited by the map\+Tree traversal. \\
+\hline
+{\em context} & The custom wrapper context containing actual callback logic. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lists_8c_a09a75d3f11e6564e3c38e890359246ae}\index{lists.c@{lists.c}!mapList@{mapList}}
+\index{mapList@{mapList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{mapList()}{mapList()}}
+{\footnotesize\ttfamily \label{lists_8c_a09a75d3f11e6564e3c38e890359246ae} 
+void map\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Applies a callback function to every item in the list in chronological order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the list to iterate through. \\
+\hline
+{\em callback} & Function to execute for each item. \\
+\hline
+{\em context} & Additional context parameter passed to the callback. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lists_8c_a5334b2781ddd279f44a880733303814e}\index{lists.c@{lists.c}!mapListInOrder@{mapListInOrder}}
+\index{mapListInOrder@{mapListInOrder}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{mapListInOrder()}{mapListInOrder()}}
+{\footnotesize\ttfamily \label{lists_8c_a5334b2781ddd279f44a880733303814e} 
+void map\+List\+In\+Order (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{callback~}{)(void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context), }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Applies a callback function to every item, ordered by the tree. If no tree exists, this acts identically to map\+List (chronological order). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the list containing the items. \\
+\hline
+{\em callback} & Function to execute for each item. \\
+\hline
+{\em context} & Additional context parameter passed to the callback. \\
+\hline
+\end{DoxyParams}
+Fallback to linked list order if no tree exists\Hypertarget{lists_8c_a373b404ba046257ec307ea45a13166d9}\index{lists.c@{lists.c}!newListNode@{newListNode}}
+\index{newListNode@{newListNode}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{newListNode()}{newListNode()}}
+{\footnotesize\ttfamily \label{lists_8c_a373b404ba046257ec307ea45a13166d9} 
+\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*} new\+List\+Node (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Allocates an internal node mapped to the generic item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & The item pointer to store. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A newly allocated list node. 
+\end{DoxyReturn}
+\Hypertarget{lists_8c_a8c8f566813a0354ea903502c1fc37eb7}\index{lists.c@{lists.c}!removeFromList@{removeFromList}}
+\index{removeFromList@{removeFromList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{removeFromList()}{removeFromList()}}
+{\footnotesize\ttfamily \label{lists_8c_a8c8f566813a0354ea903502c1fc37eb7} 
+void \texorpdfstring{$\ast$}{*} remove\+From\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Removes an item from the list (and tree) without destroying it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the target list. \\
+\hline
+{\em item} & Pointer to an item matching the target to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched item that was just removed, or NULL. 
+\end{DoxyReturn}
+
+\begin{DoxyEnumerate}
+\item Fast lookup via tree structure
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Unlink from temporal chronological sequence
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Structural removal from AVL tree
+\end{DoxyEnumerate}\Hypertarget{lists_8c_ae70b996dd10d8a9472de6e48b3fce2e5}\index{lists.c@{lists.c}!searchInList@{searchInList}}
+\index{searchInList@{searchInList}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{searchInList()}{searchInList()}}
+{\footnotesize\ttfamily \label{lists_8c_ae70b996dd10d8a9472de6e48b3fce2e5} 
+void \texorpdfstring{$\ast$}{*} search\+In\+List (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})}
+
+
+
+Searches for an item within the list. Utilizes the associated \doxylink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree} for O(log N) access if available, else O(\+N) list traversal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Pointer to the target list. \\
+\hline
+{\em item} & Pointer to a dummy item containing search keys. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched item, or NULL if not found. 
+\end{DoxyReturn}
+Option A:\+ Linear search (O(\+N)) -\/ used for the basket
+
+Option B:\+ Binary \doxylink{trees_8h_a9205fd7ce7c5dcee6439394278247845}{Tree} search (O(log N)) -\/ used for Product/\+\+Client\Hypertarget{lists_8c_aca139da07fe64d1e01cfdde899fd4e66}\index{lists.c@{lists.c}!unlinkNode@{unlinkNode}}
+\index{unlinkNode@{unlinkNode}!lists.c@{lists.c}}
+\doxysubsubsection{\texorpdfstring{unlinkNode()}{unlinkNode()}}
+{\footnotesize\ttfamily \label{lists_8c_aca139da07fe64d1e01cfdde899fd4e66} 
+void unlink\+Node (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{List\+Node}} \texorpdfstring{$\ast$}{*}}]{node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Unlinks a node from the doubly linked list. 
+

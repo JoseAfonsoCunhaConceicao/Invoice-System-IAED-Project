@@ -1,0 +1,177 @@
+\doxysection{a\+Command.\+c File Reference}
+\hypertarget{a_command_8c}{}\label{a_command_8c}\index{aCommand.c@{aCommand.c}}
+
+
+Implementation of the \textquotesingle{}a\textquotesingle{} command (add product to basket). Handles the logic for increasing/\+decreasing product quantities in the current active basket, verifying stock availability and constraints.  
+
+
+{\ttfamily \+\#include "{}a\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{a_command_8c_aff3cb11a0df5b3285316f22e7d9b8230}{find\+Product\+In\+Basket}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket, char \texorpdfstring{$\ast$}{*}ean)
+\begin{DoxyCompactList}\small\item\em Helper function to find a product in a basket list by its EAN. \end{DoxyCompactList}\item 
+static \doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{a_command_8c_a9793b2a7ff4be57c589b5708abe1eaf5}{validate\+System\+Product}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, char \texorpdfstring{$\ast$}{*}ean)
+\begin{DoxyCompactList}\small\item\em Helper function to validate if a product exists in the system. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{a_command_8c_a34c77e215326e38495fd68cd81f87d02}{print\+Product\+Line}} (\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}product, int new\+Total\+Amount)
+\begin{DoxyCompactList}\small\item\em Prints the formatted line for a product in the basket. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{a_command_8c_aa568c99b40d050b4480a294f6be39177}{update\+Product\+And\+Basket}} (\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}product, int quantity, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket)
+\begin{DoxyCompactList}\small\item\em Updates the product state and the basket list. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{a_command_8c_a1ba3aa3c97c6fbf5ec42d2c4e9883ac0}{execute\+ACommand}} (\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}product, int quantity, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket)
+\begin{DoxyCompactList}\small\item\em Performs the actual product addition/\+removal logic for a\+Command. \end{DoxyCompactList}\item 
+static char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{a_command_8c_aed4429b7efe50cde2ca3d9988d332371}{parse\+AArgs}} (int \texorpdfstring{$\ast$}{*}quantity)
+\begin{DoxyCompactList}\small\item\em Helper to parse quantity and EAN from stdin. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{a_command_8c_adfa0b66bb1beca4625b2996d33c02f7a}{a\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, \doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}basket)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}a\textquotesingle{} command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \textquotesingle{}a\textquotesingle{} command (add product to basket). Handles the logic for increasing/\+decreasing product quantities in the current active basket, verifying stock availability and constraints. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{a_command_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{a_command_8c_adfa0b66bb1beca4625b2996d33c02f7a}\index{aCommand.c@{aCommand.c}!aCommand@{aCommand}}
+\index{aCommand@{aCommand}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{aCommand()}{aCommand()}}
+{\footnotesize\ttfamily \label{a_command_8c_adfa0b66bb1beca4625b2996d33c02f7a} 
+void a\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}a\textquotesingle{} command. 
+
+Executes the \textquotesingle{}a\textquotesingle{} command, adding or removing product quantities from the basket. Also handles listing the current basket if called without arguments. Read arguments and validate product existence
+
+Case for single argument (just EAN, quantity defaults to 1)\Hypertarget{a_command_8c_a1ba3aa3c97c6fbf5ec42d2c4e9883ac0}\index{aCommand.c@{aCommand.c}!executeACommand@{executeACommand}}
+\index{executeACommand@{executeACommand}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{executeACommand()}{executeACommand()}}
+{\footnotesize\ttfamily \label{a_command_8c_a1ba3aa3c97c6fbf5ec42d2c4e9883ac0} 
+void execute\+ACommand (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{product}{, }\item[{int}]{quantity}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Performs the actual product addition/\+removal logic for a\+Command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em product} & Pointer to the product matched in the system. \\
+\hline
+{\em quantity} & Amount to add (positive) or remove (negative). \\
+\hline
+{\em basket} & Pointer to the current system basket. \\
+\hline
+\end{DoxyParams}
+Validate operations against stock and basket limits
+
+Print success state and commit changes\Hypertarget{a_command_8c_aff3cb11a0df5b3285316f22e7d9b8230}\index{aCommand.c@{aCommand.c}!findProductInBasket@{findProductInBasket}}
+\index{findProductInBasket@{findProductInBasket}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{findProductInBasket()}{findProductInBasket()}}
+{\footnotesize\ttfamily \label{a_command_8c_aff3cb11a0df5b3285316f22e7d9b8230} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} find\+Product\+In\+Basket (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper function to find a product in a basket list by its EAN. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em basket} & Pointer to the list acting as a basket. \\
+\hline
+{\em ean} & EAN-\/8/\+13 code string to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matched \doxylink{struct_product}{Product}, or NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{a_command_8c_aed4429b7efe50cde2ca3d9988d332371}\index{aCommand.c@{aCommand.c}!parseAArgs@{parseAArgs}}
+\index{parseAArgs@{parseAArgs}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{parseAArgs()}{parseAArgs()}}
+{\footnotesize\ttfamily \label{a_command_8c_aed4429b7efe50cde2ca3d9988d332371} 
+char \texorpdfstring{$\ast$}{*} parse\+AArgs (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{quantity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper to parse quantity and EAN from stdin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quantity} & Pointer to store the parsed quantity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dynamically allocated EAN string (caller must free). 
+\end{DoxyReturn}
+Fallback:\+ re-\/read only the EAN if quantity was omitted\Hypertarget{a_command_8c_a34c77e215326e38495fd68cd81f87d02}\index{aCommand.c@{aCommand.c}!printProductLine@{printProductLine}}
+\index{printProductLine@{printProductLine}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{printProductLine()}{printProductLine()}}
+{\footnotesize\ttfamily \label{a_command_8c_a34c77e215326e38495fd68cd81f87d02} 
+void print\+Product\+Line (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{product}{, }\item[{int}]{new\+Total\+Amount}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints the formatted line for a product in the basket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em product} & Pointer to the product data. \\
+\hline
+{\em new\+Total\+Amount} & Total units that will be in the basket. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{a_command_8c_aa568c99b40d050b4480a294f6be39177}\index{aCommand.c@{aCommand.c}!updateProductAndBasket@{updateProductAndBasket}}
+\index{updateProductAndBasket@{updateProductAndBasket}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{updateProductAndBasket()}{updateProductAndBasket()}}
+{\footnotesize\ttfamily \label{a_command_8c_aa568c99b40d050b4480a294f6be39177} 
+void update\+Product\+And\+Basket (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{product}{, }\item[{int}]{quantity}{, }\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{basket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Updates the product state and the basket list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em product} & Pointer to the product found in the system. \\
+\hline
+{\em quantity} & Amount to add or remove. \\
+\hline
+{\em basket} & Pointer to the system basket. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Update internal amount in basket
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Check if product should be added to or removed from the list
+\end{DoxyEnumerate}
+
+Add new reference to the basket list
+
+Remove reference from the basket list\Hypertarget{a_command_8c_a9793b2a7ff4be57c589b5708abe1eaf5}\index{aCommand.c@{aCommand.c}!validateSystemProduct@{validateSystemProduct}}
+\index{validateSystemProduct@{validateSystemProduct}!aCommand.c@{aCommand.c}}
+\doxysubsubsection{\texorpdfstring{validateSystemProduct()}{validateSystemProduct()}}
+{\footnotesize\ttfamily \label{a_command_8c_a9793b2a7ff4be57c589b5708abe1eaf5} 
+\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*} validate\+System\+Product (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{ean}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper function to validate if a product exists in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the global products list. \\
+\hline
+{\em ean} & EAN code string to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the product data, or NULL (with error printed). 
+\end{DoxyReturn}

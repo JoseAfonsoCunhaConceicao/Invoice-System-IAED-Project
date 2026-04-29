@@ -1,0 +1,52 @@
+\doxysection{global.\+h}
+\hypertarget{global_8h_source}{}\label{global_8h_source}\doxymbox{\hyperlink{global_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ GLOBAL\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ GLOBAL\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MAX\_SIZE\_DESCRIPTION\ 50\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MAX\_NUMBER\_PRODUCTS\ 10000\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MAX\_EAN\_SIZE\ 13\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IVA\_VECTOR\_SIZE\ 26\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ INVALID\_IVA\_RATE\ -\/1\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ SIZE\_EAN\_CODE\_13\ 13\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SIZE\_EAN\_CODE\_8\ 8\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ NOT\_FOUND\ -\/1\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ FOUND\ 1\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ MAX\_SIZE\ 65535\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ NIF\_SIZE\ 9\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ NOT\_IN\_BASKET\ 0\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ VALID\_DESCRIPTION\ 1\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ INVALID\_DESCRIPTION\ 0\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structlist_node}{listNode}}\ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structinvoice}{invoice}}\ \doxymbox{\hyperlink{global_8h_a12205c7250a1c786add6658166faf35b}{Invoice}};}
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structclient}{client}}\ \doxymbox{\hyperlink{global_8h_aad3c9b1c9dc8377270fc754530a3ce4d}{Client}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ int\ (*\doxymbox{\hyperlink{global_8h_a3ddb6647c9d5de2057ff83d87d87d413}{CompareFunc}})(\doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *,\ \doxymbox{\hyperlink{global_8h_a505d53673403bd159915eb63b477eb7e}{ListNode}}\ *);\ \ \ \ \ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{global_8h_ab1405111a4256db248cc2241bac3ccf1}{handleNoMemory}}();}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{global_8h_a8152b07a7663bb497e0f45fb6c705b3d}{allocateBuffer}}();}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{global_8h_a73bbc7c0dea33b0fcf8630da61895dde}{validateEAN}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ eanStr[]);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{global_8h_a1ea9a7eb637b8646d06180d623289f37}{isEndOfLine}}();}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{global_8h_a7c51cb4574388d9eb7bf70f86598177d}{readIvaFile}}(\textcolor{keywordtype}{int}\ listIva[],\ \textcolor{keywordtype}{char}\ *fileName);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{global_8h_af5ea21f4325811297858efd48f30e0e1}{validateDescription}}\ (\textcolor{keywordtype}{char}\ description[]);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{global_8h_ad3cb16a853cc78e080842b60d069d932}{readDescription}}(\textcolor{keywordtype}{char}\ description[]);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{global_8h_af506cac3b1b74664428d7460ab6af2b4}{finishLine}}\ ();}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{global_8h_ac90ddc02409627b30bf73b6e81c0d478}{match}}(\textcolor{keywordtype}{char}\ *wildCardPtr,\ \textcolor{keywordtype}{char}\ *eanStrPtr);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{global_8h_a9a7a59d60f46c731a8e03939b3a7c9ed}{readClientName}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

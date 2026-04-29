@@ -1,0 +1,150 @@
+\doxysection{l\+Command.\+c File Reference}
+\hypertarget{l_command_8c}{}\label{l_command_8c}\index{lCommand.c@{lCommand.c}}
+
+
+Implementation of the \textquotesingle{}l\textquotesingle{} command (list products/\+wildcard search). Lists all products or filters them through a custom pattern matching algorithm.  
+
+
+{\ttfamily \+\#include "{}l\+Command.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{l_command_8c_a8e8bcc6e094876e600105461387f4e74}{print\+Formatted\+Product}} (\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}product, \doxymbox{\hyperlink{struct_wildcard_context}{Wildcard\+Context}} \texorpdfstring{$\ast$}{*}search\+Context)
+\begin{DoxyCompactList}\small\item\em Prints a single product\textquotesingle{}s metadata in the required format. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{l_command_8c_a727d39bc0837cc1f9c86ad4634c9e962}{print\+Available\+Products}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Wrapper for map\+List to print available products. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{l_command_8c_aa47eaf2230d4c069dded57e30714229c}{compress\+Wildcard}} (char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Removes redundant sequential \textquotesingle{}{\itshape \textquotesingle{} characters from a wildcard string. Reduces expressions like "{}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}"{} to "{}$<$/\+em$>$"{} for matching efficiency. }\end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{l_command_8c_a5f16cc415fd1fd1daa275e02553c7aa0}{print\+Match\+Products}} (void \texorpdfstring{$\ast$}{*}item, void \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Evaluates a product\textquotesingle{}s description against a wildcard pattern. \end{DoxyCompactList}\item 
+static void \doxymbox{\hyperlink{l_command_8c_a5a376d1b3375bbf781d52dcf8fe69d9a}{process\+Wildcard\+Term}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products, char \texorpdfstring{$\ast$}{*}raw\+Pattern, \doxymbox{\hyperlink{struct_wildcard_context}{Wildcard\+Context}} \texorpdfstring{$\ast$}{*}search\+Context)
+\begin{DoxyCompactList}\small\item\em Processes a single wildcard search term. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{l_command_8c_aa743fc050b099f6045caa1d5e8d5268b}{l\+Command}} (\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}products)
+\begin{DoxyCompactList}\small\item\em Executes the \textquotesingle{}l\textquotesingle{} command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the \textquotesingle{}l\textquotesingle{} command (list products/\+wildcard search). Lists all products or filters them through a custom pattern matching algorithm. 
+
+\begin{DoxyAuthor}{Author}
+ist1118656 (Jose Conceicao) 
+\end{DoxyAuthor}
+
+
+\label{doc-func-members}
+\Hypertarget{l_command_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{l_command_8c_aa47eaf2230d4c069dded57e30714229c}\index{lCommand.c@{lCommand.c}!compressWildcard@{compressWildcard}}
+\index{compressWildcard@{compressWildcard}!lCommand.c@{lCommand.c}}
+\doxysubsubsection{\texorpdfstring{compressWildcard()}{compressWildcard()}}
+{\footnotesize\ttfamily \label{l_command_8c_aa47eaf2230d4c069dded57e30714229c} 
+void compress\+Wildcard (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Removes redundant sequential \textquotesingle{}{\itshape \textquotesingle{} characters from a wildcard string. Reduces expressions like "{}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}"{} to "{}$<$/\+em$>$"{} for matching efficiency. }
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The wildcard string to compress in-\/place. \\
+\hline
+\end{DoxyParams}
+Skip current \textquotesingle{}{\itshape \textquotesingle{} if the previous stored character is also \textquotesingle{}}\textquotesingle{}\Hypertarget{l_command_8c_aa743fc050b099f6045caa1d5e8d5268b}\index{lCommand.c@{lCommand.c}!lCommand@{lCommand}}
+\index{lCommand@{lCommand}!lCommand.c@{lCommand.c}}
+\doxysubsubsection{\texorpdfstring{lCommand()}{lCommand()}}
+{\footnotesize\ttfamily \label{l_command_8c_aa743fc050b099f6045caa1d5e8d5268b} 
+void l\+Command (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{}\end{DoxyParamCaption})}
+
+
+
+Executes the \textquotesingle{}l\textquotesingle{} command. 
+
+Executes the \textquotesingle{}l\textquotesingle{} command. Without arguments, lists all available products alphabetically. With an argument, lists all products whose description matches the wildcard pattern.
+
+
+\begin{DoxyParams}{Parameters}
+{\em products} & Pointer to the list of all system products. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Command without arguments:\+ Dump all system resources entirely.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Iteratively process multiple space-\/separated wildcards
+\end{DoxyEnumerate}\Hypertarget{l_command_8c_a727d39bc0837cc1f9c86ad4634c9e962}\index{lCommand.c@{lCommand.c}!printAvailableProducts@{printAvailableProducts}}
+\index{printAvailableProducts@{printAvailableProducts}!lCommand.c@{lCommand.c}}
+\doxysubsubsection{\texorpdfstring{printAvailableProducts()}{printAvailableProducts()}}
+{\footnotesize\ttfamily \label{l_command_8c_a727d39bc0837cc1f9c86ad4634c9e962} 
+void print\+Available\+Products (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Wrapper for map\+List to print available products. 
+
+Prints a single product\textquotesingle{}s metadata in the required format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product. \\
+\hline
+{\em context} & Pointer to \doxylink{struct_wildcard_context}{Wildcard\+Context}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{l_command_8c_a8e8bcc6e094876e600105461387f4e74}\index{lCommand.c@{lCommand.c}!printFormattedProduct@{printFormattedProduct}}
+\index{printFormattedProduct@{printFormattedProduct}!lCommand.c@{lCommand.c}}
+\doxysubsubsection{\texorpdfstring{printFormattedProduct()}{printFormattedProduct()}}
+{\footnotesize\ttfamily \label{l_command_8c_a8e8bcc6e094876e600105461387f4e74} 
+void print\+Formatted\+Product (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_product}{Product}} \texorpdfstring{$\ast$}{*}}]{product}{, }\item[{\doxymbox{\hyperlink{struct_wildcard_context}{Wildcard\+Context}} \texorpdfstring{$\ast$}{*}}]{search\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints a single product\textquotesingle{}s metadata in the required format. 
+
+\Hypertarget{l_command_8c_a5f16cc415fd1fd1daa275e02553c7aa0}\index{lCommand.c@{lCommand.c}!printMatchProducts@{printMatchProducts}}
+\index{printMatchProducts@{printMatchProducts}!lCommand.c@{lCommand.c}}
+\doxysubsubsection{\texorpdfstring{printMatchProducts()}{printMatchProducts()}}
+{\footnotesize\ttfamily \label{l_command_8c_a5f16cc415fd1fd1daa275e02553c7aa0} 
+void print\+Match\+Products (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Evaluates a product\textquotesingle{}s description against a wildcard pattern. 
+
+Evaluates a product\textquotesingle{}s description against a wildcard pattern and prints it on match. Uses the \doxylink{struct_wildcard_context}{Wildcard\+Context} to extract the pattern and update the match counter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the product to evaluate. \\
+\hline
+{\em context} & Pointer to the \doxylink{struct_wildcard_context}{Wildcard\+Context}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{l_command_8c_a5a376d1b3375bbf781d52dcf8fe69d9a}\index{lCommand.c@{lCommand.c}!processWildcardTerm@{processWildcardTerm}}
+\index{processWildcardTerm@{processWildcardTerm}!lCommand.c@{lCommand.c}}
+\doxysubsubsection{\texorpdfstring{processWildcardTerm()}{processWildcardTerm()}}
+{\footnotesize\ttfamily \label{l_command_8c_a5a376d1b3375bbf781d52dcf8fe69d9a} 
+void process\+Wildcard\+Term (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_list}{List}} \texorpdfstring{$\ast$}{*}}]{products}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{raw\+Pattern}{, }\item[{\doxymbox{\hyperlink{struct_wildcard_context}{Wildcard\+Context}} \texorpdfstring{$\ast$}{*}}]{search\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Processes a single wildcard search term. 
+
+
+\begin{DoxyEnumerate}
+\item Prepare and compress wildcard
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Evaluate query constraints
+\end{DoxyEnumerate}
+
+
+\begin{DoxyEnumerate}
+\item Display error if matches were zero
+\end{DoxyEnumerate}
+
+Reset context for next possible term

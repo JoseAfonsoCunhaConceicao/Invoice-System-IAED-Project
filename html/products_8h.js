@@ -1,0 +1,27 @@
+var products_8h =
+[
+    [ "Product", "struct_product.html", "struct_product" ],
+    [ "CLEAR_BASKET", "products_8h.html#aba9142e9bedf1eb1fa54e2c508355933", null ],
+    [ "GET_PRODUCT_AMOUNT", "products_8h.html#a1a6f721352a6333f4a2a441b2e862d63", null ],
+    [ "GET_PRODUCT_AMOUNT_IN_BASKET", "products_8h.html#a69939f74fd959c0c4b5e7bc0bb77d23a", null ],
+    [ "GET_PRODUCT_DESCRIPTION", "products_8h.html#a02340cdff40348baa4319a2a4fe7822a", null ],
+    [ "GET_PRODUCT_EAN", "products_8h.html#af338c273074cb050ddddc7cd983be240", null ],
+    [ "GET_PRODUCT_IVA_LETTER", "products_8h.html#adb414196e9e10d206d82c8c7cc338278", null ],
+    [ "GET_PRODUCT_IVA_RATE", "products_8h.html#a66408d9ef076d2c52daf0fd1ce7d8b85", null ],
+    [ "GET_PRODUCT_PRICE", "products_8h.html#a5eb647cf38b014a27d8be50d1921e861", null ],
+    [ "GET_PRODUCT_SOLD_UNITS", "products_8h.html#acb07b2f4d2c011407fab433fb656cede", null ],
+    [ "SET_PRODUCT_AMOUNT", "products_8h.html#ab2f61e164532022cada514fe116c7f08", null ],
+    [ "SET_PRODUCT_AMOUNT_IN_BASKET", "products_8h.html#a5ee550d18f1ceef02458959c97b10c25", null ],
+    [ "SET_PRODUCT_DESCRIPTION", "products_8h.html#a65fb02cc557c5ae4adfc0dbf9989157c", null ],
+    [ "SET_PRODUCT_EAN", "products_8h.html#a09a948f6411069a09469ecea893ced1b", null ],
+    [ "SET_PRODUCT_IVA_LETTER", "products_8h.html#a07b7e8603353e58100a4bfacf9b6e2cc", null ],
+    [ "SET_PRODUCT_IVA_RATE", "products_8h.html#a4fba5491c61b363ee512881b99a3e4e0", null ],
+    [ "SET_PRODUCT_PRICE", "products_8h.html#a83dc283b01a25a6518f0278ae001ae92", null ],
+    [ "SET_PRODUCT_SOLD_UNITS", "products_8h.html#af3881118b7d77ec14c97bdce9eb33b97", null ],
+    [ "compareProducts", "products_8h.html#ae166539600121ef79aa907bd8eb50998", null ],
+    [ "createProduct", "products_8h.html#acc35fd5dcbd374dd36b20b389052a4cf", null ],
+    [ "createProductsList", "products_8h.html#a6f76de454d3d1b8eaad48958fa414933", null ],
+    [ "destroyProduct", "products_8h.html#a1484737675f01a0cb3873bf0fbbf3223", null ],
+    [ "findProductByEAN", "products_8h.html#a71ab7e3be49490c52286b35a5fd4bd7d", null ],
+    [ "resetBasket", "products_8h.html#a0d9f64e2bea8f7236dc488c160607ec6", null ]
+];
